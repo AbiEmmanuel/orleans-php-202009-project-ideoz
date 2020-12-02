@@ -1,6 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;900&display=swap');
 @import 'variables.scss';
+@import "~bootstrap/scss/bootstrap";
 
 body {
-    background-color: $wild-color;
-    color: $light-color;
+    background-color: $background-color;
+    font-family: $font-text;
+    color: $dark;
+}
+
+h1, h2, h3 {
+    font-family: $font-title;
+}
+
+h4, h5, h6 {
+    font-family: $font-light-title;
 }
