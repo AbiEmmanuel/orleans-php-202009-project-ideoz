@@ -1,16 +1,18 @@
 @import 'variables.scss';
 @import "~bootstrap/scss/bootstrap";
+@import 'about-us.scss';
 
 body {
-    background-color: $background-color;
     font-family: $font-text;
     color: $dark;
 }
 
 h1, h2, h3 {
     font-family: $font-title;
+    color: $primary;
 }
 
 h4, h5, h6 {
     font-family: $font-light-title;
+    color: $primary;
 }
