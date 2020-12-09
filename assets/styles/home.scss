@@ -1,0 +1,27 @@
+@import 'variables.scss';
+@import "~bootstrap/scss/bootstrap";
+
+.service {
+  background-color: $light-main-color-opacity;
+  padding: $spacing-4 0 $spacing-4 0;
+
+  h2 {
+    margin-bottom: $spacing-4;
+  }
+
+  .row {
+    gap: $spacing-4;
+
+    .card {
+      border: none;
+      box-shadow: -1px -1px 4px 0px $light,
+      1px 1px 4px 0px $light,
+      1px -1px 4px 0px $secondary,
+      -1px 1px 4px 0px $secondary;;
+    }
+
+    a {
+      color: $secondary;
+    }
+  }
+}
