@@ -2,15 +2,17 @@
 @import "~bootstrap/scss/bootstrap";
 
 body {
-    background-color: $background-color;
     font-family: $font-text;
     color: $dark;
 }
 
 h1, h2, h3 {
     font-family: $font-title;
+    font-weight: 700;
+    color: $primary;
 }
 
 h4, h5, h6 {
-    font-family: $font-light-title;
+    font-family: $font-title;
+    color: $primary;
 }
