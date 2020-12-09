@@ -2,7 +2,7 @@
 @import "~bootstrap/scss/bootstrap";
 
 .service {
-    background-color: $light-main-color-opacity;
+    background-color: $third-color;
     padding: $spacing-4 0;
 
     h2 {
@@ -14,14 +14,45 @@
 
         .card {
             border: none;
-            box-shadow: -1px -1px 4px 0px $light,
-            1px 1px 4px 0px $light,
-            1px -1px 4px 0px $secondary,
-            -1px 1px 4px 0px $secondary;;
+            border-radius: 0 6px 6px 0;
+            box-shadow: 2px 2px 4px 0 $dark;
+
+            &:nth-child(1n) {
+                border-left: 12px solid $secondary;
+
+                h3 {
+                    color: $secondary;
+                }
+
+                a {
+                    color: $secondary;
+                }
+            }
+
+            &:nth-child(2n) {
+                border-left: 12px solid $light-primary;
+
+                h3 {
+                    color: $light-primary;
+                }
+
+                a {
+                    color: $light-primary;
+                }
+            }
+
+            &:nth-child(3n) {
+                border-left: 12px solid $light-secondary;
+
+                h3 {
+                    color: $light-secondary;
+                }
+
+                a {
+                    color: $light-secondary;
+                }
+            }
         }
 
-        a {
-            color: $secondary;
-        }
     }
 }
