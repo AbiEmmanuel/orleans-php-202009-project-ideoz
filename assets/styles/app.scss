@@ -5,6 +5,13 @@ body {
     background-color: $background-color;
     font-family: $font-text;
     color: $dark;
+    margin-top: $navbarHeight;
+}
+
+@media screen and (max-width: $mobile-breakpoint) {
+    body {
+        margin-top: 0;
+    }
 }
 
 h1, h2, h3 {
@@ -13,4 +20,69 @@ h1, h2, h3 {
 
 h4, h5, h6 {
     font-family: $font-light-title;
+}
+
+nav {
+    background-color: $dark-second-color;
+    min-height: $navbarHeight;
+}
+
+.navbar-toggler {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 28 28' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.dropdown .btn:hover {
+    color: $light;
+
+    :focus, .btn.focus {
+        outline: none;
+        box-shadow: none;
+  }
+}
+
+.dropdown-toggle, .nav-item, a {
+    color: $light;
+    font-family: $font-title;
+}
+
+.dropdown-menu, .dropdown-item {
+    background-color: $dark-second-color;
+    color: $light;
+}
+
+.btn .dropdown-toggle {
+    border: none;
+}
+
+.navbar-brand img {
+    width: 120px;
+    height: 50px;
+}
+
+.btn-group a, .btn {
+    background-color: $dark-second-color;
+    color: $light;
+    border: none;
+}
+
+.mobile {
+    width: 100%;
+}
+
+.items {
+    width: 25%;
+    padding-top: $spacing + 2px;
+}
+
+.menu {
+    width: 25%;
+}
+
+.alert {
+    background-color: $dark-second-color;
+}
+
+.alert img {
+    width: 120px;
+    height: 50px;
 }
