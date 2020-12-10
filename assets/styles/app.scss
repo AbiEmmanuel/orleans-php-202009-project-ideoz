@@ -50,8 +50,8 @@ nav {
 }
 
 .navbar-brand img {
-    width: 120px;
-    height: 50px;
+    width: $navImageWidth;
+    height: $navImageHeight;
 }
 
 .btn-group a {
@@ -77,8 +77,8 @@ svg {
 }
 
 .alert img {
-    width: 120px;
-    height: 50px;
+    width: $navImageWidth;
+    height: $navImageHeight;
 }
 
 h1 {
