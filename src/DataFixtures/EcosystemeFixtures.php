@@ -1,0 +1,26 @@
+<?php
+
+namespace App\DataFixtures;
+
+use App\Entity\Ecosystem;
+use Faker;
+use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Persistence\ObjectManager;
+
+class EcosystemeFixtures extends Fixture
+{
+    public function load(ObjectManager $manager)
+    {
+        $faker = Faker\Factory::create('fr_FR');
+        for ($i = 0; $i < 20; $i++) {
+            $ecosystem = new Ecosystem();
+            $ecosystem->setName($faker->company);
+            $ecosystem->setLogo($faker->imageUrl(150, 150));
+            $ecosystem->setClientOrPartner($faker->boolean);
+            $ecosystem->setActivity($faker->word);
+            $manager->persist($ecosystem);
+            $this->addReference('ecosystem_' . $i, $ecosystem);
+        }
+        $manager->flush();
+    }
+}
