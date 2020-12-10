@@ -70,12 +70,19 @@ nav {
 }
 
 .items {
-    width: 25%;
-    padding-top: $spacing + 2px;
+    width: 20%;
+    padding-top: $spacing + 4px;
+    padding-right: 0;
+    padding-left: 0;
 }
 
-.menu {
+.menu button{
     width: 25%;
+}
+
+.service {
+    padding: 0;
+    width: 20%;
 }
 
 .alert {
