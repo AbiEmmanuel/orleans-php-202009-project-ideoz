@@ -7,7 +7,7 @@ body {
     margin-top: $navbarHeight;
 }
 
-@media screen and (max-width: $mobile-breakpoint) {
+@media screen and (max-width: $mobile-breakpoint){
     body {
         margin-top: 0;
     }
@@ -25,7 +25,6 @@ h4, h5, h6 {
 }
 
 nav {
-    background-color: $dark-second-color;
     min-height: $navbarHeight;
 }
 
@@ -43,13 +42,7 @@ nav {
 }
 
 .dropdown-toggle, .nav-item, a {
-    color: $light;
     font-family: $font-title;
-}
-
-.dropdown-menu, .dropdown-item {
-    background-color: $dark-second-color;
-    color: $light;
 }
 
 .btn .dropdown-toggle {
@@ -61,34 +54,26 @@ nav {
     height: 50px;
 }
 
-.btn-group a, .btn {
-    background-color: $dark-second-color;
-    color: $light;
+.btn-group a {
     border: none;
 }
 
 .mobile {
-    width: 100%;
+    display: flex;
+    flex-basis: 100%;
 }
 
 .items {
-    width: 20%;
+    flex-basis: 25%;
     padding-top: $spacing + 4px;
-    padding-right: 0;
-    padding-left: 0;
 }
 
 .menu button{
-    width: 25%;
+    flex-basis: 25%;
 }
 
-.service {
-    padding: 0;
-    width: 20%;
-}
-
-.alert {
-    background-color: $dark-second-color;
+svg {
+    color: $light;
 }
 
 .alert img {
