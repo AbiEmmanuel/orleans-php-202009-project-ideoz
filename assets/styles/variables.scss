@@ -1,13 +1,19 @@
-$main-color: #ff9900;
-$second-color: #6fa8dc;
-$light-main-color: #f9cb9c;
-$dark-second-color: #2b3a67;
-$dark: #111111;
-$light: #e8e5e5;
-$background-color: #d9d9d9;
-$font-title: 'Raleway Black', sans-serif;
-$font-light-title: 'Raleway', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Raleway:wght@400;700&display=swap');
+
+$secondary: #ff9900;
+$light-primary: #6fa8dc;
+$light-secondary: #f9cb9c;
+$third-color: rgba(217, 217, 217, 0.5);
+$primary: #2b3a67;
+$dark: #01010a;
+$light: #fefeff;
+$background-color: #f9f9fd;
+$font-title: 'Raleway', sans-serif;
 $font-text: 'Lato', sans-serif;
+$h1-font-size: 4rem;
+$h2-font-size: 2rem;
+$h3-font-size: 1.5rem;
+$h4-font-size: 1.2rem;
 $spacing: 8px;
 $spacing-2: $spacing * 2;
 $spacing-3: $spacing * 4;
