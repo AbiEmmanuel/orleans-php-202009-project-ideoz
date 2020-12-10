@@ -10,7 +10,7 @@ use Doctrine\Persistence\ObjectManager;
 class CompanyFixtures extends Fixture
 {
     private const NAME = 'Simon Abraham';
-    private const PHONE_NUMBER = '0661992159'
+    private const PHONE_NUMBER = '0661992159';
     public function load(ObjectManager $manager)
     {
         $faker = Faker\Factory::create('fr_FR');
