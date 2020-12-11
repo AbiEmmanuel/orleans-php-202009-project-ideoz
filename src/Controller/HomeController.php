@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-
 use App\Entity\Testimony;
 use App\Repository\TestimonyRepository;
 use App\Repository\OfferRepository;
@@ -24,6 +23,5 @@ class HomeController extends AbstractController
             'services' => $offerRepository->findAll(),
           'testimonies' => $testimonyRepository->findBy([], ['id' => 'DESC'], 4),
         ]);
-
     }
 }
