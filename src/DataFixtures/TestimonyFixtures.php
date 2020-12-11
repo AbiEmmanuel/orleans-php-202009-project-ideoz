@@ -3,24 +3,24 @@
 namespace App\DataFixtures;
 
 use Faker;
-use App\Entity\Testimonye;
+use App\Entity\Testimony;
 use App\Entity\Ecosystem;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
-class TestimonyeFixtures extends Fixture implements DependentFixtureInterface
+class TestimonyFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
         $faker = Faker\Factory::create('fr_FR');
 
         for ($i = 0; $i < 20; $i++) {
-            $testimonye = new Testimonye();
-            $testimonye->setContent($faker->text);
-            $testimonye->setEcosystem($this->getReference('ecosystem_' . $i));
-            $manager->persist($testimonye);
-            $this->addReference('testimonie_' . $i, $testimonye);
+            $testimony = new Testimony();
+            $testimony->setContent($faker->text);
+            $testimony->setEcosystem($this->getReference('ecosystem_' . $i));
+            $manager->persist($testimony);
+            $this->addReference('testimony_' . $i, $testimony);
         }$manager->flush();
     }
     public function getDependencies(): array

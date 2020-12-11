@@ -48,9 +48,9 @@ class Ecosystem
     private ?string $url;
 
     /**
-     * @ORM\OneToOne(targetEntity=Testimonye::class, mappedBy="ecosystem", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Testimony::class, mappedBy="ecosystem", cascade={"persist", "remove"})
      */
-    private Testimonye $testimonye;
+    private Testimony $testimony;
 
     public function getId(): ?int
     {
@@ -129,18 +129,18 @@ class Ecosystem
         return $this;
     }
 
-    public function getTestimonye(): ?Testimonye
+    public function getTestimony(): ?Testimony
     {
-        return $this->testimonye;
+        return $this->testimony;
     }
 
-    public function setTestimonye(Testimonye $testimonye): self
+    public function setTestimony(Testimony $testimony): self
     {
-        $this->testimonye = $testimonye;
+        $this->testimony = $testimony;
 
         // set the owning side of the relation if necessary
-        if ($testimonye->getEcosystem() !== $this) {
-            $testimonye->setEcosystem($this);
+        if ($testimony->getEcosystem() !== $this) {
+            $testimony->setEcosystem($this);
         }
 
         return $this;

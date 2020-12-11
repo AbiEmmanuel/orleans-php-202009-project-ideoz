@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\TestimonyeRepository;
+use App\Repository\TestimonyRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=TestimonyeRepository::class)
+ * @ORM\Entity(repositoryClass=TestimonyRepository::class)
  */
-class Testimonye
+class Testimony
 {
     /**
      * @ORM\Id
@@ -23,7 +23,7 @@ class Testimonye
     private string $content;
 
     /**
-     * @ORM\OneToOne(targetEntity=Ecosystem::class, inversedBy="testimonye", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Ecosystem::class, inversedBy="testimony", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private Ecosystem $ecosystem;

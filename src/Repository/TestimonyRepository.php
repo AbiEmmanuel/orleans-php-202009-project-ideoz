@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Testimonye;
+use App\Entity\Testimony;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Testimonye|null find($id, $lockMode = null, $lockVersion = null)
- * @method Testimonye|null findOneBy(array $criteria, array $orderBy = null)
- * @method Testimonye[]    findAll()
- * @method Testimonye[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Testimony|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Testimony|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Testimony[]    findAll()
+ * @method Testimony[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class TestimonyeRepository extends ServiceEntityRepository
+class TestimonyRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Testimonye::class);
+        parent::__construct($registry, Testimony::class);
     }
 
     // /**
-    //  * @return Testimonye[] Returns an array of Testimonye objects
+    //  * @return Testimony[] Returns an array of Testimony objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class TestimonyeRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Testimonye
+    public function findOneBySomeField($value): ?Testimony
     {
         return $this->createQueryBuilder('t')
             ->andWhere('t.exampleField = :val')

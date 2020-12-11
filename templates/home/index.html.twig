@@ -5,6 +5,18 @@
 {% block body %}
     <h1>IDEOZ</h1>
     <section class="testimony">
-        <h2>Témoignage</h2>
+        <h2 class="text-center my-5">Témoignages</h2>
+        <div class="d-flex justify-content-around">
+        {% for testimony in testimonies %}
+            <figure class="d-flex flex-column align-items-center">
+                <img  src="{{ testimony.ecosystem.logo }}" alt="logo ecosystem">
+                <h3 class="my-3 text-center">{{ testimony.ecosystem.name }}</h3>
+                <figcaption>{{ testimony.content }}</figcaption>
+            </figure>
+        {% endfor %}
+        </div>
+        <div class="d-flex justify-content-center my-5">
+        <a href="#" class=" text-center btn-lg rounded bg-secondary">Tous les témoignages</a>
+        </div>
     </section>
 {% endblock %}
