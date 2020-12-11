@@ -1,0 +1,26 @@
+@import 'variables.scss';
+@import "~bootstrap/scss/bootstrap";
+
+.see-further {
+    background-image: url('../images/binoculars.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    padding-top: $spacing-4;
+    padding-bottom: $spacing-4;
+}
+
+.see-further p {
+    line-height: 2rem;
+}
+
+.simon {
+    width: 50%;
+    padding-bottom: $spacing-3;
+    padding-top: 0;
+}
+
+.linkedin-blue-button {
+}

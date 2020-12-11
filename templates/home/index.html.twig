@@ -1,7 +1,51 @@
 {% extends 'layout.html.twig' %}
 
 {% block title %}{{ parent() }}{% endblock %}
+{% block stylesheets %}{{ parent() }}{{ encore_entry_link_tags('home') }}{% endblock %}
 
 {% block body %}
-    <h1>IDEOZ</h1>
-{% endblock %}
+<section class="">
+    <div class="see-further text-center container-fluid">
+        <h1 class="my-5">IDEOZ</h1>
+        <h2 class="my-5">Voir plus loin</h2>
+        <p class="text-center col-lg-4 offset-lg-4 my-4 col-sm-12">Lorem ipsum dolor sit amet, consectetur adipisicing
+            elit. Autem
+            ducimus
+            eligendi enim facilis minus. Accusamus aut cum cumque fugit illo inventore laboriosam, maiores nostrum
+            obcaecati, officia placeat quia quis sapiente? Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Aliquam dignissimos eligendi eum excepturi iusto laboriosam laborum quam qui ut velit. A accusamus aliquid
+            amet commodi debitis, eum repellendus reprehenderit. Rerum!</p>
+    </div>
+
+    <div class="about-us text-center container-fluid">
+        <h2 class="my-5">À Propos</h2>
+        <div class="row">
+            <div class="col-lg-3 offset-lg-1">
+                <h3 class="my-3">Qui suis-je ?</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur assumenda consequuntur, eligendi
+                    impedit ipsa itaque nesciunt nostrum odio, odit perspiciatis praesentium repellat sapiente
+                    veritatis? Hic magni non nostrum quasi veniam. Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit. Ab, aut autem blanditiis consequatur corporis eaque est hic in nam neque nihil porro quae qui
+                    ratione repellendus sequi similique sit vitae.</p>
+            </div>
+
+            <div class="col-lg-4">
+                <img src="{{ asset('build/images/simon.5246a7c9.png') }}" class="simon" alt="Simon ABRAHAM">
+                <h3 class="my-4">Simon ABRAHAM</h3>
+            </div>
+
+            <div class="col-lg-3 align-baseline">
+                <h3 class="my-4">Les valeurs d'IDEOZ</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, consequatur culpa, ex fugit,
+                    illo impedit iste iusto magni odit omnis sequi tempora! Amet blanditiis eveniet excepturi
+                    exercitationem itaque, necessitatibus tenetur? Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit. Accusamus, maiores, veniam! Ad aliquid amet dignissimos dolore illo non quis! Blanditiis
+                    commodi consectetur id, incidunt maiores pariatur quaerat quia repellat voluptas?</p>
+            </div>
+        </div>
+        <a href="https://www.linkedin.com/in/simon-abraham-03b74216/">
+            <img src="{{ asset('build/images/linkedin-blue.1a718042.png') }}" class="mx-auto" alt="LinkedIn Link">
+        </a>
+    </div>
+</section>
+    {% endblock %}
