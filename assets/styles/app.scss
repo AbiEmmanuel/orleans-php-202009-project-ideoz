@@ -4,6 +4,7 @@
 
 body {
     font-family: $font-text;
+    font-size: $text-font-size;
     color: $dark;
     margin-top: $navbarHeight;
 }
@@ -88,8 +89,13 @@ h1 {
 
 h2 {
     font-size: $h2-font-size;
+    margin-bottom: $spacing-4;
 }
 
 h3 {
     font-size: $h3-font-size;
+}
+
+section {
+    padding: $spacing-4 0;
 }
