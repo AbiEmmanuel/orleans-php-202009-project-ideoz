@@ -5,7 +5,9 @@
 .testimony figure{
     max-width: $max-width-figure-home;
 }
-
+.img-figure{
+    max-width: $max-width-img-figure;
+}
 .service {
     background-color: $third-color;
     padding: $spacing-4 0;

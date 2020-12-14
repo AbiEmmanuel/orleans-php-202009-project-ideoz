@@ -50,7 +50,7 @@
         <div class="d-flex flex-wrap justify-content-around">
         {% for testimony in testimonies %}
             <figure class="d-flex flex-column align-items-center">
-                <img  src="{{ testimony.ecosystem.logo }}" alt="logo ecosystem">
+                <img class="img-figure" src="{{ testimony.ecosystem.logo }}" alt="logo ecosystem">
                 <h3 class="my-3 text-center">{{ testimony.ecosystem.name }}</h3>
                 <figcaption>{{ testimony.content }}</figcaption>
             </figure>
