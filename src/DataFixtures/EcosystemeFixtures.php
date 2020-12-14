@@ -16,7 +16,7 @@ class EcosystemeFixtures extends Fixture
             $ecosystem = new Ecosystem();
             $ecosystem->setName($faker->company);
             $ecosystem->setLogo('https://via.placeholder.com/150');
-            $ecosystem->setClientOrPartner($faker->boolean);
+            $ecosystem->setStatus($faker->boolean);
             $ecosystem->setActivity($faker->word);
             $manager->persist($ecosystem);
             $this->addReference('ecosystem_' . $i, $ecosystem);
