@@ -30,7 +30,7 @@ class Ecosystem
     /**
      * @ORM\Column(type="boolean")
      */
-    private bool $clientOrPartner;
+    private bool $status;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -77,18 +77,6 @@ class Ecosystem
     public function setLogo(?string $logo): self
     {
         $this->logo = $logo;
-
-        return $this;
-    }
-
-    public function getClientOrPartner(): ?bool
-    {
-        return $this->clientOrPartner;
-    }
-
-    public function setClientOrPartner(bool $clientOrPartner): self
-    {
-        $this->clientOrPartner = $clientOrPartner;
 
         return $this;
     }
@@ -142,6 +130,18 @@ class Ecosystem
         if ($testimony->getEcosystem() !== $this) {
             $testimony->setEcosystem($this);
         }
+
+        return $this;
+    }
+
+    public function getStatus(): ?bool
+    {
+        return $this->status;
+    }
+
+    public function setStatus(bool $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }

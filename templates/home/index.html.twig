@@ -5,8 +5,8 @@
 {% block body %}
     <h1>IDEOZ</h1>
     <section class="testimony">
-        <h2 class="text-center my-5">Témoignages</h2>
-        <div class="d-flex justify-content-around">
+        <h2 class="text-center">Témoignages</h2>
+        <div class="d-flex flex-wrap justify-content-around">
         {% for testimony in testimonies %}
             <figure class="d-flex flex-column align-items-center">
                 <img  src="{{ testimony.ecosystem.logo }}" alt="logo ecosystem">
