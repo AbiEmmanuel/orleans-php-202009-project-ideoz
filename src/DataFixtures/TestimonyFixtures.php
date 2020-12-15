@@ -21,7 +21,8 @@ class TestimonyFixtures extends Fixture implements DependentFixtureInterface
             $testimony->setEcosystem($this->getReference('ecosystem_' . $i));
             $manager->persist($testimony);
             $this->addReference('testimony_' . $i, $testimony);
-        }$manager->flush();
+        }
+        $manager->flush();
     }
     public function getDependencies(): array
     {
