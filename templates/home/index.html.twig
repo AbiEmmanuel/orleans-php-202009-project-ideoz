@@ -43,4 +43,19 @@
             </div>
         </div>
     </section>
+    <section class="testimony">
+        <h2 class="text-center">Témoignages</h2>
+        <div class="row justify-content-around">
+        {% for testimony in testimonies %}
+            <figure class="d-flex flex-column align-items-center mx-2">
+                <img class="img-figure" src="{{ testimony.ecosystem.logo }}" alt="logo ecosystem">
+                <h3 class="my-3 text-center">{{ testimony.ecosystem.name }}</h3>
+                <figcaption>{{ testimony.content }}</figcaption>
+            </figure>
+        {% endfor %}
+        </div>
+        <div class="d-flex justify-content-center my-5">
+          <a href="#" class=" text-center btn-lg rounded bg-secondary">Tous les témoignages</a>
+        </div>
+    </section>     
 {% endblock %}
