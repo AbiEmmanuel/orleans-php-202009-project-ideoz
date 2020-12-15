@@ -57,5 +57,28 @@
         <div class="d-flex justify-content-center my-5">
           <a href="#" class=" text-center btn-lg rounded bg-secondary">Tous les témoignages</a>
         </div>
-    </section>     
+    </section>
+    <section class="ecosystem">
+        <h2 class="text-center">Ecosystème</h2>
+        <h3 class="text-center">Clients</h3>
+        <div class="scrolling-wrapper client text-center mx-md-5">
+            {% for client in clients %}
+                <div class="logo">
+                    <a href="{{ client.url }}" target="_blank">
+                        <img src="{{ client.logo }}" alt="{{ client.name }}">
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <h3 class="text-center">Partenaires</h3>
+        <div class="scrolling-wrapper partner text-center mx-md-5">
+            {% for partner in partners %}
+                <div class="logo">
+                    <a href="{{ partner.url }}" target="_blank">
+                        <img src="{{ partner.logo }}" alt="{{ partner.name }}">
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
 {% endblock %}
