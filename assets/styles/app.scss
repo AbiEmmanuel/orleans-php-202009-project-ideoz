@@ -39,6 +39,10 @@ nav {
 
 .navbar {
     opacity: 0.9;
+
+    .nav-item, a{
+        font-family: $font-title;
+    }
 }
 
 .dropdown .btn:hover {
@@ -48,10 +52,6 @@ nav {
         outline: none;
         box-shadow: none;
   }
-}
-
-.navbar .dropdown-toggle, .nav-item, a {
-    font-family: $font-title;
 }
 
 .btn .dropdown-toggle {
