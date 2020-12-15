@@ -27,6 +27,7 @@ h4, h5, h6 {
 
 nav {
     min-height: $navbarHeight;
+
     svg {
         color: $light;
     }
@@ -69,6 +70,7 @@ nav {
 .mobile {
     display: flex;
     flex-basis: 100%;
+
     svg {
         color: $light;
     }
