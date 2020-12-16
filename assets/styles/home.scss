@@ -60,3 +60,25 @@
     }
 }
 
+.ecosystem {
+    .scrolling-wrapper {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .logo {
+            display: inline-block;
+            margin: $spacing-3;
+        }
+    }
+
+    .client {
+        margin-bottom: $spacing-4;
+    }
+}
