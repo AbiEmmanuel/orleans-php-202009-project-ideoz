@@ -14,30 +14,30 @@
             <div class="row mx-0 justify-content-center">
                 {% for service in services %}
                     <a href="" class="card p-3" style="width: 22rem;">
-                            <div class="card-title my-3">
-                                <h3>
-                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bookmarks-fill"
-                                         fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                              d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4z"/>
-                                        <path fill-rule="evenodd"
-                                              d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1z"/>
-                                    </svg>
-                                    {{ service.name }}
-                                </h3>
+                        <div class="card-title my-3">
+                            <h3>
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bookmarks-fill"
+                                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                          d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4z"/>
+                                    <path fill-rule="evenodd"
+                                          d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1z"/>
+                                </svg>
+                                {{ service.name }}
+                            </h3>
+                        </div>
+                        <div class="card-body d-flex flex-column justify-content-between mb-3">
+                            <p class="card-text">{{ service.abstract }}</p>
+                            <div class="align-self-end mr-4">
+                                <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle"
+                                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                          d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path fill-rule="evenodd"
+                                          d="M4 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5A.5.5 0 0 0 4 8z"/>
+                                </svg>
                             </div>
-                            <div class="card-body d-flex flex-column justify-content-between mb-3">
-                                <p class="card-text">{{ service.abstract }}</p>
-                                <div class="align-self-end mr-4">
-                                    <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle"
-                                         fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                              d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                        <path fill-rule="evenodd"
-                                              d="M4 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5A.5.5 0 0 0 4 8z"/>
-                                    </svg>
-                                </div>
-                            </div>
+                        </div>
                     </a>
                 {% endfor %}
             </div>
@@ -45,17 +45,26 @@
     </section>
     <section class="testimony">
         <h2 class="text-center">Témoignages</h2>
-        <div class="row justify-content-around">
-        {% for testimony in testimonies %}
-            <figure class="d-flex flex-column align-items-center mx-2">
-                <img class="img-figure" src="{{ testimony.ecosystem.logo }}" alt="logo ecosystem">
-                <h3 class="my-3 text-center">{{ testimony.ecosystem.name }}</h3>
-                <figcaption>{{ testimony.content }}</figcaption>
-            </figure>
-        {% endfor %}
+        <div class="container-fluid">
+            <div class="row mx-0 justify-content-center">
+                {% for testimony in testimonies %}
+                    <figure class="d-flex flex-column align-items-center m-5">
+                        <img class="img-figure" src="{{ testimony.ecosystem.logo }}" alt="logo ecosystem">
+                        <h3 class="my-3 text-center">{{ testimony.ecosystem.name }}</h3>
+                        <figcaption>
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUwOC4wNDQgNTA4LjA0NCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgY2xhc3M9IiI+PGcgdHJhbnNmb3JtPSJtYXRyaXgoLTEsLTMuNjczOTQwMzk3NDQyMDZlLTE2LDMuNjczOTQwMzk3NDQyMDZlLTE2LC0xLDUwOC4wNDQwMDYzNDc2NTYxNCw1MDguMDQ0NTg2MTgxNjQwODUpIj4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwYXRoIGQ9Ik01MDcuOTMsMTU1LjY3M2MwLTAuMDU1LDAuMDA2LTAuMTEsMC4wMDYtMC4xNjVjMC02Ni43OTMtNTQuMTQ1LTEyMC45MzgtMTIwLjkzOC0xMjAuOTM4UzI2Ni4wNjEsODguNzE0LDI2Ni4wNjEsMTU1LjUwOCAgICBjMCw2Ni43OTQsNTQuMTUsMTIwLjkzOCwxMjAuOTM4LDEyMC45MzhjMTMuNzI3LDAsMjYuODY3LTIuMzkzLDM5LjE2Mi02LjYwOWMtMjcuMjA5LDE1Ni4wOS0xNDguOTMsMjU2Ljc1Mi0zNi4wOTYsMTczLjkwNSAgICBDNTE1LjE4MiwzNTEuODc0LDUwOC4wNywxNTkuMTk4LDUwNy45MywxNTUuNjczeiIgZmlsbD0iIzJiM2E2NyIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJCTxwYXRoIGQ9Ik0xMjAuOTM4LDI3Ni40NDVjMTMuNzI3LDAsMjYuODY3LTIuMzkzLDM5LjE2OC02LjYwOWMtMjcuMjE2LDE1Ni4wOS0xNDguOTM3LDI1Ni43NTItMzYuMTAyLDE3My45MDUgICAgYzEyNS4xMTctOTEuODY3LDExOC4wMDYtMjg0LjU0MywxMTcuODY1LTI4OC4wNjhjMC0wLjA1NSwwLjAwNi0wLjExLDAuMDA2LTAuMTY1YzAtNjYuNzkzLTU0LjE0NC0xMjAuOTM4LTEyMC45MzctMTIwLjkzOCAgICBDNTQuMTQ0LDM0LjU3LDAsODguNzE0LDAsMTU1LjUwOEMwLDIyMi4zMDIsNTQuMTUsMjc2LjQ0NSwxMjAuOTM4LDI3Ni40NDV6IiBmaWxsPSIjMmIzYTY3IiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPC9nPjwvc3ZnPg=="
+                                 alt="quote" class="img pb-2"/>
+                            {{ testimony.content }}
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUwOC4wNDQgNTA4LjA0NCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgY2xhc3M9IiI+PGcgdHJhbnNmb3JtPSJtYXRyaXgoMSw0Ljg5ODU4NzE5NjU4OTQxM2UtMTYsLTQuODk4NTg3MTk2NTg5NDEzZS0xNiwxLDUuNjg0MzQxODg2MDgwODAyZS0xNCwwKSI+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8Zz4KCQk8cGF0aCBkPSJNNTA3LjkzLDE1NS42NzNjMC0wLjA1NSwwLjAwNi0wLjExLDAuMDA2LTAuMTY1YzAtNjYuNzkzLTU0LjE0NS0xMjAuOTM4LTEyMC45MzgtMTIwLjkzOFMyNjYuMDYxLDg4LjcxNCwyNjYuMDYxLDE1NS41MDggICAgYzAsNjYuNzk0LDU0LjE1LDEyMC45MzgsMTIwLjkzOCwxMjAuOTM4YzEzLjcyNywwLDI2Ljg2Ny0yLjM5MywzOS4xNjItNi42MDljLTI3LjIwOSwxNTYuMDktMTQ4LjkzLDI1Ni43NTItMzYuMDk2LDE3My45MDUgICAgQzUxNS4xODIsMzUxLjg3NCw1MDguMDcsMTU5LjE5OCw1MDcuOTMsMTU1LjY3M3oiIGZpbGw9IiMyYjNhNjciIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD4KCQk8cGF0aCBkPSJNMTIwLjkzOCwyNzYuNDQ1YzEzLjcyNywwLDI2Ljg2Ny0yLjM5MywzOS4xNjgtNi42MDljLTI3LjIxNiwxNTYuMDktMTQ4LjkzNywyNTYuNzUyLTM2LjEwMiwxNzMuOTA1ICAgIGMxMjUuMTE3LTkxLjg2NywxMTguMDA2LTI4NC41NDMsMTE3Ljg2NS0yODguMDY4YzAtMC4wNTUsMC4wMDYtMC4xMSwwLjAwNi0wLjE2NWMwLTY2Ljc5My01NC4xNDQtMTIwLjkzOC0xMjAuOTM3LTEyMC45MzggICAgQzU0LjE0NCwzNC41NywwLDg4LjcxNCwwLDE1NS41MDhDMCwyMjIuMzAyLDU0LjE1LDI3Ni40NDUsMTIwLjkzOCwyNzYuNDQ1eiIgZmlsbD0iIzJiM2E2NyIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjwvZz48L3N2Zz4="
+                            alt="quote" class="img pb-2"/>
+                        </figcaption>
+                    </figure>
+                {% endfor %}
+            </div>
         </div>
-        <div class="d-flex justify-content-center my-5">
-          <a href="#" class=" text-center btn-lg rounded bg-secondary">Tous les témoignages</a>
+        <div class="d-flex justify-content-center">
+            <a href="#" class="font-weight-bold text-decoration-none text-dark btn-lg rounded-pill my-4 px-5 py-3">Tous
+                les témoignages</a>
         </div>
     </section>
     <section class="ecosystem">

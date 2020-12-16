@@ -2,12 +2,28 @@
 @import 'variables.scss';
 @import "~bootstrap/scss/bootstrap";
 
-.testimony figure{
-    max-width: $max-width-figure-home;
-}
+.testimony {
+    a {
+        background-color: $secondary;
+        box-shadow: 0 2px 0.5rem lighten($dark, 5%);
 
-.img-figure{
-    max-width: $max-width-img-figure;
+        &:hover {
+            background-color: lighten($secondary, 3%);
+            box-shadow: 0 0 1rem lighten($primary, 10%);
+        }
+    }
+
+    figure {
+        max-width: $max-width-figure-home;
+    }
+
+    .img-figure{
+        max-width: $max-width-img-figure;
+    }
+
+    .img {
+        height: 20px;
+    }
 }
 
 .service {
