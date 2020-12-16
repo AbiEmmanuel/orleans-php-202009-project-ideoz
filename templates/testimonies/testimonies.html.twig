@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ parent() }} | Témoignages {% endblock %}
+
+    {% block stylesheets %}
+        {{ parent() }}
+        {{ encore_entry_link_tags('testimony') }}
+    {% endblock %}
+
+{% block body %}
+    <a id="top"></a>
+    <section class="testimony">
+        <div class="header mt-0 d-flex align-items-center justify-content-center">
+            <h1 class="text-center text-light mt-5 d-flex align-self-center">Ils m'ont fait confiance</h1>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="separate d-flex align-items-center justify-content-center">
+                        <h2 class="text-center">
+                            <img class="quotes d-none d-sm-inline-block"
+                                 src="{{ asset('build/images/doublequotes2.png') }}" alt="quotes">
+                            Témoignages de clients<img class="d-none d-sm-inline-block"
+                                                       src="{{ asset('build/images/doublequotes3.png') }}" alt="quotes">
+                        </h2>
+                    </div>
+                    <div class="content">
+                        <div class="row">
+                            {% for testimony in testimonies %}
+                                <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
+                                    <div class="card mb-5 text-center">
+                                        <img src="{{ testimony.ecosystem.logo }}" class="card-img-top img-fluid"
+                                             alt="logo">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ testimony.ecosystem.name }} <span
+                                                        class="badge badge-primary ml-3 text-center">{{ testimony.ecosystem.activity }}</span>
+                                            </h5>
+                                            <p class="card-text text-muted">«{{ testimony.content }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-end mr-5">
+            <a class="svg" href="#top">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor"
+                     class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                          d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path fill-rule="evenodd"
+                          d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+{% endblock %}
