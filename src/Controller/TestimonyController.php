@@ -26,4 +26,16 @@ class TestimonyController extends AbstractController
         'testimonies' => $testimonyRepository->findAll(),
         ]);
     }
+
+    /**
+     * @Route("/admin/{id}", name="admin_testimony_show", methods={"GET"})
+     * @param Testimony $testimony
+     * @return Response
+     */
+    public function show(Testimony $testimony): Response
+    {
+        return $this->render('adminTestimony/show.html.twig', [
+            'testimony' => $testimony,
+        ]);
+    }
 }
