@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+
 use App\Repository\TestimonyRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,7 +24,7 @@ class TestimonyController extends AbstractController
     public function index(TestimonyRepository $testimonyRepository): Response
     {
         return $this->render('testimonies/testimonies.html.twig', [
-            'testimonies' => $testimonyRepository->findAll()
+            'testimonies' => $testimonyRepository->findAll(),
         ]);
     }
 }
