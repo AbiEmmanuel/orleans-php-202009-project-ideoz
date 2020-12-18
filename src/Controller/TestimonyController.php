@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Testimony;
+use App\Form\TestimonyType;
 use App\Repository\TestimonyRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -38,6 +39,29 @@ class TestimonyController extends AbstractController
     {
         return $this->render('adminTestimony/index.html.twig', [
         'testimonies' => $testimonyRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/{id}/edit", name="admin_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Testimony $testimony
+     * @return Response
+     */
+    public function edit(Request $request, Testimony $testimony): Response
+    {
+        $form = $this->createForm(TestimonyType::class, $testimony);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('admin_testimony_index');
+        }
+
+        return $this->render('adminTestimony/edit.html.twig', [
+            'testimony' => $testimony,
+            'form' => $form->createView(),
         ]);
     }
 }
