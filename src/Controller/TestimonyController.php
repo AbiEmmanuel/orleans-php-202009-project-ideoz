@@ -39,4 +39,5 @@ class TestimonyController extends AbstractController
         return $this->render('adminTestimony/index.html.twig', [
         'testimonies' => $testimonyRepository->findAll(),
         ]);
+    }    
 }
