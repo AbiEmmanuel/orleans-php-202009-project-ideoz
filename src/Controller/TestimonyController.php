@@ -28,7 +28,7 @@ class TestimonyController extends AbstractController
 
         ]);
     }
-    
+
     /**
     * @Route("/admin", name="admin_index", methods={"GET"})
     * @param TestimonyRepository $testimonyRepository
