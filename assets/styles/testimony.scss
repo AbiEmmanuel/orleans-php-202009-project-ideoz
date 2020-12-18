@@ -43,5 +43,11 @@
     }
     .informations {
 
+        .contact-tel, .contact-mail {
+            display: flex;
+            width: 380px;
+            height: 380px;
+
+        }
     }
 }
