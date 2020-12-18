@@ -2,11 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Testimony;
 use App\Repository\TestimonyRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\Testimony;
 
 /**
  * Class TestimonyController
@@ -24,6 +25,19 @@ class TestimonyController extends AbstractController
     {
         return $this->render('testimonies/testimonies.html.twig', [
             'testimonies' => $testimonyRepository->findAll(),
+
+        ]);
+    }
+
+    /**
+    * @Route("/admin", name="admin_index", methods={"GET"})
+    * @param TestimonyRepository $testimonyRepository
+    * @return Response
+    */
+    public function adminIndex(TestimonyRepository $testimonyRepository): Response
+    {
+        return $this->render('adminTestimony/index.html.twig', [
+        'testimonies' => $testimonyRepository->findAll(),
         ]);
     }
 }
