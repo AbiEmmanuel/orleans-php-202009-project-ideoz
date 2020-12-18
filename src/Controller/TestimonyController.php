@@ -69,9 +69,7 @@ class TestimonyController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-}
-
-            
+       
     /**
      * @Route("/admin/{id}/edit", name="admin_edit", methods={"GET","POST"})
      * @param Request $request
