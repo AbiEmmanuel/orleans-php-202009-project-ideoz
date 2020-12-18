@@ -18,7 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class TestimonyController extends AbstractController
 {
     /**
-     * @Route ("/index", name="index")
+     * @Route ("/", name="index")
      * @param TestimonyRepository $testimonyRepository
      * @param CompanyRepository $companyRepository
      * @return Response
