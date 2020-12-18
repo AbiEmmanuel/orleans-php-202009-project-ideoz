@@ -1,6 +1,6 @@
 @import 'app.scss';
 
-.testimony {
+.testimonies {
     .container-fluid {
         padding: 0;
       }
@@ -38,6 +38,16 @@
 
         .card {
             width: $spacing-4 * 6;
+        }
+    }
+
+    .informations {
+
+        .contact-tel, .contact-mail {
+            display: flex;
+            width: 380px;
+            height: 380px;
+
         }
     }
 }
