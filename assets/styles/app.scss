@@ -4,6 +4,7 @@
 
 body {
     font-family: $font-text;
+    font-size: $text-font-size;
     color: $dark;
     margin-top: $navbarHeight;
 }
@@ -27,10 +28,22 @@ h4, h5, h6 {
 
 nav {
     min-height: $navbarHeight;
+
+    svg {
+        color: $light;
+    }
 }
 
-.navbar-toggler {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 28 28' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+.navbar-toggler-icon {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHMAAABkCAMAAACCTv/3AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF////5ubmueBsSwAAAAJ0Uk5T/wDltzBKAAAAPklEQVR42uzYQQ0AAAgDseHfNC4IyVoD912WAACUm3uampqampqamq+aAAD+IVtTU1NTU1NT0z8EAFBsBRgAX+kR+Qam138AAAAASUVORK5CYII=');
+}
+
+.navbar {
+    opacity: 0.9;
+
+    .nav-item, a{
+        font-family: $font-title;
+    }
 }
 
 .dropdown .btn:hover {
@@ -40,10 +53,6 @@ nav {
         outline: none;
         box-shadow: none;
   }
-}
-
-.dropdown-toggle, .nav-item, a {
-    font-family: $font-title;
 }
 
 .btn .dropdown-toggle {
@@ -62,6 +71,10 @@ nav {
 .mobile {
     display: flex;
     flex-basis: 100%;
+
+    svg {
+        color: $light;
+    }
 }
 
 .items {
@@ -71,10 +84,6 @@ nav {
 
 .menu button{
     flex-basis: 25%;
-}
-
-svg {
-    color: $light;
 }
 
 .alert img {
@@ -88,8 +97,13 @@ h1 {
 
 h2 {
     font-size: $h2-font-size;
+    margin-bottom: $spacing-4;
 }
 
 h3 {
     font-size: $h3-font-size;
+}
+
+section {
+    padding: $spacing-4 0;
 }
