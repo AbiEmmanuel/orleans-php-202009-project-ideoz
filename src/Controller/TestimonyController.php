@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\CompanyRepository;
 use App\Entity\Testimony;
 use App\Form\TestimonyType;
 use App\Repository\TestimonyRepository;
@@ -18,14 +19,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class TestimonyController extends AbstractController
 {
     /**
-     * @Route ("/index", name="index")
+     * @Route ("/", name="index")
      * @param TestimonyRepository $testimonyRepository
+     * @param CompanyRepository $companyRepository
      * @return Response
      */
-    public function index(TestimonyRepository $testimonyRepository): Response
+    public function index(TestimonyRepository $testimonyRepository, CompanyRepository $companyRepository): Response
     {
         return $this->render('testimonies/testimonies.html.twig', [
             'testimonies' => $testimonyRepository->findAll(),
+            'informations' => $companyRepository->findAll()
 
         ]);
     }
@@ -54,14 +57,39 @@ class TestimonyController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
+           $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($testimony);
             $entityManager->flush();
+          
+          return $this->redirectToRoute('admin_testimony_index');
+        }
+          
+          return $this->render('adminTestimony/new.html.twig', [
+            'testimony' => $testimony,
+            'form' => $form->createView(),
+        ]);
+    }
+}
 
+            
+    /**
+     * @Route("/admin/{id}/edit", name="admin_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Testimony $testimony
+     * @return Response
+     */
+    public function edit(Request $request, Testimony $testimony): Response
+    {
+        $form = $this->createForm(TestimonyType::class, $testimony);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+          
             return $this->redirectToRoute('admin_testimony_index');
         }
 
-        return $this->render('adminTestimony/new.html.twig', [
+        return $this->render('adminTestimony/edit.html.twig', [
             'testimony' => $testimony,
             'form' => $form->createView(),
         ]);

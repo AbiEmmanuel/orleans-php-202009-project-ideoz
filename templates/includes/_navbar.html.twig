@@ -1,9 +1,9 @@
-<nav class="navbar navbar-expand-lg bg-primary d-none d-sm-flex fixed-top align-items-center">
+<nav class="navbar navbar-expand-lg bg-primary d-none d-sm-flex fixed-top align-items-center justify-content-between">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-        <ul class="navbar-nav">
+    <div class="collapse navbar-collapse justify-content-center ml-lg-5 ml-xl-5" id="navbarNav">
+        <ul class="navbar-nav ml-lg-5 ml-xl-5">
             <li class="nav-item mr-5 mr-sm-2 align-self-center">
                 <a class="nav-link text-light" href="#">À propos </a>
             </li>
@@ -20,7 +20,7 @@
                 </div>
             </div>
             <li class="nav-item mr-5 d-none d-lg-block d-xl-block">
-                <a class="navbar-brand" href="#"><img src="{{ asset('build/images/logo.png') }}" alt="logo"></a>
+                <a class="navbar-brand" href="{{ path("home") }}"><img src="{{ asset('build/images/logo.png') }}" alt="logo"></a>
             </li>
             <li class="nav-item mr-lg-5 mr-sm-2 align-self-center">
                 <a class="nav-link text-light" href="{{ path('testimony_index') }}">Témoignages</a>
@@ -28,6 +28,9 @@
             <li class="nav-item mr-lg-5 mr-sm-2 align-self-center">
                 <a class="nav-link text-light" href="#">Contact</a>
             </li>
+        </ul>
+    </div>
+        <ul class="navbar-nav d-flex justify-content-end">
             <li class="nav-item mr-sm-2 align-self-center">
                 <a class="nav-link text-light " href="#">
                     <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor"
@@ -38,5 +41,5 @@
                 </a>
             </li>
         </ul>
-    </div>
+
 </nav>
