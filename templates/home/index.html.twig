@@ -53,17 +53,24 @@
     </section>
     <section class="testimony">
         <h2 class="text-center">Témoignages</h2>
-        <div class="row justify-content-around">
-            {% for testimony in testimonies %}
-                <figure class="d-flex flex-column align-items-center mx-2">
-                    <img class="img-figure" src="{{ testimony.ecosystem.logo }}" alt="logo ecosystem">
-                    <h3 class="my-3 text-center">{{ testimony.ecosystem.name }}</h3>
-                    <figcaption>{{ testimony.content }}</figcaption>
-                </figure>
-            {% endfor %}
+        <div class="container-fluid">
+            <div class="row mx-0 justify-content-center">
+                {% for testimony in testimonies %}
+                    <figure class="d-flex flex-column align-items-center m-5">
+                        <img class="img-figure" src="{{ testimony.ecosystem.logo }}" alt="logo ecosystem">
+                        <h3 class="my-3 text-center">{{ testimony.ecosystem.name }}</h3>
+                        <figcaption>
+                            <img src="{{ asset('build/images/quotes.svg') }}" alt="quote" class="img quote-start pt-2"/>
+                            {{ testimony.content }}
+                            <img src="{{ asset('build/images/quotes.svg') }}" alt="quote" class="img quote-end pb-2"/>
+                        </figcaption>
+                    </figure>
+                {% endfor %}
+            </div>
         </div>
-        <div class="d-flex justify-content-center my-5">
-            <a href="#" class=" text-center btn-lg rounded bg-secondary">Tous les témoignages</a>
+        <div class="d-flex justify-content-center">
+            <a href="#" class="font-weight-bold text-decoration-none text-dark btn-lg rounded-pill my-4 px-5 py-3">Tous
+                les témoignages</a>
         </div>
     </section>
     <section class="ecosystem">
