@@ -40,4 +40,21 @@ class TestimonyController extends AbstractController
         'testimonies' => $testimonyRepository->findAll(),
         ]);
     }
+
+    /**
+     * @Route("/admin/{id}", name="admin_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Testimony $testimony
+     * @return Response
+     */
+    public function delete(Request $request, Testimony $testimony): Response
+    {
+        if ($this->isCsrfTokenValid('delete' . $testimony->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($testimony);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('testimony_admin_index');
+    }
 }
