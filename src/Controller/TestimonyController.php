@@ -57,19 +57,19 @@ class TestimonyController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-           $entityManager = $this->getDoctrine()->getManager();
+            $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($testimony);
             $entityManager->flush();
-          
-          return $this->redirectToRoute('admin_testimony_index');
+
+            return $this->redirectToRoute('admin_testimony_index');
         }
-          
-          return $this->render('adminTestimony/new.html.twig', [
+
+        return $this->render('adminTestimony/new.html.twig', [
             'testimony' => $testimony,
             'form' => $form->createView(),
-        ]);
+          ]);
     }
-       
+
     /**
      * @Route("/admin/{id}/edit", name="admin_edit", methods={"GET","POST"})
      * @param Request $request
@@ -83,7 +83,7 @@ class TestimonyController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-          
+
             return $this->redirectToRoute('admin_testimony_index');
         }
 
