@@ -36,6 +36,7 @@ Encore
      */
     .addEntry('app', './assets/js/app.js')
     .addEntry('home', './assets/styles/home.scss')
+    .addEntry('testimony', './assets/styles/testimony.scss')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()

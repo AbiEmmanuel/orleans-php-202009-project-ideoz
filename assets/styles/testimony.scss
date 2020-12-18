@@ -1,0 +1,44 @@
+@import 'variables.scss';
+@import "~bootstrap/scss/bootstrap";
+
+.testimony {
+    .container-fluid {
+        padding: 0;
+      }
+
+    h1 {
+        font-weight: bold;
+        font-family: $font-title;
+    }
+
+    .header {
+        background-image: url('../images/shakinghands.jpg');
+        background-attachment: fixed;
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 500px;
+    }
+
+    .separate {
+        width: 100vw;
+        height: 300px;
+
+        img {
+            margin-left: $spacing;
+            margin-bottom: $spacing-4;
+        }
+
+        .quotes {
+            margin-right: $spacing;
+            margin-top: $spacing-4;
+        }
+    }
+
+    .content {
+
+        .card {
+            width: $spacing-4 * 6;
+        }
+    }
+}

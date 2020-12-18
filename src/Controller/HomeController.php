@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Testimony;
 use App\Repository\EcosystemRepository;
 use App\Repository\TestimonyRepository;
 use App\Repository\OfferRepository;
@@ -18,6 +19,7 @@ class HomeController extends AbstractController
      * @param EcosystemRepository $ecosystemRepository
      * @return Response
      */
+
     public function index(
         TestimonyRepository $testimonyRepository,
         OfferRepository $offerRepository,
