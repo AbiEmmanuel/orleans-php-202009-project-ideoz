@@ -44,7 +44,7 @@ class TestimonyController extends AbstractController
         'testimonies' => $testimonyRepository->findAll(),
         ]);
     }
-  
+
    /**
     * @Route("/admin/{id}", name="admin_delete", methods={"DELETE"})
     * @param Request $request
