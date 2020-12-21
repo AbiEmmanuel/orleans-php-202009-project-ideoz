@@ -52,6 +52,11 @@ class Ecosystem
      */
     private Testimony $testimony;
 
+    /**
+     * @ORM\Column(type="string", length=200, nullable=true)
+     */
+    private ?string $abstract;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -142,6 +147,18 @@ class Ecosystem
     public function setStatus(bool $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getAbstract(): ?string
+    {
+        return $this->abstract;
+    }
+
+    public function setAbstract(?string $abstract): self
+    {
+        $this->abstract = $abstract;
 
         return $this;
     }

@@ -19,6 +19,7 @@ class EcosystemeFixtures extends Fixture
             $ecosystem->setStatus($faker->boolean);
             $ecosystem->setActivity($faker->jobTitle);
             $ecosystem->setUrl($faker->url);
+            $ecosystem->setAbstract($faker->text());
             $manager->persist($ecosystem);
             $this->addReference('ecosystem_' . $i, $ecosystem);
         }
