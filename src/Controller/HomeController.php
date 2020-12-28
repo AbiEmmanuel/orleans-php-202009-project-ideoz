@@ -28,8 +28,8 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', [
             'services' => $offerRepository->findAll(),
             'testimonies' => $testimonyRepository->findBy([], ['id' => 'DESC'], 4),
-            'clients' => $ecosystemRepository->findBy(['status' => 0], ['id' => 'ASC'], 6),
-            'partners' => $ecosystemRepository->findBy(['status' => 1], ['id' => 'ASC'], 6),
+            'clients' => $ecosystemRepository->findBy(['status' => 0], ['id' => 'ASC'], 10),
+            'partners' => $ecosystemRepository->findBy(['status' => 1], ['id' => 'ASC'], 10),
         ]);
     }
 }
