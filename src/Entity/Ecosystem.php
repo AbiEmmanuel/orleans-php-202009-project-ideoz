@@ -28,11 +28,6 @@ class Ecosystem
     private ?string $logo;
 
     /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $status;
-
-    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private ?string $activity;
@@ -56,6 +51,11 @@ class Ecosystem
      * @ORM\Column(type="string", length=200, nullable=true)
      */
     private ?string $abstract;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Status::class, inversedBy="companies")
+     */
+    private ?Status $status;
 
     public function getId(): ?int
     {
@@ -139,18 +139,6 @@ class Ecosystem
         return $this;
     }
 
-    public function getStatus(): ?bool
-    {
-        return $this->status;
-    }
-
-    public function setStatus(bool $status): self
-    {
-        $this->status = $status;
-
-        return $this;
-    }
-
     public function getAbstract(): ?string
     {
         return $this->abstract;
@@ -159,6 +147,18 @@ class Ecosystem
     public function setAbstract(?string $abstract): self
     {
         $this->abstract = $abstract;
+
+        return $this;
+    }
+
+    public function getStatus(): ?Status
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?Status $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }
