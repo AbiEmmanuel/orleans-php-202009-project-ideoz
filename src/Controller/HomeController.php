@@ -27,8 +27,8 @@ class HomeController extends AbstractController
         EcosystemRepository $ecosystemRepository,
         StatusRepository $statusRepository
     ): Response {
-        $client = $statusRepository->findBy(['name' => 'Client']);
-        $partner = $statusRepository->findBy(['name' => 'Partenaire']);
+        $client = $statusRepository->findOneBy(['name' => 'Client']);
+        $partner = $statusRepository->findOneBy(['name' => 'Partenaire']);
 
         return $this->render('home/index.html.twig', [
             'services' => $offerRepository->findAll(),
