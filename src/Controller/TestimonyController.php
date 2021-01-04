@@ -33,7 +33,7 @@ class TestimonyController extends AbstractController
     }
 
    /**
-    * @Route("/testimonies/admin", name="admin_testimony_index", methods={"GET"})
+    * @Route("/admin/testimonies", name="admin_testimony_index", methods={"GET"})
     * @param TestimonyRepository $testimonyRepository
     * @return Response
     */
@@ -45,7 +45,7 @@ class TestimonyController extends AbstractController
     }
 
    /**
-    * @Route("/testimonies/admin/{id}", name="admin_testimony_delete", methods={"DELETE"})
+    * @Route("/admin/testimonies/{id}", name="admin_testimony_delete", methods={"DELETE"})
     * @param Request $request
     * @param Testimony $testimony
     * @return Response
@@ -62,7 +62,7 @@ class TestimonyController extends AbstractController
     }
 
     /**
-     * @Route("/testimonies/admin/new", name="admin_testimony_new", methods={"GET","POST"})
+     * @Route("/admin/testimonies/new", name="admin_testimony_new", methods={"GET","POST"})
      * @param Request $request
      * @return Response
      */
@@ -87,7 +87,7 @@ class TestimonyController extends AbstractController
     }
 
    /**
-    * @Route("/testimonies/admin/{id}/edit", name="admin_testimony_edit", methods={"GET","POST"})
+    * @Route("/admin/testimonies/{id}/edit", name="admin_testimony_edit", methods={"GET","POST"})
     * @param Request $request
     * @param Testimony $testimony
     * @return Response
