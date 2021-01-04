@@ -63,7 +63,7 @@ class TestimonyController extends AbstractController
     }
 
     /**
-     * @Route("/admin/new", name="admin_testimony_new", methods={"GET","POST"})
+     * @Route("/admin/new", name="admin_new", methods={"GET","POST"})
      * @param Request $request
      * @return Response
      */
