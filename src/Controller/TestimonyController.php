@@ -14,12 +14,11 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class TestimonyController
  * @package App\Controller
- * @Route ("/testimonies", name="testimony_")
  */
 class TestimonyController extends AbstractController
 {
     /**
-     * @Route ("/", name="index")
+     * @Route ("/testimonies/", name="testimony_index")
      * @param TestimonyRepository $testimonyRepository
      * @param CompanyRepository $companyRepository
      * @return Response
@@ -34,7 +33,7 @@ class TestimonyController extends AbstractController
     }
 
    /**
-    * @Route("/admin", name="admin_index", methods={"GET"})
+    * @Route("/testimonies/admin", name="admin_testimony_index", methods={"GET"})
     * @param TestimonyRepository $testimonyRepository
     * @return Response
     */
@@ -46,7 +45,7 @@ class TestimonyController extends AbstractController
     }
 
    /**
-    * @Route("/admin/{id}", name="admin_delete", methods={"DELETE"})
+    * @Route("/testimonies/admin/{id}", name="admin_testimony_delete", methods={"DELETE"})
     * @param Request $request
     * @param Testimony $testimony
     * @return Response
@@ -63,7 +62,7 @@ class TestimonyController extends AbstractController
     }
 
     /**
-     * @Route("/admin/new", name="admin_new", methods={"GET","POST"})
+     * @Route("/testimonies/admin/new", name="admin_testimony_new", methods={"GET","POST"})
      * @param Request $request
      * @return Response
      */
@@ -88,7 +87,7 @@ class TestimonyController extends AbstractController
     }
 
    /**
-    * @Route("/admin/{id}/edit", name="admin_edit", methods={"GET","POST"})
+    * @Route("/testimonies/admin/{id}/edit", name="admin_testimony_edit", methods={"GET","POST"})
     * @param Request $request
     * @param Testimony $testimony
     * @return Response
