@@ -21,8 +21,7 @@ class Ecosystem
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Le nom de l'entreprise ne peut pas être vide.")
-     * @Assert\Length(max="255",
-     *     maxMessage="Le nom saisi {{ value }} est trop long, il ne devrait pas dépasser {{ limit }} caractères")
+     * @Assert\Length(max="255")
      */
     private string $name;
 
