@@ -37,7 +37,7 @@ class Ecosystem
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private ?string $logo = 'logo_default.png';
+    private ?string $logo = null;
 
     /**
      * @Vich\UploadableField(mapping="logo_file", fileNameProperty="logo")
