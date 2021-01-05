@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\EcosystemRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -19,6 +20,8 @@ class Ecosystem
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le nom de l'entreprise ne peut pas être vide.")
+     * @Assert\Length(max="255")
      */
     private string $name;
 
@@ -26,11 +29,6 @@ class Ecosystem
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private ?string $logo;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $status;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -56,6 +54,11 @@ class Ecosystem
      * @ORM\Column(type="string", length=200, nullable=true)
      */
     private ?string $abstract;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Status::class, inversedBy="companies")
+     */
+    private ?Status $status;
 
     public function getId(): ?int
     {
@@ -139,18 +142,6 @@ class Ecosystem
         return $this;
     }
 
-    public function getStatus(): ?bool
-    {
-        return $this->status;
-    }
-
-    public function setStatus(bool $status): self
-    {
-        $this->status = $status;
-
-        return $this;
-    }
-
     public function getAbstract(): ?string
     {
         return $this->abstract;
@@ -159,6 +150,18 @@ class Ecosystem
     public function setAbstract(?string $abstract): self
     {
         $this->abstract = $abstract;
+
+        return $this;
+    }
+
+    public function getStatus(): ?Status
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?Status $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }
