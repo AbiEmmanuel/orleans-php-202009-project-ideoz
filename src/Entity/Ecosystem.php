@@ -3,10 +3,20 @@
 namespace App\Entity;
 
 use App\Repository\EcosystemRepository;
+use DateTime;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=EcosystemRepository::class)
+ * @UniqueEntity(
+ *     fields={"name"},
+ *     message="Cette entreprise existe déja."
+ * )
+ * @Vich\Uploadable
  */
 class Ecosystem
 {
@@ -19,21 +29,25 @@ class Ecosystem
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le nom de l'entreprise ne peut pas être vide.")
+     * @Assert\Length(max="255")
      */
     private string $name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private ?string $logo;
+    private ?string $logo = 'logo_default.png';
 
     /**
-     * @ORM\Column(type="boolean")
+     * @Vich\UploadableField(mapping="logo_file", fileNameProperty="logo")
+     * @Assert\File(maxSize="100000", mimeTypes={"image/jpeg", "image/png", "image/jpg"})
      */
-    private bool $status;
+    private ?File $logoFile = null;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(max="255")
      */
     private ?string $activity;
 
@@ -44,6 +58,7 @@ class Ecosystem
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(max="255")
      */
     private ?string $url;
 
@@ -54,8 +69,19 @@ class Ecosystem
 
     /**
      * @ORM\Column(type="string", length=200, nullable=true)
+     * @Assert\Length(max="200")
      */
     private ?string $abstract;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Status::class, inversedBy="companies")
+     */
+    private ?Status $status;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private \DateTimeInterface $updatedAt;
 
     public function getId(): ?int
     {
@@ -84,6 +110,20 @@ class Ecosystem
         $this->logo = $logo;
 
         return $this;
+    }
+
+    public function setLogoFile(File $image = null): Ecosystem
+    {
+        $this->logoFile = $image;
+        if ($image) {
+            $this->updatedAt = new DateTime('now');
+        }
+        return $this;
+    }
+
+    public function getLogoFile(): ?File
+    {
+        return $this->logoFile;
     }
 
     public function getActivity(): ?string
@@ -139,18 +179,6 @@ class Ecosystem
         return $this;
     }
 
-    public function getStatus(): ?bool
-    {
-        return $this->status;
-    }
-
-    public function setStatus(bool $status): self
-    {
-        $this->status = $status;
-
-        return $this;
-    }
-
     public function getAbstract(): ?string
     {
         return $this->abstract;
@@ -159,6 +187,30 @@ class Ecosystem
     public function setAbstract(?string $abstract): self
     {
         $this->abstract = $abstract;
+
+        return $this;
+    }
+
+    public function getStatus(): ?Status
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?Status $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
