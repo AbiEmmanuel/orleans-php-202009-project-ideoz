@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/adminOffer")
+ * @Route("/admin/offer", name="admin_")
  */
 class AdminOfferController extends AbstractController
 {
@@ -39,7 +39,7 @@ class AdminOfferController extends AbstractController
             $entityManager->persist($offer);
             $entityManager->flush();
 
-            return $this->redirectToRoute('offer_index');
+            return $this->redirectToRoute('admin_offer_index');
         }
 
         return $this->render('adminOffer/new.html.twig', [
@@ -74,7 +74,7 @@ class AdminOfferController extends AbstractController
 
             $this->addFlash('success', 'Votre service a été modifié !');
 
-            return $this->redirectToRoute('offer_index');
+            return $this->redirectToRoute('admin_offer_index');
         }
 
         return $this->render('adminOffer/edit.html.twig', [
@@ -97,6 +97,6 @@ class AdminOfferController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('offer_index');
+        return $this->redirectToRoute('admin_offer_index');
     }
 }
