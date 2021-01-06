@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Testimony;
 use App\Repository\EcosystemRepository;
+use App\Repository\StatusRepository;
 use App\Repository\TestimonyRepository;
 use App\Repository\OfferRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -23,13 +24,17 @@ class HomeController extends AbstractController
     public function index(
         TestimonyRepository $testimonyRepository,
         OfferRepository $offerRepository,
-        EcosystemRepository $ecosystemRepository
+        EcosystemRepository $ecosystemRepository,
+        StatusRepository $statusRepository
     ): Response {
+        $client = $statusRepository->findOneBy(['name' => 'Client']);
+        $partner = $statusRepository->findOneBy(['name' => 'Partenaire']);
+
         return $this->render('home/index.html.twig', [
             'services' => $offerRepository->findAll(),
             'testimonies' => $testimonyRepository->findBy([], ['id' => 'DESC'], 4),
-            'clients' => $ecosystemRepository->findBy(['status' => 0], ['id' => 'ASC'], 6),
-            'partners' => $ecosystemRepository->findBy(['status' => 1], ['id' => 'ASC'], 6),
+            'clients' => $ecosystemRepository->findBy(['status' => $client], ['id' => 'ASC'], 10),
+            'partners' => $ecosystemRepository->findBy(['status' => $partner], ['id' => 'ASC'], 10),
         ]);
     }
 }

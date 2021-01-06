@@ -1,0 +1,48 @@
+@import 'app.scss';
+
+.logo {
+    height: $max-height-img-ecosystem;
+}
+
+.button-list {
+    a, form {
+        margin: $spacing-2;
+    }
+}
+
+.back {
+    background-color: $secondary;
+    box-shadow: 0 2px 0.5rem lighten($dark, 5%);
+
+    &:hover {
+        background-color: lighten($secondary, 3%);
+        box-shadow: 0 0 1rem lighten($primary, 10%);
+    }
+}
+
+.save {
+    background-color: $primary;
+    box-shadow: 0 2px 0.5rem lighten($dark, 5%);
+
+    &:hover {
+        background-color: lighten($primary, 10%);
+        box-shadow: 0 0 1rem lighten($light-primary, 10%);
+    }
+}
+
+#ecosystem_status {
+    display: flex;
+    flex-wrap: wrap;
+
+    .form-check {
+        margin: $spacing;
+    }
+}
+
+.custom-file-label {
+    display: none;
+}
+
+.custom-file-input {
+    opacity: 1;
+}

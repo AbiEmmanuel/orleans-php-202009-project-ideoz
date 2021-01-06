@@ -1,6 +1,4 @@
-
-@import 'variables.scss';
-@import "~bootstrap/scss/bootstrap";
+@import 'app.scss';
 
 .testimony {
     a {
@@ -93,10 +91,15 @@
 }
 
 .ecosystem {
+    button:focus {
+        box-shadow: none;
+    }
+
     .scrolling-wrapper {
         overflow-x: scroll;
         overflow-y: hidden;
         white-space: nowrap;
+        scroll-behavior: smooth;
         -ms-overflow-style: none;
         scrollbar-width: none;
 
@@ -106,7 +109,36 @@
 
         .logo {
             display: inline-block;
-            margin: $spacing-3;
+            position: relative;
+            width: 18vw;
+            height: 180px;
+
+            a:hover {
+                .background {
+                    visibility: visible;
+                }
+            }
+
+            .container-image {
+                position: relative;
+                height: 100%;
+                width: 100%;
+
+                img {
+                    max-height: $max-height-img-ecosystem;
+                }
+
+                .background {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba($light-primary, 0.5);
+                    visibility: hidden;
+                    white-space: normal;
+                }
+            }
         }
     }
 
@@ -115,3 +147,20 @@
     }
 }
 
+@media screen and (max-width: 1280px) {
+    .ecosystem {
+        .scrolling-wrapper {
+            .logo {
+                width: auto;
+                height: auto;
+                margin: $spacing-3;
+
+                .container-image {
+                    .background {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -3,11 +3,12 @@
 namespace App\DataFixtures;
 
 use App\Entity\Ecosystem;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Faker;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
-class EcosystemeFixtures extends Fixture
+class EcosystemeFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -16,12 +17,18 @@ class EcosystemeFixtures extends Fixture
             $ecosystem = new Ecosystem();
             $ecosystem->setName($faker->company);
             $ecosystem->setLogo('https://via.placeholder.com/150');
-            $ecosystem->setStatus($faker->boolean);
+            $ecosystem->setStatus($this->getReference('status_' . rand(0, 2)));
             $ecosystem->setActivity($faker->jobTitle);
             $ecosystem->setUrl($faker->url);
+            $ecosystem->setAbstract($faker->text());
             $manager->persist($ecosystem);
             $this->addReference('ecosystem_' . $i, $ecosystem);
         }
         $manager->flush();
+    }
+
+    public function getDependencies(): array
+    {
+        return [StatusFixtures::class];
     }
 }
