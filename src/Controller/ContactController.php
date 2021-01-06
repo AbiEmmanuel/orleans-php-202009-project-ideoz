@@ -45,13 +45,4 @@ class ContactController extends AbstractController
             'form' => $form->createView()
         ]);
     }
-
-    /**
-     * @Route("/confirmation", name="confirmation")
-     */
-    public function confirmation(): Response
-    {
-        return $this->render('contact/confirmation.html.twig', [
-        ]);
-    }
 }
