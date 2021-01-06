@@ -35,9 +35,6 @@ class ContactController extends AbstractController
                 ->subject($contact->getSubject())
                 ->html($this->renderView('contact/contactEmail.html.twig', ['contact' => $contact]));
             $mailer->send($email);
-            // TODO : Gérer l'envoi de données d'un formulaire à la page de confirmation et la mettre en page
-            // TODO : Mettre en page l'email envoyé (à voir avec les autres)
-            // TODO : Voir avec Sylvain ou les autres pour gérer l'affichage des erreurs de Bootstrap
 
             $this->addFlash('success', 'Votre message a bien été envoyé.');
 
