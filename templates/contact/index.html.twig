@@ -1,0 +1,26 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{{ parent() }} | Formulaire de contact{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('contact') }}
+{% endblock %}
+
+{% block body %}
+    <section class="contact">
+        <div class="header mt-0 d-flex align-items-center justify-content-center">
+            <h1 class="text-center text-light mt-5 d-flex align-self-center">Contact</h1>
+        </div>
+        <div class="container">
+            <h2 class="text-center py-5">Contactez-moi</h2>
+            {{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+            {{ form_widget(form) }}
+            <div class="col text-center pt-4">
+                <button class="button font-weight-bold text-decoration-none text-dark btn-lg rounded-pill my-4 px-5 py-3">
+                    Envoyer
+                </button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </section>
+{% endblock %}
