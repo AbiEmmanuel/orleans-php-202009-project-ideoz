@@ -29,6 +29,8 @@ class AdminEcosystemController extends AbstractController
 
     /**
      * @Route("/new", name="new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -40,6 +42,8 @@ class AdminEcosystemController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($ecosystem);
             $entityManager->flush();
+
+            $this->addFlash('success', 'L\'entreprise a bien été ajoutée à l\'écosystème.');
 
             return $this->redirectToRoute('ecosystem_index');
         }

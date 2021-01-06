@@ -32,7 +32,7 @@
                 {% for ecosystem in ecosystems %}
                     <tr>
                         <td>{{ ecosystem.name }}</td>
-                        <td><img class="logo" src="{{ ecosystem.logo }}" alt="{{ ecosystem.name }}"></td>
+                        <td><img class="logo" src="{{ asset('uploads/' ~ ecosystem.logo) }}" alt="{{ ecosystem.name }}"></td>
                         <td>{{ ecosystem.activity }}</td>
                         <td>{{ ecosystem.status.name }}</td>
                         <td class="d-flex justify-content-around align-items-center">
