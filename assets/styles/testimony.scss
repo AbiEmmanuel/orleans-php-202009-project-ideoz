@@ -1,13 +1,14 @@
 @import 'app.scss';
 
 .testimonies {
-    .container-fluid {
-        padding: 0;
-      }
-
     h1 {
-        font-weight: bold;
-        font-family: $font-title;
+        margin: 0;
+        padding: 0;
+    }
+
+    h2 {
+        margin-top: $spacing-4;
+        padding-top: $spacing-3;
     }
 
     .header {
@@ -16,13 +17,10 @@
         background-position: bottom;
         background-repeat: no-repeat;
         background-size: cover;
-        height: 500px;
+        height: $height-header;
     }
 
     .separate {
-        width: 100vw;
-        height: 300px;
-
         img {
             margin-left: $spacing;
             margin-bottom: $spacing-4;
@@ -34,20 +32,8 @@
         }
     }
 
-    .content {
-
-        .card {
-            width: $spacing-4 * 6;
-        }
-    }
-
-    .informations {
-
-        .contact-tel, .contact-mail {
-            display: flex;
-            width: 380px;
-            height: 380px;
-
-        }
+    .contact {
+        margin-top: $spacing-4;
+        padding-top: $spacing-3;
     }
 }
