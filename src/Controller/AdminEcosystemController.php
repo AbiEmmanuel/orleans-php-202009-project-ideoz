@@ -88,6 +88,9 @@ class AdminEcosystemController extends AbstractController
 
     /**
      * @Route("/{id}", name="delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Ecosystem $ecosystem
+     * @return Response
      */
     public function delete(Request $request, Ecosystem $ecosystem): Response
     {
@@ -95,6 +98,8 @@ class AdminEcosystemController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($ecosystem);
             $entityManager->flush();
+
+            $this->addFlash('danger', 'L\entreprise a bien été retirée de l\écosystème.');
         }
 
         return $this->redirectToRoute('ecosystem_index');

@@ -4,6 +4,12 @@
     height: $max-height-img-ecosystem;
 }
 
+.button-list {
+    a, form {
+        margin: $spacing-2;
+    }
+}
+
 .back {
     background-color: $secondary;
     box-shadow: 0 2px 0.5rem lighten($dark, 5%);
