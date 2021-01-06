@@ -18,7 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class TestimonyController extends AbstractController
 {
     /**
-     * @Route ("/testimonies/", name="testimony_index")
+     * @Route ("/temoignages/", name="testimony_index")
      * @param TestimonyRepository $testimonyRepository
      * @param CompanyRepository $companyRepository
      * @return Response
@@ -33,7 +33,7 @@ class TestimonyController extends AbstractController
     }
 
    /**
-    * @Route("/admin/testimonies", name="admin_testimony_index", methods={"GET"})
+    * @Route("/admin/temoignages", name="admin_testimony_index", methods={"GET"})
     * @param TestimonyRepository $testimonyRepository
     * @return Response
     */
@@ -45,7 +45,7 @@ class TestimonyController extends AbstractController
     }
 
    /**
-    * @Route("/admin/testimonies/{id}", name="admin_testimony_delete", methods={"DELETE"})
+    * @Route("/admin/temoignages/{id}", name="admin_testimony_delete", methods={"DELETE"})
     * @param Request $request
     * @param Testimony $testimony
     * @return Response
@@ -62,7 +62,7 @@ class TestimonyController extends AbstractController
     }
 
     /**
-     * @Route("/admin/testimonies/new", name="admin_testimony_new", methods={"GET","POST"})
+     * @Route("/admin/temoignages/ajout", name="admin_testimony_new", methods={"GET","POST"})
      * @param Request $request
      * @return Response
      */
@@ -87,7 +87,7 @@ class TestimonyController extends AbstractController
     }
 
    /**
-    * @Route("/admin/testimonies/{id}/edit", name="admin_testimony_edit", methods={"GET","POST"})
+    * @Route("/admin/temoignages/{id}/edition", name="admin_testimony_edit", methods={"GET","POST"})
     * @param Request $request
     * @param Testimony $testimony
     * @return Response
