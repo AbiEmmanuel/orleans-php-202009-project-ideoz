@@ -14,8 +14,6 @@
 
 <body>
 {% block header %}
-    {% block navbar %} {% include 'includes/_navbar.html.twig' %} {% endblock %}
-    {% block banner %} {% include 'includes/_mobilebanner.html.twig' %}{% endblock %}
 {% endblock %}
 
 {% for label, messages in app.flashes %}
@@ -31,7 +29,6 @@
 
 {% block footer %}{% include '_footer.html.twig' %}{% endblock %}
 {% block navbarmobile %}
-    {% include 'includes/_navbarmobile.html.twig' %}
 {% endblock %}
 {% block javascripts %}
     {{ encore_entry_script_tags('app') }}
