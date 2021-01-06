@@ -26,6 +26,20 @@ h4, h5, h6 {
     color: $primary;
 }
 
+.button-yellow {
+    font-family: $font-title;
+    font-weight: 700;
+    color: $light;
+    background-color: $secondary;
+    box-shadow: 0 1px 0.25rem lighten($dark, 50%);
+
+    &:hover {
+        color: $light;
+        background-color: lighten($secondary, 3%);
+        box-shadow: 0 0 0.5rem lighten($primary, 10%);
+    }
+}
+
 nav {
     min-height: $navbarHeight;
 
