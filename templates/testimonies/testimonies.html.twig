@@ -9,89 +9,78 @@
 
 {% block body %}
     <a id="top"></a>
-    <section class="testimonies">
+    <main class="testimonies">
         <div class="header mt-0 d-flex align-items-center justify-content-center">
-            <h1 class="text-center text-light mt-5 d-flex align-self-center">Ils m'ont fait confiance</h1>
+            <h1 class="text-center text-light">Ils m'ont fait confiance</h1>
         </div>
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col">
-                    <div class="separate d-flex align-items-center justify-content-center">
-                        <h2 class="text-center">
-                            <img class="quotes d-none d-sm-inline-block"
-                                 src="{{ asset('build/images/doublequotes2.png') }}" alt="quotes">
-                            Témoignages de clients<img class="d-none d-sm-inline-block"
-                                                       src="{{ asset('build/images/doublequotes3.png') }}" alt="quotes">
-                        </h2>
-                    </div>
-                    <div class="content mb-5">
-                        <div class="row mx-0">
-                            {% for testimony in testimonies %}
-                                <div class="col-md-6 col-lg-4 d-flex justify-content-center">
-                                    <div class="card mb-5 text-center">
-                                        <img src="{{ testimony.ecosystem.logo }}" class="card-img-top img-fluid"
-                                             alt="logo">
-                                        <div class="card-body">
-                                            <h5 class="card-title">{{ testimony.ecosystem.name }} <span
-                                                        class="badge badge-primary ml-3 text-center">{{ testimony.ecosystem.activity }}</span>
-                                            </h5>
-                                            <p class="card-text text-muted">«{{ testimony.content }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            {% endfor %}
+        <h2 class="text-center">
+            <img class="quotes d-none d-sm-inline-block"
+                 src="{{ asset('build/images/doublequotes2.png') }}" alt="quotes">
+            Témoignages de clients
+            <img class="d-none d-sm-inline-block"
+                 src="{{ asset('build/images/doublequotes3.png') }}" alt="quotes">
+        </h2>
+        <div class="container">
+            <div class="row mx-0">
+                {% for testimony in testimonies %}
+                    <div class="col-md-6 col-lg-4 d-flex justify-content-center">
+                        <div class="card mb-5 text-center">
+                            <img src="{{ testimony.ecosystem.logo }}" class="card-img-top img-fluid" alt="logo">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ testimony.ecosystem.name }}</h5>
+                                <p class="badge badge-primary text-center">
+                                    {{ testimony.ecosystem.activity }}
+                                </p>
+                                <p class="card-text text-muted">«{{ testimony.content }}</p>
+                            </div>
                         </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="row mx-0 contact justify-content-around">
+                <div class="card text-center col-md-4 d-flex justify-content-center mt-4">
+                    <div class="card-body mt-3">
+                        <div class="text-center text-primary m-0 p-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                                 fill="currentColor"
+                                 class="bi bi-telephone-inbound-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                      d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM15.854.146a.5.5 0 0 1 0 .708L11.707 5H14.5a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 1 0v2.793L15.146.146a.5.5 0 0 1 .708 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title text-center mt-3">Appelez-moi !</h3>
+                        <h5 class="card-subtitle mb-2 text-muted text-center mt-4">N'hésitez pas à m'appeler !</h5>
+                        {% for information in informations %}
+                            <p class="card-text text-center">{{ information.name }}</p>
+                            <p class="card-text text-center text-primary alert-link">{{ information.phoneNumber }}</p>
+                        {% endfor %}
                     </div>
                 </div>
-                <div class="informations align-items-center justify-content-center mt-5 mb-5">
-                    <div class="row justify-content-center">
-                        <div class="col-md-6 col-lg-6 d-flex justify-content-center">
-                            <div class="contact-tel card d-flex align-items-center justify-content-center">
-                                <div class="card-body px-2 mt-5">
-                                    <h2 class="text-center mt-5">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"
-                                             fill="currentColor"
-                                             class="bi bi-telephone-inbound-fill" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd"
-                                                  d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM15.854.146a.5.5 0 0 1 0 .708L11.707 5H14.5a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 1 0v2.793L15.146.146a.5.5 0 0 1 .708 0z"/>
-                                        </svg>
-                                    </h2>
-                                    <h3 class="card-title text-center">Appelez</h3>
-                                    <h5 class="card-subtitle mb-2 text-muted text-center mt-4">N'hésiter pas à m'appeler
-                                        !</h5>
-                                    {% for information in informations %}
-                                        <p class="card-text text-center">{{ information.name }}</p>
-                                        <p class="card-text text-center text-primary alert-link">{{ information.phoneNumber }}</p>
-                                    {% endfor %}
-                                </div>
-                            </div>
+
+                <div class="card text-center col-md-4 d-flex justify-content-center mt-4">
+                    <div class="card-body mt-3">
+                        <div class="text-center text-primary m-0 p-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                                 fill="currentColor" class="bi bi-envelope-open-fill" viewBox="0 0 16 16">
+                                <path d="M8.941.435a2 2 0 0 0-1.882 0l-6 3.2A2 2 0 0 0 0 5.4v.313l6.709 3.933L8 8.928l1.291.717L16 5.715V5.4a2 2 0 0 0-1.059-1.765l-6-3.2zM16 6.873l-5.693 3.337L16 13.372v-6.5zm-.059 7.611L8 10.072.059 14.484A2 2 0 0 0 2 16h12a2 2 0 0 0 1.941-1.516zM0 13.373l5.693-3.163L0 6.873v6.5z"/>
+                            </svg>
                         </div>
-                        <div class="col col-md-6 col-lg-6 d-flex justify-content-center">
-                            <div class="contact-mail card d-flex align-items-center justify-content-center">
-                                <div class="card-body px-2 mt-5">
-                                    <h2 class="text-center mt-5">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"
-                                             fill="currentColor" class="bi bi-envelope-open-fill" viewBox="0 0 16 16">
-                                            <path d="M8.941.435a2 2 0 0 0-1.882 0l-6 3.2A2 2 0 0 0 0 5.4v.313l6.709 3.933L8 8.928l1.291.717L16 5.715V5.4a2 2 0 0 0-1.059-1.765l-6-3.2zM16 6.873l-5.693 3.337L16 13.372v-6.5zm-.059 7.611L8 10.072.059 14.484A2 2 0 0 0 2 16h12a2 2 0 0 0 1.941-1.516zM0 13.373l5.693-3.163L0 6.873v6.5z"/>
-                                        </svg>
-                                    </h2>
-                                    <h3 class="card-title text-center">Envoyez-moi un e-mail !</h3>
-                                    <h5 class="card-subtitle mb-2 text-muted text-center mt-4">Pour des informations
-                                        d'ordre génerale, contactez-moi par e-mail</h5>
-                                    {% for information in informations %}
-                                        <p class="card-text text-center">{{ information.name }}</p>
-                                        <p class="text-center"><a href="mailto:{{ information.email }}"
-                                                                  class="card-link alert-link">{{ information.email }}</a>
-                                        </p>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
+                        <h3 class="card-title text-center mt-4">Envoyez-moi un e-mail !</h3>
+                        <h5 class="card-subtitle mb-2 text-muted text-center mt-4">N'hésitez pas à me contacter !</h5>
+                        {% for information in informations %}
+                            <p class="card-text text-center">{{ information.name }}</p>
+                            <p class="text-center">
+                                <a href="mailto:{{ information.email }}" class="card-link alert-link">
+                                    {{ information.email }}
+                                </a>
+                            </p>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
         </div>
-        <div class="d-flex justify-content-end mr-5">
+        <div class="d-flex justify-content-end m-5">
             <a class="svg" href="#top">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor"
                      class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
@@ -102,5 +91,5 @@
                 </svg>
             </a>
         </div>
-    </section>
+    </main>
 {% endblock %}
