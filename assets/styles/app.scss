@@ -10,24 +10,24 @@ body {
 }
 
 @media screen and (max-width: $mobile-breakpoint){
-  body {
-    margin-top: 0;
-  }
+    body {
+        margin-top: 0;
+    }
 }
 
 h1, h2, h3 {
-        font-family: $font-title;
-        font-weight: 700;
-        color: $primary;
+    font-family: $font-title;
+    font-weight: 700;
+    color: $primary;
 }
 
 h4, h5, h6 {
-        font-family: $font-title;
-        color: $primary;
+    font-family: $font-title;
+    color: $primary;
 }
 
 p {
-        line-height: 2rem;
+    line-height: 2rem;
 }
 
 .button-yellow {
