@@ -34,7 +34,7 @@ class AdminEcosystemController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $statusName = $form->getData()['status'];
-            if ($statusName === 'All') {
+            if (!$statusName) {
                 $ecosystems = $ecosystemRepository->findBy([], ['name' => 'ASC']);
             } else {
                 $status = $statusRepository->findOneBy(['name' => $statusName]);

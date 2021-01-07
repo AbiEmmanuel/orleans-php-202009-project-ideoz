@@ -30,7 +30,7 @@
     }
 }
 
-#ecosystem_status, #status_filter_status {
+#ecosystem_status {
     display: flex;
     flex-wrap: wrap;
 
@@ -39,8 +39,14 @@
     }
 }
 
-#status_filter_status {
+.status-choice div {
     padding-bottom: $spacing / 2;
+    display: flex;
+    flex-wrap: wrap;
+
+    .form-check {
+        margin: $spacing;
+    }
 }
 
 .custom-file-label {
@@ -59,4 +65,8 @@
             font-size: $h4-font-size;
         }
     }
+}
+
+.filter-button {
+    border: solid 1px $primary;
 }

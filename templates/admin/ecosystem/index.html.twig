@@ -9,19 +9,26 @@
 {% block body %}
     <h1 class="text-center">Écosystème</h1>
     <div class="container">
-        <div class="row filter-status mx-0 justify-content-between align-items-end">
-            {{ form_start(form) }}
-            <div class="d-flex align-items-end">
-                {{ form_widget(form) }}
-                <button class="text-primary btn btn-outline-primary rounded-pill ml-2 my-4 px-3 py-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                         class="bi bi-search mr-2"
-                         viewBox="0 0 16 16">
-                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                    </svg>
-                    Filtrer
-                </button>
-                {{ form_end(form) }}
+        <div class="row filter-status mx-0 mb-2 justify-content-between align-items-end">
+            <div class="col-md-6">
+                {{ form_start(form) }}
+                <div class="w-100">
+                    {{ form_label(form.status) }}
+                    <div class="d-flex align-items-start">
+                        <div class="status-choice">
+                            {{ form_widget(form.status) }}
+                        </div>
+                        <button class="filter-button text-primary btn rounded-pill mt-1 ml-2 px-3 py-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                 class="bi bi-search mr-2"
+                                 viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            </svg>
+                            Filtrer
+                        </button>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
             </div>
             <div class="d-flex justify-content-end mr-4 pb-4">
                 <a class="text-decoration-none" href="{{ path('ecosystem_new') }}" title="Ajouter une entreprise">
