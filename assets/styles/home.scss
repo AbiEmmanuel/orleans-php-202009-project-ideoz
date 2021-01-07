@@ -1,16 +1,6 @@
 @import 'app.scss';
 
 .testimony {
-    a {
-        background-color: $secondary;
-        box-shadow: 0 2px 0.5rem lighten($dark, 5%);
-
-        &:hover {
-            background-color: lighten($secondary, 3%);
-            box-shadow: 0 0 1rem lighten($primary, 10%);
-        }
-    }
-
     figure {
         max-width: $max-width-figure-home;
     }
@@ -74,18 +64,6 @@
                     color: $light-secondary;
                 }
             }
-        }
-    }
-}
-
-.contact {
-    a {
-        background-color: $secondary;
-        box-shadow: 0 2px 0.5rem lighten($dark, 5%);
-
-        &:hover {
-            background-color: lighten($secondary, 3%);
-            box-shadow: 0 0 1rem lighten($primary, 10%);
         }
     }
 }

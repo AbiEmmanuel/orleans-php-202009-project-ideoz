@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/offer", name="admin_")
+ * @Route("/admin/services", name="admin_")
  */
 class AdminOfferController extends AbstractController
 {
@@ -26,7 +26,7 @@ class AdminOfferController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="offer_new", methods={"GET","POST"})
+     * @Route("/ajout", name="offer_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -59,7 +59,7 @@ class AdminOfferController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="offer_edit", methods={"GET","POST"})
+     * @Route("/{id}/edition", name="offer_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Offer $offer
      * @return Response
