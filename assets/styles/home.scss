@@ -1,5 +1,4 @@
-@import 'variables.scss';
-@import "~bootstrap/scss/bootstrap";
+@import 'app.scss';
 
 .see-further {
     background-image: url('../images/binoculars.png');
@@ -18,30 +17,51 @@
     padding-top: 0;
 }
 
-.service {
-    background-color: $third-color;
-    padding: $spacing-4 0;
-
-    h2 {
-        margin-bottom: $spacing-4;
+.testimony {
+    figure {
+        max-width: $max-width-figure-home;
     }
 
+    .img-figure{
+        max-width: $max-width-img-figure;
+    }
+
+    .img {
+        height: 20px;
+    }
+
+    .quote-start {
+        transform: rotate(180deg);
+    }
+}
+
+.service {
+    background-color: $third-color;
+
     .row {
-        gap: $spacing-4;
+        row-gap: $spacing-4;
+        column-gap: $spacing-4;
+
+        a:hover {
+            text-decoration: none;
+            color: $dark;
+        }
 
         .card {
+            color: $dark;
             border: none;
             border-radius: 0 6px 6px 0;
-            box-shadow: 2px 2px 4px 0 $dark;
+            box-shadow: 2px 2px 4px 0 darken($third-color, 70%);
+            transition: all 0.5s ease-out;
+
+            &:hover {
+                transform: scale(1.1);
+            }
 
             &:nth-child(1n) {
                 border-left: 12px solid $secondary;
 
-                h3 {
-                    color: $secondary;
-                }
-
-                a {
+                h3, svg {
                     color: $secondary;
                 }
             }
@@ -49,11 +69,7 @@
             &:nth-child(2n) {
                 border-left: 12px solid $light-primary;
 
-                h3 {
-                    color: $light-primary;
-                }
-
-                a {
+                h3, svg {
                     color: $light-primary;
                 }
             }
@@ -61,15 +77,85 @@
             &:nth-child(3n) {
                 border-left: 12px solid $light-secondary;
 
-                h3 {
-                    color: $light-secondary;
-                }
-
-                a {
+                h3, svg {
                     color: $light-secondary;
                 }
             }
         }
+    }
+}
 
+.ecosystem {
+    button:focus {
+        box-shadow: none;
+    }
+
+    .scrolling-wrapper {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        scroll-behavior: smooth;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .logo {
+            display: inline-block;
+            position: relative;
+            width: 18vw;
+            height: 180px;
+
+            a:hover {
+                .background {
+                    visibility: visible;
+                }
+            }
+
+            .container-image {
+                position: relative;
+                height: 100%;
+                width: 100%;
+
+                img {
+                    max-height: $max-height-img-ecosystem;
+                }
+
+                .background {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba($light-primary, 0.5);
+                    visibility: hidden;
+                    white-space: normal;
+                }
+            }
+        }
+    }
+
+    .client {
+        margin-bottom: $spacing-4;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .ecosystem {
+        .scrolling-wrapper {
+            .logo {
+                width: auto;
+                height: auto;
+                margin: $spacing-3;
+
+                .container-image {
+                    .background {
+                        display: none;
+                    }
+                }
+            }
+        }
     }
 }

@@ -1,7 +1,7 @@
 <div class="row d-flex d-sm-none fixed-bottom bg-primary align-items-center justify-content-center">
     <div class="col bg-primary">
-        <div class="mobile btn-group bg-primary" role="group" aria-label="Basic example border border-top-dark">
-            <a class="items bg-primary btn btn-light pr-0 pl-0">
+        <div class="mobile btn-group bg-primary d-flex align-items-center border-top border-light" role="group" aria-label="Basic example border border-top-dark">
+            <a class="items bg-primary btn btn-light pr-0 pl-0" href="{{ path("home") }}">
                 <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-house-fill" fill="currentColor"
                      xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
@@ -12,7 +12,7 @@
                 <div class="text-light align-self-baseline">Accueil</div>
             </a>
             <div class="menu btn-group bg-primary dropup">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                <button type="button" class="btn text-light dropdown-toggle pt-2" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                     <a class="item-menu bg-primary btn btn-light">
                         <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-grid-3x3-gap-fill"
@@ -22,16 +22,16 @@
                         <div class="text-light align-self-baseline">Menu</div>
                     </a>
                 </button>
-                <div class="dropdown-menu bg-light px-2">
-                    <a class="dropdown-item text-primary ml-1">À propos</a>
-                    <a class="dropdown-item text-primary ml-1">Temoignages</a>
-                    <a class="dropdown-item text-primary ml-1">Contact</a>
+                <div class="dropdown-menu bg-primary px-2">
+                    <a class="dropdown-item text-light ml-1">À propos</a>
+                    <a class="dropdown-item text-light ml-1" href="{{ path('testimony_index') }}">Temoignages</a>
+                    <a class="dropdown-item text-light ml-1">Contact</a>
                 </div>
             </div>
-            <div class="menu btn-group dropup">
-                <button type="button" class=" service btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+            <div class="menu btn-group bg-primary dropup">
+                <button type="button" class="btn text-light dropdown-toggle pt-2" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
-                    <a class="item-menu bg-primary btn btn-light px-0">
+                    <a class="item-menu bg-primary btn btn-light px-0" href="#">
                         <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-list-ol" fill="currentColor"
                              xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5
@@ -41,10 +41,10 @@
                         <div class="text-light align-self-baseline">Services</div>
                     </a>
                 </button>
-                <div class="dropdown-menu bg-light px-2">
-                    <a class="dropdown-item text-primary ml-1">Transmettre | Former</a>
-                    <a class="dropdown-item text-primary ml-1">Conseils Flash</a>
-                    <a class="dropdown-item text-primary ml-1">Accompagnement</a>
+                <div class="dropdown-menu bg-primary px-2">
+                    <a class="dropdown-item text-light ml-1">Transmettre | Former</a>
+                    <a class="dropdown-item text-light ml-1">Conseils Flash</a>
+                    <a class="dropdown-item text-light ml-1">Accompagnement</a>
                 </div>
             </div>
             <a class="items bg-primary btn btn-light pl-0 pr-0" href="#">
