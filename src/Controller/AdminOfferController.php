@@ -17,6 +17,8 @@ class AdminOfferController extends AbstractController
 {
     /**
      * @Route("/", name="offer_index", methods={"GET"})
+     * @param OfferRepository $offerRepository
+     * @return Response
      */
     public function index(OfferRepository $offerRepository): Response
     {
@@ -43,7 +45,7 @@ class AdminOfferController extends AbstractController
         }
 
         return $this->render('adminOffer/new.html.twig', [
-            'adminOffer' => $offer,
+            'offer' => $offer,
             'form' => $form->createView(),
         ]);
     }
@@ -54,7 +56,7 @@ class AdminOfferController extends AbstractController
     public function show(Offer $offer): Response
     {
         return $this->render('adminOffer/show.html.twig', [
-            'adminOffer' => $offer,
+            'offer' => $offer,
         ]);
     }
 
@@ -78,7 +80,7 @@ class AdminOfferController extends AbstractController
         }
 
         return $this->render('adminOffer/edit.html.twig', [
-            'adminOffer' => $offer,
+            'offer' => $offer,
             'form' => $form->createView(),
         ]);
     }
