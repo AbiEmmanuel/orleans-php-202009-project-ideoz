@@ -1,0 +1,12 @@
+{% extends 'baseEmail.html.twig' %}
+
+{% block body %}
+    <h1>Vous avez reçu un message de {{ contact.name }} :</h1>
+    <h2>{{ contact.subject }}</h2>
+    <p>{{ contact.message }}</p><br>
+
+    <p>Répondre par email : <a href="{{ contact.email }}">{{ contact.email }}</a></p>
+    {% if contact.phone %}
+        <p>Répondre par téléphone : {{ contact.phone }}</p>
+    {% endif %}
+{% endblock %}
