@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/ecosystem", name="ecosystem_")
+ * @Route("/admin/ecosysteme", name="ecosystem_")
  */
 class AdminEcosystemController extends AbstractController
 {
@@ -28,7 +28,7 @@ class AdminEcosystemController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="new", methods={"GET","POST"})
+     * @Route("/ajout", name="new", methods={"GET","POST"})
      * @param Request $request
      * @return Response
      */
@@ -67,7 +67,10 @@ class AdminEcosystemController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="edit", methods={"GET","POST"})
+     * @Route("/{id}/edition", name="edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Ecosystem $ecosystem
+     * @return Response
      */
     public function edit(Request $request, Ecosystem $ecosystem): Response
     {
@@ -76,6 +79,8 @@ class AdminEcosystemController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+
+            $this->addFlash('success', 'L\'entreprise a bien été modifiée.');
 
             return $this->redirectToRoute('ecosystem_index');
         }
@@ -99,7 +104,7 @@ class AdminEcosystemController extends AbstractController
             $entityManager->remove($ecosystem);
             $entityManager->flush();
 
-            $this->addFlash('danger', 'L\entreprise a bien été retirée de l\écosystème.');
+            $this->addFlash('danger', 'L\'entreprise a bien été retirée de l\écosystème.');
         }
 
         return $this->redirectToRoute('ecosystem_index');
