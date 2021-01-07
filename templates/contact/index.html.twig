@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block body %}
-    <section class="contact">
+    <main>
         <div class="header mt-0 d-flex align-items-center justify-content-center">
             <h1 class="text-center text-light mt-5 d-flex align-self-center">Contact</h1>
         </div>
@@ -16,11 +16,11 @@
             {{ form_start(form) }}
             {{ form_widget(form) }}
             <div class="col text-center pt-4">
-                <button class="button font-weight-bold text-decoration-none text-dark btn-lg rounded-pill my-4 px-5 py-3">
+                <button class="button-yellow text-decoration-none btn-lg rounded-pill my-4 px-5 py-3">
                     Envoyer
                 </button>
             </div>
             {{ form_end(form) }}
         </div>
-    </section>
+    </main>
 {% endblock %}

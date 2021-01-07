@@ -6,5 +6,7 @@
     <p>{{ contact.message }}</p><br>
 
     <p>Répondre par email : <a href="{{ contact.email }}">{{ contact.email }}</a></p>
-    <p>Répondre par téléphone : {{ contact.phone }}</p>
+    {% if contact.phone %}
+        <p>Répondre par téléphone : {{ contact.phone }}</p>
+    {% endif %}
 {% endblock %}

@@ -17,15 +17,14 @@ class Contact
     /**
      * @Assert\NotBlank
      * @Assert\Length(max="255")
+     * @Assert\Email
      */
     private string $email;
 
     /**
-     * @Assert\NotBlank
      * @Assert\Length(max="255")
-     * @Assert\Regex(pattern="/^[0-9]*$/", message="Seuls les caractères numériques sont autorisés.")
      */
-    private string $phone;
+    private ?string $phone = null;
 
     /**
      * @Assert\NotBlank
@@ -49,7 +48,7 @@ class Contact
         return $this;
     }
 
-    public function getEmail(): ?string
+    public function getEmail(): string
     {
         return $this->email;
     }
@@ -61,7 +60,7 @@ class Contact
         return $this;
     }
 
-    public function getPhone(): string
+    public function getPhone(): ?string
     {
         return $this->phone;
     }

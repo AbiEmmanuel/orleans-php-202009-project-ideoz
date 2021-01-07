@@ -25,8 +25,9 @@ class ContactType extends AbstractType
                 'attr' => ['placeholder' => 'michel.durand@gmail.com']
             ])
             ->add('phone', TelType::class, [
-                'label' => 'Téléphone',
-                'attr' => ['placeholder' => '06 12 34 56 78']
+                'label' => 'Téléphone (optionnel)',
+                'attr' => ['placeholder' => '06 12 34 56 78'],
+                'required' => false
             ])
             ->add('subject', TextType::class, [
                 'label' => 'Sujet',

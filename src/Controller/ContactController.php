@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Contact;
 use App\Form\ContactType;
-use App\Repository\ContactRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,6 +18,7 @@ class ContactController extends AbstractController
      * @Route("/contact", name="contact")
      * @param Request $request
      * @param MailerInterface $mailer
+     * @var string $from
      * @return Response
      * @throws TransportExceptionInterface
      */
@@ -29,9 +29,10 @@ class ContactController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $from = $contact->getEmail();
             $email = (new Email())
-                ->from($this->getParameter('mailer_from'))
-                ->to('xclamation@hotmail.fr')
+                ->from($from)
+                ->to($this->getParameter('mailer_admin'))
                 ->subject($contact->getSubject())
                 ->html($this->renderView('contact/contactEmail.html.twig', ['contact' => $contact]));
             $mailer->send($email);
