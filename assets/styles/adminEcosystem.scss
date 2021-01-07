@@ -30,7 +30,7 @@
     }
 }
 
-#ecosystem_status {
+#ecosystem_status, #status_filter_status {
     display: flex;
     flex-wrap: wrap;
 
@@ -39,10 +39,24 @@
     }
 }
 
+#status_filter_status {
+    padding-bottom: $spacing / 2;
+}
+
 .custom-file-label {
     display: none;
 }
 
 .custom-file-input {
     opacity: 1;
+}
+
+.filter-status {
+    form {
+        display:flex;
+
+        .col-form-label {
+            font-size: $h4-font-size;
+        }
+    }
 }
