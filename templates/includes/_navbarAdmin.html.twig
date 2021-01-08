@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-xl bg-primary fixed-top justify-content-start">
+    <button class="navbar-toggler m-0" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand navbar-logo m-xl-0 ml-4" href="{{ path("home") }}" target="_blank">
+        <img src="{{ asset('build/images/logo.png') }}" alt="logo">
+    </a>
+    <div class="collapse navbar-collapse justify-content-center align-items-center mr-5 my-3 my-xl-0" id="navbarNav">
+        <ul class="navbar-nav d-lg-flex align-items-xl-center mr-xl-5 pr-xl-3">
+            <li class="nav-item mx-xl-3 mx-5 text-xl-center">
+                <a class="nav-link text-light" href="#">Accueil</a>
+            </li>
+            <li class="nav-item mx-xl-3 mx-5 text-xl-center">
+                <a class="nav-link text-light" href="#">Vos informations</a>
+            </li>
+            <li class="nav-item mx-xl-3 mx-5 text-xl-center">
+                <a class="nav-link text-light" href="{{ path('admin_offer_index') }}">Services</a>
+            </li>
+            <li class="nav-item mx-xl-3 mx-5 text-xl-center">
+                <a class="nav-link text-light" href="{{ path('admin_testimony_index') }}">Témoignages</a>
+            </li>
+            <li class="nav-item mx-xl-3 mx-5 text-xl-center">
+                <a class="nav-link text-light" href="{{ path('ecosystem_index') }}">Écosystème</a>
+            </li>
+            <li class="nav-item mx-xl-3 mx-5 text-xl-center">
+                <a class="nav-link text-light" href="#">Demandes d'adhésion</a>
+            </li>
+            <li class="nav-item mx-xl-3 mx-5 text-xl-center">
+                <a class="nav-link text-light" href="#">Compétences</a>
+            </li>
+        </ul>
+    </div>
+    <ul class="navbar-nav d-flex justify-content-end">
+        <li class="nav-item mr-sm-2 align-self-center">
+            <a class="nav-link text-light icon-connexion" href="#">
+                <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0
+                    0 0 0 6z"/>
+                </svg>
+            </a>
+        </li>
+    </ul>
+
+</nav>
