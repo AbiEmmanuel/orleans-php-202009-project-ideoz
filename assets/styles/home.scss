@@ -19,12 +19,11 @@
     .about-us-text {
         padding-top: $spacing-4;
 
-        ul li::before {
-            content: "▪";
+        ul li {
+            list-style-type: square;
+        }
+        ul li::marker {
             color: $secondary;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
         }
     }
 }
