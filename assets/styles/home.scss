@@ -22,6 +22,7 @@
         ul li {
             list-style-type: square;
         }
+
         ul li::marker {
             color: $secondary;
         }
