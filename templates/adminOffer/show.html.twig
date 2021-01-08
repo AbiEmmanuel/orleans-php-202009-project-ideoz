@@ -28,8 +28,12 @@
                 <th>Résumé</th>
                 <td>{{ offer.abstract }}</td>
             </tr>
-            </tbody>
-        </table>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_offer_index') }}">back to list</a>
+
+    <a href="{{ path('admin_offer_edit', {'id': offer.id}) }}">edit</a>
 
         <div class="button-list d-flex justify-content-center">
             <a class="text-decoration-none mt-2"
