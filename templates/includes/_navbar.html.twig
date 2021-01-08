@@ -5,7 +5,7 @@
     <a class="navbar-brand d-lg-none navbar-mobile-logo" href="{{ path("home") }}">
         <img src="{{ asset('build/images/logo.png') }}" alt="logo">
     </a>
-    <div class="collapse navbar-collapse justify-content-center ml-lg-5 mt-5 mt-lg-0 mb-4 mb-lg-0" id="navbarNav">
+    <div class="collapse navbar-collapse justify-content-center mx-lg-5 mt-5 mt-lg-0 mb-4 mb-lg-0" id="navbarNav">
         <ul class="navbar-nav ml-lg-5 ml-xl-5">
             <li class="nav-item mr-2 ml-5 ml-lg-0 align-self-lg-center">
                 <a class="nav-link text-light" href="#">À propos</a>
@@ -17,9 +17,7 @@
                     Mes services
                 </a>
                 <div class="dropdown-menu bg-primary" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">Transmettre | Former</a>
-                    <a class="dropdown-item" href="#">Conseils Flash</a>
-                    <a class="dropdown-item" href="#">Accompagnement</a>
+                    {{ render(controller('App\\Controller\\HomeController::navbarOffer')) }}
                 </div>
             </div>
             <li class="nav-item mr-5 d-none d-lg-block">
