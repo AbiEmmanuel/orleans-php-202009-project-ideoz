@@ -31,18 +31,16 @@ class AdminEcosystemController extends AbstractController
     ): Response {
         $form = $this->createForm(StatusFilterType::class);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $statusName = $form->getData()['status'];
-            if (!$statusName) {
-                $ecosystems = $ecosystemRepository->findBy([], ['name' => 'ASC']);
-            } else {
+            if ($statusName) {
                 $status = $statusRepository->findOneBy(['name' => $statusName]);
                 $ecosystems = $ecosystemRepository->findBy(['status' => $status], ['name' => 'ASC']);
             }
-        } else {
-            $ecosystems = $ecosystemRepository->findBy([], ['name' => 'ASC']);
         }
+
+        $ecosystems ??= $ecosystemRepository->findBy([], ['name' => 'ASC']);
+
         return $this->render('admin/ecosystem/index.html.twig', [
             'ecosystems' => $ecosystems,
             'form' => $form->createView(),
