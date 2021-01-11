@@ -39,6 +39,8 @@ class AdminOfferController extends AbstractController
             $entityManager->persist($offer);
             $entityManager->flush();
 
+            $this->addFlash('success', 'Félicitations, le service a bien été ajouté');
+
             return $this->redirectToRoute('admin_offer_index');
         }
 
