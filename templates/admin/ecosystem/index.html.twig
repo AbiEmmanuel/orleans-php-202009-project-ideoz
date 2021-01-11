@@ -9,14 +9,37 @@
 {% block body %}
     <h1 class="text-center">Écosystème</h1>
     <div class="container">
-        <div class="d-flex justify-content-end mr-4 pb-4">
-            <a class="text-decoration-none" href="{{ path('ecosystem_new') }}" title="Ajouter une entreprise">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
-                     class="bi bi-plus-square-fill" viewBox="0 0 16 16">
-                    <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
-                </svg>
-            </a>
+        <div class="row filter-status mx-0 mb-2 justify-content-between align-items-end">
+            <div class="col-md-6">
+                {{ form_start(form) }}
+                <div class="w-100">
+                    {{ form_label(form.status) }}
+                    <div class="d-flex align-items-start">
+                        <div class="status-choice">
+                            {{ form_widget(form.status) }}
+                        </div>
+                        <button class="filter-button text-primary btn rounded-pill mt-1 ml-2 px-3 py-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                 class="bi bi-search mr-2"
+                                 viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            </svg>
+                            Filtrer
+                        </button>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end mr-4 pb-4">
+                <a class="text-decoration-none" href="{{ path('ecosystem_new') }}" title="Ajouter une entreprise">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                         class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+                    </svg>
+                </a>
+            </div>
         </div>
+
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
@@ -32,7 +55,8 @@
                 {% for ecosystem in ecosystems %}
                     <tr>
                         <td>{{ ecosystem.name }}</td>
-                        <td><img class="logo" src="{{ asset('uploads/' ~ ecosystem.logo) }}" alt="{{ ecosystem.name }}"></td>
+                        <td><img class="logo" src="{{ asset('uploads/' ~ ecosystem.logo) }}" alt="{{ ecosystem.name }}">
+                        </td>
                         <td>{{ ecosystem.activity }}</td>
                         <td>{{ ecosystem.status.name }}</td>
                         <td class="d-flex justify-content-around align-items-center">

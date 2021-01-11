@@ -9,9 +9,7 @@
             <p>Fait avec ❤ par les <a  class="text-white" href="https://www.wildcodeschool.com/fr-FR/campus/orleans" target="_blank"><strong>Wilders</strong></a></p>
         </div>
         <div class="col-md-4 col-lg-4 text-center order-md-last order-lg-last text-white ">
-            <p class="my-1">Simon Abraham</p>
-            <p class="mb-1">0661992159</p>
-            <p class="mb-1">ideoz@gmail.com</p>
+            {{ render(controller('App\\Controller\\HomeController::footerContact')) }}
         </div>
     </div>
 </footer>

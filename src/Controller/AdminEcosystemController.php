@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Ecosystem;
 use App\Form\EcosystemType;
+use App\Form\StatusFilterType;
 use App\Repository\EcosystemRepository;
+use App\Repository\StatusRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,14 +18,32 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminEcosystemController extends AbstractController
 {
     /**
-     * @Route("/", name="index", methods={"GET"})
+     * @Route("/", name="index", methods={"GET","POST"})
      * @param EcosystemRepository $ecosystemRepository
+     * @param Request $request
+     * @param StatusRepository $statusRepository
      * @return Response
      */
-    public function index(EcosystemRepository $ecosystemRepository): Response
-    {
+    public function index(
+        EcosystemRepository $ecosystemRepository,
+        Request $request,
+        StatusRepository $statusRepository
+    ): Response {
+        $form = $this->createForm(StatusFilterType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $statusName = $form->getData()['status'];
+            if ($statusName) {
+                $status = $statusRepository->findOneBy(['name' => $statusName]);
+                $ecosystems = $ecosystemRepository->findBy(['status' => $status], ['name' => 'ASC']);
+            }
+        }
+
+        $ecosystems ??= $ecosystemRepository->findBy([], ['name' => 'ASC']);
+
         return $this->render('admin/ecosystem/index.html.twig', [
-            'ecosystems' => $ecosystemRepository->findBy([], ['name' => 'ASC']),
+            'ecosystems' => $ecosystems,
+            'form' => $form->createView(),
         ]);
     }
 
