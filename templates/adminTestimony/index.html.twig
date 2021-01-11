@@ -26,7 +26,7 @@
         {% for testimony in testimonies %}
             <tr>
                 <td>{{ testimony.ecosystem.name }}</td>
-                <td>{{ testimony.content }}</td>
+                <td>{{ testimony.content | raw }}</td>
                 <td>
                     <a title="Éditer" href="{{ path('admin_testimony_edit', {'id': testimony.id}) }}" class="btn m-2 p-2 ">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
