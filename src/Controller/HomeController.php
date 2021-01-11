@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Testimony;
+use App\Repository\CompanyRepository;
 use App\Repository\EcosystemRepository;
 use App\Repository\StatusRepository;
 use App\Repository\TestimonyRepository;
@@ -35,6 +36,28 @@ class HomeController extends AbstractController
             'testimonies' => $testimonyRepository->findBy([], ['id' => 'DESC'], 4),
             'clients' => $ecosystemRepository->findBy(['status' => $client], ['id' => 'ASC'], 10),
             'partners' => $ecosystemRepository->findBy(['status' => $partner], ['id' => 'ASC'], 10),
+        ]);
+    }
+
+    /**
+     * @param OfferRepository $offerRepository
+     * @return Response
+     */
+    public function navbarOffer(OfferRepository $offerRepository): Response
+    {
+        return $this->render('includes/_navbarOffer.html.twig', [
+            'services' => $offerRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @param CompanyRepository $companyRepository
+     * @return Response
+     */
+    public function footerContact(CompanyRepository $companyRepository): Response
+    {
+        return $this->render('includes/_footerContact.html.twig', [
+            'contact' => $companyRepository->findOneBy([]),
         ]);
     }
 }

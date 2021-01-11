@@ -1,2 +1,5 @@
 {% extends 'base.html.twig' %}
 {% block title %}{{ parent() }} - Panneau d'administration{% endblock %}
+ {% block header %}
+     {% block navbar %} {% include 'includes/_navbarAdmin.html.twig' %} {% endblock %}
+ {% endblock %}
