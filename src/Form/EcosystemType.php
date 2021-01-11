@@ -45,6 +45,7 @@ class EcosystemType extends AbstractType
                 'choice_label' => 'name',
                 'expanded' => true,
                 'multiple' => false,
+                'required' => true,
             ])
         ;
     }
