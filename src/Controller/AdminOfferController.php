@@ -17,6 +17,8 @@ class AdminOfferController extends AbstractController
 {
     /**
      * @Route("/", name="offer_index", methods={"GET"})
+     * @param OfferRepository $offerRepository
+     * @return Response
      */
     public function index(OfferRepository $offerRepository): Response
     {

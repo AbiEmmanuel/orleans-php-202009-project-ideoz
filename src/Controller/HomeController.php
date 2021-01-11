@@ -37,4 +37,15 @@ class HomeController extends AbstractController
             'partners' => $ecosystemRepository->findBy(['status' => $partner], ['id' => 'ASC'], 10),
         ]);
     }
+
+    /**
+     * @param OfferRepository $offerRepository
+     * @return Response
+     */
+    public function navbarOffer(OfferRepository $offerRepository): Response
+    {
+        return $this->render('includes/_navbarOffer.html.twig', [
+            'services' => $offerRepository->findAll(),
+        ]);
+    }
 }
