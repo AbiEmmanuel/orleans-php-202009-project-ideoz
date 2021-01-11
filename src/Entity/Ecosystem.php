@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\EcosystemRepository;
 use DateTime;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
@@ -53,11 +55,6 @@ class Ecosystem
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $particularity;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max="255")
      */
     private ?string $url;
@@ -82,6 +79,32 @@ class Ecosystem
      * @ORM\Column(type="datetime", nullable=true)
      */
     private \DateTimeInterface $updatedAt;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private ?string $presentation;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private bool $isValidated;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Competence::class, inversedBy="companies")
+     */
+    private Collection $competence;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Project::class, mappedBy="owner", orphanRemoval=true)
+     */
+    private Collection $projects;
+
+    public function __construct()
+    {
+        $this->competence = new ArrayCollection();
+        $this->projects = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -134,18 +157,6 @@ class Ecosystem
     public function setActivity(?string $activity): self
     {
         $this->activity = $activity;
-
-        return $this;
-    }
-
-    public function getParticularity(): ?string
-    {
-        return $this->particularity;
-    }
-
-    public function setParticularity(?string $particularity): self
-    {
-        $this->particularity = $particularity;
 
         return $this;
     }
@@ -211,6 +222,84 @@ class Ecosystem
     public function setUpdatedAt(\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getPresentation(): ?string
+    {
+        return $this->presentation;
+    }
+
+    public function setPresentation(?string $presentation): self
+    {
+        $this->presentation = $presentation;
+
+        return $this;
+    }
+
+    public function getIsValidated(): ?bool
+    {
+        return $this->isValidated;
+    }
+
+    public function setIsValidated(bool $isValidated): self
+    {
+        $this->isValidated = $isValidated;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Competence[]
+     */
+    public function getCompetence(): Collection
+    {
+        return $this->competence;
+    }
+
+    public function addCompetence(Competence $competence): self
+    {
+        if (!$this->competence->contains($competence)) {
+            $this->competence[] = $competence;
+        }
+
+        return $this;
+    }
+
+    public function removeCompetence(Competence $competence): self
+    {
+        $this->competence->removeElement($competence);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Project[]
+     */
+    public function getProjects(): Collection
+    {
+        return $this->projects;
+    }
+
+    public function addProject(Project $project): self
+    {
+        if (!$this->projects->contains($project)) {
+            $this->projects[] = $project;
+            $project->setOwner($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProject(Project $project): self
+    {
+        if ($this->projects->removeElement($project)) {
+            // set the owning side to null (unless already changed)
+            if ($project->getOwner() === $this) {
+                $project->setOwner(null);
+            }
+        }
 
         return $this;
     }
