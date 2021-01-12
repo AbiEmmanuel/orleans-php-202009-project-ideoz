@@ -22,7 +22,7 @@ class User implements UserInterface
     /**
      * @Assert\Email
      * @Assert\NotBlank
-     * @Assert\Length(max="180"=
+     * @Assert\Length(max="180")
      * @ORM\Column(type="string", length=180, unique=true)
      */
     private string $email;
@@ -30,11 +30,12 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="json")
      */
-    private array $roles = [];
+    private array $roles = ['ROLE_USER'];
 
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\NotBlank
      */
     private string $password;
 
