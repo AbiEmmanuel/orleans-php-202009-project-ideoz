@@ -13,15 +13,17 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("/admin/projet", name="admin_")
  */
-class ProjectController extends AbstractController
+class AdminProjectController extends AbstractController
 {
     /**
      * @Route("/", name="project_index", methods={"GET"})
+     * @param ProjectRepository $projectRepository
+     * @return Response
      */
     public function index(ProjectRepository $projectRepository): Response
     {
         return $this->render('admin/project/index.html.twig', [
-            'projects' => $projectRepository->findAll(),
+            'projects' => $projectRepository->findBy([], ['title' => 'ASC']),
         ]);
     }
 
