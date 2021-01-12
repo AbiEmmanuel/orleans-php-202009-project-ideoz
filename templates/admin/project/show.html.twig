@@ -1,34 +1,60 @@
 {% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}Project{% endblock %}
+{% block title %}{{ parent() }} | Ecosystème - {{ project.title }}{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('adminProject') }}
+{% endblock %}
 
 {% block body %}
-    <h1>Project</h1>
+    <h1 class="text-center">Projet</h1>
 
-    <table class="table">
-        <tbody>
+    <div class="container">
+        <table class="table table-striped">
+            <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ project.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
+                <th>Titre</th>
                 <td>{{ project.title }}</td>
             </tr>
             <tr>
-                <th>Presentation</th>
+                <th>Présentation</th>
                 <td>{{ project.presentation }}</td>
             </tr>
             <tr>
-                <th>Purpose</th>
+                <th>Ambition</th>
                 <td>{{ project.purpose }}</td>
             </tr>
-        </tbody>
-    </table>
+            <tr>
+                <th>Porteur</th>
+                <td>{{ project.owner.name }}</td>
+            </tr>
+            <tr>
+                <th>Compétences</th>
+                <td>
+                    {% for competence in project.competence %}
+                        {{ competence.name }}
+                    {% endfor %}
+                </td>
+            </tr>
+            </tbody>
+        </table>
 
-    <a href="{{ path('admin_project_index') }}">back to list</a>
+        <div class="button-list d-flex justify-content-center">
+            <a class="text-decoration-none"
+               href="{{ path('admin_project_edit', {'id': project.id})}}" title="Modifier">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                     class="bi bi-pencil-square" viewBox="0 0 16 16">
+                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                    <path fill-rule="evenodd"
+                          d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                </svg>
+            </a>
 
-    <a href="{{ path('admin_project_edit', {'id': project.id}) }}">edit</a>
-
-    {{ include('admin/project/_delete_form.html.twig') }}
+            {{ include('admin/project/_delete_form.html.twig') }}
+        </div>
+        <div class="row mx-0">
+            <a class="back text-decoration-none text-dark btn rounded-pill my-4 px-3 py-1"
+               href="{{ path('admin_project_index') }}">Retour</a>
+        </div>
+    </div>
 {% endblock %}
