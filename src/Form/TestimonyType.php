@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Testimony;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,7 +14,7 @@ class TestimonyType extends AbstractType
     {
         $builder
             ->add('ecosystem', null, ['choice_label' => 'name'])
-            ->add('content')
+            ->add('content', CKEditorType::class)
         ;
     }
 

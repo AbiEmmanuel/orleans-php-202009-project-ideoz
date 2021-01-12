@@ -28,8 +28,8 @@
                 <tr>
                     <td>{{ offer.id }}</td>
                     <td>{{ offer.name }}</td>
-                    <td>{{ offer.description }}</td>
-                    <td>{{ offer.abstract }}</td>
+                    <td>{{ offer.description | raw }}</td>
+                    <td>{{ offer.abstract | raw }}</td>
                     <td class=" d-flex">
                         <a class="mx-1 text-decoration-none"
                            href="{{ path('admin_offer_show', {'id': offer.id}) }}" title="Détails">

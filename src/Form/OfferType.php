@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Offer;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,8 +18,8 @@ class OfferType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => 'Nom'
             ])
-            ->add('description', TextareaType::class)
-            ->add('abstract', TextareaType::class, [
+            ->add('description', CKEditorType::class)
+            ->add('abstract', CKEditorType::class, [
                 'label' => 'Résumé'
             ])
         ;

@@ -22,11 +22,11 @@
             </tr>
             <tr>
                 <th>Description</th>
-                <td>{{ offer.description }}</td>
+                <td>{{ offer.description | raw }}</td>
             </tr>
             <tr>
                 <th>Résumé</th>
-                <td>{{ offer.abstract }}</td>
+                <td>{{ offer.abstract | raw }}</td>
             </tr>
         </tbody>
     </table>
