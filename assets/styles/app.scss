@@ -26,10 +26,6 @@ h4, h5, h6 {
     color: $primary;
 }
 
-p {
-    line-height: 2rem;
-}
-
 .button-yellow {
     font-family: $font-title;
     font-weight: 700;
@@ -80,6 +76,12 @@ nav {
                 color: $primary;
             }
        }
+    }
+}
+
+.dropleft {
+    .dropdown-menu {
+        border: none;
     }
 }
 

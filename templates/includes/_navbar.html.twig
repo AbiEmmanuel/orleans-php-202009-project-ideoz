@@ -31,9 +31,10 @@
             </li>
         </ul>
     </div>
+    {% if not app.user %}
         <ul class="navbar-nav d-flex justify-content-end">
             <li class="nav-item mr-sm-2 align-self-center">
-                <a class="nav-link text-light icon-connexion" href="#">
+                <a class="nav-link text-light icon-connexion" href="{{ path('app_login') }}">
                     <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor"
                          xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0
@@ -42,4 +43,23 @@
                 </a>
             </li>
         </ul>
+    {% else %}
+        <ul class="navbar-nav d-flex justify-content-end">
+            <li class="nav-item dropleft align-self-center">
+                <a class="nav-link text-light icon-connexion dropdown-toggle text-decoration-none" href="#" role="button" id="dropdownMenuLink"
+                   data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0
+                    0 0 0 6z"/>
+                    </svg>
+                </a>
+                <div class="dropdown-menu bg-primary" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="">Mon profil</a>
+                    <a class="dropdown-item" href="{{ path('app_logout') }}">Déconnexion</a>
+                </div>
+            </li>
+        </ul>
+    {% endif %}
 </nav>
