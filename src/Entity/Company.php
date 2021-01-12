@@ -3,7 +3,11 @@
 namespace App\Entity;
 
 use App\Repository\CompanyRepository;
+use DateTime;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=CompanyRepository::class)
@@ -31,6 +35,27 @@ class Company
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private string $name;
+
+    /**
+     * @ORM\Column(type="string", length=20)
+     */
+    private string $companyName;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $favicon;
+
+    /**
+     * @Vich\UploadableField(mapping="favicon_file", fileNameProperty="favicon")
+     * @Assert\File(maxSize="100000", mimeTypes={"image/jpeg", "image/png", "image/jpg"})
+     */
+    private ?File $faviconFile = null;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private ?\DateTimeInterface $updatedAt;
 
     public function getId(): ?int
     {
@@ -69,6 +94,56 @@ class Company
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getCompanyName(): ?string
+    {
+        return $this->companyName;
+    }
+
+    public function setCompanyName(string $companyName): self
+    {
+        $this->companyName = $companyName;
+
+        return $this;
+    }
+
+    public function getFavicon(): ?string
+    {
+        return $this->favicon;
+    }
+
+    public function setFavicon(?string $favicon): self
+    {
+        $this->favicon = $favicon;
+
+        return $this;
+    }
+
+    public function setFaviconFile(File $image = null): Company
+    {
+        $this->faviconFile = $image;
+        if ($image) {
+            $this->updatedAt = new DateTime('now');
+        }
+        return $this;
+    }
+
+    public function getFaviconFile(): ?File
+    {
+        return $this->faviconFile;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
