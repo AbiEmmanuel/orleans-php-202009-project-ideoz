@@ -1,11 +1,18 @@
 {% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}New Offer{% endblock %}
+{% block title %}Ajout d'un service{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('adminOffer') }}
+{% endblock %}
 
 {% block body %}
-    <h1>Create new Offer</h1>
-
-    {{ include('adminOffer/_form.html.twig') }}
-
-    <a href="{{ path('admin_offer_index') }}">back to list</a>
+    <h1 class="text-center">Ajouter un nouveau service</h1>
+    <div class="new container">
+        <div class="text-center">
+        {{ include('adminOffer/_form.html.twig') }}
+        </div>
+        <a class="back text-decoration-none text-dark btn rounded-pill my-4 px-3 py-1"
+           href="{{ path('admin_offer_index') }}">retour</a>
+    </div>
 {% endblock %}
