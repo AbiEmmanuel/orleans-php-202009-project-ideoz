@@ -39,6 +39,7 @@ Encore
     .addEntry('adminOffer', './assets/styles/adminOffer.scss')
     .addEntry('testimony', './assets/styles/testimony.scss')
     .addEntry('adminEcosystem', './assets/styles/adminEcosystem.scss')
+    .addEntry('adminProject', './assets/styles/adminProject.scss')
     .addEntry('contact', './assets/styles/contact.scss')
     .addEntry('adminTestimony', './assets/styles/adminTestimony.scss')
 

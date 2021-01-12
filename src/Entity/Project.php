@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ProjectRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,27 +22,34 @@ class Project
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(max=255)
      */
     private string $title;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
      */
     private string $presentation;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(max=255)
      */
     private string $purpose;
 
     /**
      * @ORM\ManyToOne(targetEntity=Ecosystem::class, inversedBy="projects")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private ?Ecosystem $owner;
 
     /**
      * @ORM\ManyToMany(targetEntity=Competence::class, inversedBy="projects")
+     * @Assert\NotBlank
      */
     private Collection $competence;
 
