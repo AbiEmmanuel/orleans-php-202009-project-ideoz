@@ -2,6 +2,7 @@
 {% block title %}{{ parent() }}{% endblock %}
 {% block stylesheets %}{{ parent() }}{{ encore_entry_link_tags('home') }}{% endblock %}
 {% block body %}
+    <a id="top"></a>
     <section class="my-0 py-0">
         <div class="see-further text-center container-fluid">
             <h1 class="my-5">IDEOZ</h1>
@@ -64,7 +65,6 @@
                 <img class="pt-3" src="{{ asset('build/images/linkedin-blue.1a718042.png') }}" class="mx-auto" alt="LinkedIn Link">
             </a>
         </section>
-
     <section class="service">
         <h2 class="text-center">Mes services</h2>
         <div class="container-fluid">
@@ -104,7 +104,6 @@
         <div class="bg-primary d-flex justify-content-center py-2">
             <a href="{{ path('contact') }}"
                class="button-yellow text-decoration-none btn-lg rounded-pill my-4 px-5 py-3">
-
                 Contactez-moi
             </a>
         </div>
@@ -197,6 +196,50 @@
                           d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
                 </svg>
             </button>
+        </div>
+    </section>
+    <section class="espace-co">
+        <div class="image container-fluid">
+            <h2 class="text-center pt-5 mb-5">Club Co-Oz</h2>
+            <div class="d-flex justify-content-center align-items-center mb-5">
+                <p class="text-justify text-primary">
+                    Le club Co-oZ est un espace collaboratif dans le lequel je vous invite a inscrire votre entreprise.
+                </p>
+            </div>
+            <h3 class="text-center mb-5">En quoi cela consiste ?</h3>
+
+            <div class="d-flex justify-content-center align-items-center mb-3">
+                <p class="text-justify text-primary">
+                    Inscrivez votre structure et ses compétences clés dans un écosystème
+                    coopératif régional.
+                </p>
+            </div>
+            <div class="d-flex justify-content-center align-items-center mb-3">
+                <p class="text-justify text-primary">Pourquoi ?</p>
+            </div>
+            <div class="d-flex justify-content-center align-items-center mb-3">
+                <p class="text-justify text-primary">
+                    Pour trouver des partenaires et identifier des nouvelles opportunitées de développement
+                </p>
+            </div>
+            <div class="d-flex justify-content-center align-items-center mb-3">
+                <p class="text-justify text-primary">
+                    Pour plus d'informations contactez moi !
+                </p>
+            </div>
+            <div class="d-flex justify-content-center align-items-center">
+                <a class="button-yellow text-decoration-none btn-lg rounded-pill my-4 px-5 py-3" href="#">Inscrivez-vous !</a>
+            </div>
+            <div class="top d-flex justify-content-end ">
+                <a class="svg mb-5" href="#top">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor"
+                         class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                              d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path fill-rule="evenodd"
+                              d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+                    </svg>
+                </a>
         </div>
     </section>
 {% endblock %}
