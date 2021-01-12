@@ -31,7 +31,7 @@
                                 <p class="badge badge-primary text-center">
                                     {{ testimony.ecosystem.activity }}
                                 </p>
-                                <p class="card-text text-muted">«{{ testimony.content }}</p>
+                                <div class="card-text text-muted">{{ testimony.content | raw}}</div>
                             </div>
                         </div>
                     </div>

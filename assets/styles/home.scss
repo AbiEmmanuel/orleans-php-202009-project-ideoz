@@ -1,5 +1,40 @@
 @import 'app.scss';
 
+.see-further {
+    background-image: url('../images/binoculars.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    padding-top: $spacing-4;
+    padding-bottom: $spacing-4;
+
+    p {
+        font-size: $h4-font-size;
+    }
+}
+
+.about-us {
+    .about-us-text {
+        padding-top: $spacing-4;
+
+        ul li {
+            list-style-type: square;
+        }
+
+        ul li::marker {
+            color: $secondary;
+        }
+    }
+}
+
+.simon {
+    width: 50%;
+    padding-bottom: $spacing-3;
+    padding-top: 0;
+}
+
 .testimony {
     figure {
         max-width: $max-width-figure-home;
@@ -140,5 +175,25 @@
                 }
             }
         }
+    }
+}
+
+.espace-co {
+    padding: 0 0;
+    bottom: 0;
+
+    .image {
+        height: 750px;
+        margin-bottom: 0;
+        background-image: url('../images/CO-oz.png');
+        background-attachment: fixed;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    p {
+        font-size: $spacing-2;
+        font-weight: bolder;
     }
 }

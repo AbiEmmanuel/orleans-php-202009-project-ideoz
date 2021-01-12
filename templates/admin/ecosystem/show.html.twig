@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'layoutAdmin.html.twig' %}
 
 {% block title %}{{ parent() }} | Ecosystème - {{ ecosystem.name }}{% endblock %}
 {% block stylesheets %}
@@ -34,7 +34,7 @@
             </tr>
             <tr>
                 <th>Résumé</th>
-                <td>{{ ecosystem.abstract }}</td>
+                <td>{{ ecosystem.abstract | raw}}</td>
             </tr>
             <tr>
                 <th>Statut</th>

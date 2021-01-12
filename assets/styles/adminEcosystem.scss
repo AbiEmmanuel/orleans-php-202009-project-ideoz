@@ -39,10 +39,34 @@
     }
 }
 
+.status-choice div {
+    padding-bottom: $spacing / 2;
+    display: flex;
+    flex-wrap: wrap;
+
+    .form-check {
+        margin: $spacing;
+    }
+}
+
 .custom-file-label {
     display: none;
 }
 
 .custom-file-input {
     opacity: 1;
+}
+
+.filter-status {
+    form {
+        display:flex;
+
+        .col-form-label {
+            font-size: $h4-font-size;
+        }
+    }
+}
+
+.filter-button {
+    border: solid 1px $primary;
 }
