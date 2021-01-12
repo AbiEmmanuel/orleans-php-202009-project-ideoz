@@ -177,3 +177,23 @@
         }
     }
 }
+
+.espace-co {
+    padding: 0 0;
+    bottom: 0;
+
+    .image {
+        height: 750px;
+        margin-bottom: 0;
+        background-image: url('../images/CO-oz.png');
+        background-attachment: fixed;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    p {
+        font-size: $spacing-2;
+        font-weight: bolder;
+    }
+}
