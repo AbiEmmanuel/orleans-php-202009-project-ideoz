@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Testimony;
+use App\Repository\CompanyRepository;
 use App\Repository\EcosystemRepository;
 use App\Repository\StatusRepository;
 use App\Repository\TestimonyRepository;
@@ -46,6 +47,17 @@ class HomeController extends AbstractController
     {
         return $this->render('includes/_navbarOffer.html.twig', [
             'services' => $offerRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @param CompanyRepository $companyRepository
+     * @return Response
+     */
+    public function footerContact(CompanyRepository $companyRepository): Response
+    {
+        return $this->render('includes/_footerContact.html.twig', [
+            'contact' => $companyRepository->findOneBy([]),
         ]);
     }
 }
