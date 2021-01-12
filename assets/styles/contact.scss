@@ -1,10 +1,19 @@
 @import 'app.scss';
 
-.header {
-    background-image: url('../images/contact.jpg');
-    background-attachment: fixed;
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 500px;
+main {
+    padding-bottom: $spacing-4;
+
+    .header {
+        background-image: url('../images/contact.jpg');
+        background-attachment: fixed;
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 500px;
+    }
+
+    .button-contact {
+        border: none;
+        outline: none;
+    }
 }

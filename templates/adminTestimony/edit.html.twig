@@ -1,21 +1,21 @@
 {% extends 'layoutAdmin.html.twig' %}
 
 {% block title %}Modifier les témoignages{% endblock %}
-
 {% block stylesheets %}
     {{ parent() }}
-    {{ encore_entry_link_tags('adminOffer') }}
+    {{ encore_entry_link_tags('adminTestimony') }}
 {% endblock %}
 
 {% block body %}
-    <h1 class="text-center pt-3 my-5">Editer les témoignages</h1>
-    <div class="container edit">
-        {{ include('adminTestimony/_form.html.twig')}}
-        <div class="row mx-0 justify-content-center">
-            {{ include('adminTestimony/_delete_form.html.twig')}}
+    <h1 class="text-center">Modifier un témoignage</h1>
+    <div class="container">
+        {{ include('adminTestimony/_form.html.twig', {'button_label': 'Modifier'}) }}
+        <div class="row mx-0 d-flex justify-content-center">
+            {{ include('adminTestimony/_delete_form.html.twig', {'button_label': 'Supprimer'}) }}
         </div>
-        <div class="ml-4">
-            <a class="back text-decoration-none text-dark btn rounded-pill my-4 px-3 py-1" href="{{ path('admin_testimony_index') }}">Retour</a>
+        <div class="row mx-0">
+            <a class="back text-decoration-none text-dark btn rounded-pill my-4 px-3 py-1"
+               href="{{ path('admin_testimony_index') }}">Retour</a>
         </div>
     </div>
 {% endblock %}
