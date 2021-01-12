@@ -18,7 +18,7 @@ class EcosystemeFixtures extends Fixture implements DependentFixtureInterface
             $ecosystem->setName($faker->company);
             $image = 'https://loremflickr.com/320/240/';
             $imageName = uniqid() . '.jpg';
-            copy($image, __DIR__ . '/../../public/uploads/gifts/' . $imageName);
+            copy($image, __DIR__ . '/../../public/uploads/logos/' . $imageName);
             $ecosystem->setLogo($imageName);
             $ecosystem->setStatus($this->getReference('status_' . rand(0, 2)));
             $ecosystem->setActivity($faker->jobTitle);

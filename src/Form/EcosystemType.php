@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichFileType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class EcosystemType extends AbstractType
 {
@@ -19,19 +20,20 @@ class EcosystemType extends AbstractType
             ->add('name', TextType::class, [
             'label' => 'Nom',
             ])
-            ->add('logoFile', VichFileType::class, [
+            ->add('logoFile', VichImageType::class, [
                 'label' => 'Logo',
                 'required' => false,
-                'allow_delete' => false,
                 'download_uri' => false,
             ])
             ->add('activity', TextType::class, [
                 'label' => 'Secteur d\'activité',
                 'required' => false,
             ])
-            ->add('particularity', TextType::class, [
+            ->add('competence', null, [
                 'label' => 'Compétence différenciante',
-                'required' => false,
+                'choice_label' => 'name',
+                'expanded' => true,
+                'multiple' => true,
             ])
             ->add('url', TextType::class, [
                 'label' => 'Site internet',

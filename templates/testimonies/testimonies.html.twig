@@ -25,7 +25,7 @@
                 {% for testimony in testimonies %}
                     <div class="col-md-6 col-lg-4 d-flex justify-content-center">
                         <div class="card mb-5 text-center">
-                            <img src="{{ testimony.ecosystem.logo }}" class="card-img-top img-fluid" alt="logo">
+                            <img src="{{ asset('uploads/logos/' ~ testimony.ecosystem.logo) }}" class="card-img-top img-fluid" alt="logo">
                             <div class="card-body">
                                 <h5 class="card-title">{{ testimony.ecosystem.name }}</h5>
                                 <p class="badge badge-primary text-center">
