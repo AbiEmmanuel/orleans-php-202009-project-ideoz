@@ -82,6 +82,9 @@ class AdminProjectController extends AbstractController
 
     /**
      * @Route("/{id}", name="project_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Project $project
+     * @return Response
      */
     public function delete(Request $request, Project $project): Response
     {
@@ -90,6 +93,8 @@ class AdminProjectController extends AbstractController
             $entityManager->remove($project);
             $entityManager->flush();
         }
+
+        $this->addFlash('danger', 'Le projet a bien été supprimé');
 
         return $this->redirectToRoute('admin_project_index');
     }
