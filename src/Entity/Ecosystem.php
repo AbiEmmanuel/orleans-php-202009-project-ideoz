@@ -104,6 +104,7 @@ class Ecosystem
     {
         $this->competence = new ArrayCollection();
         $this->projects = new ArrayCollection();
+        $this ->updatedAt = new DateTime('now');
     }
 
     public function getId(): ?int

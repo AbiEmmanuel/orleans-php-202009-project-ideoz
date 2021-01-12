@@ -154,3 +154,11 @@ h3 {
 section {
     padding: $spacing-4 0;
 }
+
+.vich-image {
+    a {
+        img {
+            height: $max-height-img-ecosystem;
+        }
+    }
+}
