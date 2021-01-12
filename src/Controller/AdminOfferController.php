@@ -22,7 +22,7 @@ class AdminOfferController extends AbstractController
      */
     public function index(OfferRepository $offerRepository): Response
     {
-        return $this->render('adminOffer/index.html.twig', [
+        return $this->render('adminOffer/companies.html.twig', [
             'offers' => $offerRepository->findAll(),
         ]);
     }

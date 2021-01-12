@@ -39,7 +39,7 @@ class TestimonyController extends AbstractController
     */
     public function adminIndex(TestimonyRepository $testimonyRepository): Response
     {
-        return $this->render('adminTestimony/index.html.twig', [
+        return $this->render('adminTestimony/companies.html.twig', [
         'testimonies' => $testimonyRepository->findAll(),
         ]);
     }
