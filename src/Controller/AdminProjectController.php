@@ -66,6 +66,9 @@ class AdminProjectController extends AbstractController
 
     /**
      * @Route("/{id}/edition", name="project_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Project $project
+     * @return Response
      */
     public function edit(Request $request, Project $project): Response
     {
@@ -74,6 +77,8 @@ class AdminProjectController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+
+            $this->addFlash('success', 'Le projet a bien été modifié');
 
             return $this->redirectToRoute('admin_project_index');
         }
