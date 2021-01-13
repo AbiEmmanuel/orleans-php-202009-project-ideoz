@@ -147,7 +147,7 @@
                     <div class="logo">
                         <a href="{{ client.url }}" target="_blank" class="text-decoration-none">
                             <div class="container-image text-center d-flex justify-content-center align-items-center">
-                                <img src="{{ asset('uploads/' ~ client.logo) }}" alt="{{ client.name }}">
+                                <img src="{{ asset('uploads/logos/' ~ client.logo) }}" alt="{{ client.name }}">
                                 <div class="background">
                                     <p class="font-weight-bold">{{ client.name }}</p>
                                     <div class="text-left px-1">{{ client.abstract | raw }}</div>
@@ -179,7 +179,7 @@
                     <div class="logo">
                         <a href="{{ partner.url }}" target="_blank" class="text-decoration-none">
                             <div class="container-image text-center d-flex justify-content-center align-items-center">
-                                <img src="{{ asset('uploads/' ~ partner.logo) }}" alt="{{ partner.name }}">
+                                <img src="{{ asset('uploads/logos/' ~ partner.logo) }}" alt="{{ partner.name }}">
                                 <div class="background">
                                     <p class="font-weight-bold">{{ partner.name }}</p>
                                     <div class="text-left px-1">{{ partner.abstract | raw }}</div>

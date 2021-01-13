@@ -2,8 +2,8 @@ vich_uploader:
     db_driver: orm
     mappings:
         logo_file:
-            uri_prefix: /images/logo
-            upload_destination: '%upload_directory%'
+            uri_prefix: /uploads/logos
+            upload_destination: '%upload_directory%/logos'
             delete_on_update: true
             namer:
                 service: Vich\UploaderBundle\Naming\SmartUniqueNamer

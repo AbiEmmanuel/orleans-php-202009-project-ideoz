@@ -18,7 +18,7 @@
             </tr>
             <tr>
                 <th>Logo</th>
-                <td><img class="logo" src="{{ asset('uploads/' ~ ecosystem.logo) }}" alt="{{ ecosystem.name }}"></td>
+                <td><img class="logo" src="{{ asset('uploads/logos/' ~ ecosystem.logo) }}" alt="{{ ecosystem.name }}"></td>
             </tr>
             <tr>
                 <th>Activité</th>
@@ -26,7 +26,11 @@
             </tr>
             <tr>
                 <th>Compétence différentiante</th>
-                <td>{{ ecosystem.particularity }}</td>
+                <td>
+                    {% for competence in ecosystem.competence %}
+                        {{ competence.name }}
+                    {% endfor %}
+                </td>
             </tr>
             <tr>
                 <th>Site web</th>
@@ -34,7 +38,7 @@
             </tr>
             <tr>
                 <th>Résumé</th>
-                <td>{{ ecosystem.abstract | raw}}</td>
+                <td>{{ ecosystem.abstract | raw }}</td>
             </tr>
             <tr>
                 <th>Statut</th>
