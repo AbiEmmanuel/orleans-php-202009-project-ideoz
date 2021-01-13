@@ -43,6 +43,7 @@ Encore
     .addEntry('contact', './assets/styles/contact.scss')
     .addEntry('login', './assets/styles/login.scss')
     .addEntry('adminTestimony', './assets/styles/adminTestimony.scss')
+    .addEntry('companies', './assets/styles/companies.scss')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
