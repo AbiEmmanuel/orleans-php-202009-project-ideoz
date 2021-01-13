@@ -31,7 +31,7 @@ class HomeController extends AbstractController
         $client = $statusRepository->findOneBy(['name' => 'Client']);
         $partner = $statusRepository->findOneBy(['name' => 'Partenaire']);
 
-        return $this->render('home/companies.html.twig', [
+        return $this->render('home/index.html.twig', [
             'services' => $offerRepository->findAll(),
             'testimonies' => $testimonyRepository->findBy([], ['id' => 'DESC'], 4),
             'clients' => $ecosystemRepository->findBy(['status' => $client], ['id' => 'ASC'], 10),

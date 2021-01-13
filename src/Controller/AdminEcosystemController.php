@@ -41,7 +41,7 @@ class AdminEcosystemController extends AbstractController
 
         $ecosystems ??= $ecosystemRepository->findBy([], ['name' => 'ASC']);
 
-        return $this->render('admin/ecosystem/companies.html.twig', [
+        return $this->render('admin/ecosystem/index.html.twig', [
             'ecosystems' => $ecosystems,
             'form' => $form->createView(),
         ]);
