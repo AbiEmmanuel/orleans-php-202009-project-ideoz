@@ -29,6 +29,8 @@ class AdminProjectController extends AbstractController
 
     /**
      * @Route("/ajout", name="project_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -40,6 +42,8 @@ class AdminProjectController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($project);
             $entityManager->flush();
+
+            $this->addFlash('success', 'Le projet a bien été créé');
 
             return $this->redirectToRoute('admin_project_index');
         }
