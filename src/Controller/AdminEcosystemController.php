@@ -69,14 +69,11 @@ class AdminEcosystemController extends AbstractController
             $statusName = $form->getData()['status'];
             if ($statusName) {
                 $status = $statusRepository->findOneBy(['name' => $statusName]);
-                $ecosystems = $ecosystemRepository->findBy(
-                    ['status' => $status, 'isValidated' => false],
-                    ['name' => 'ASC']
-                );
+                $ecosystems = $ecosystemRepository->findBy(['status' => $status, 'isValidated' => false]);
             }
         }
 
-        $ecosystems ??= $ecosystemRepository->findBy(['isValidated' => false], ['name' => 'ASC']);
+        $ecosystems ??= $ecosystemRepository->findBy(['isValidated' => false]);
 
         return $this->render('admin/ecosystem/index.html.twig', [
             'ecosystems' => $ecosystems,
