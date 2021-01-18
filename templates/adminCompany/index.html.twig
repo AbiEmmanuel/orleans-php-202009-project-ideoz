@@ -3,17 +3,17 @@
 {% block title %}Company index{% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Company index</h1>
+    <h1 class="text-center">Info sur l'entreprise</h1>
     <div class="container">
     <table class="table table-striped">
         <thead class="bg-primary text-white">
             <tr>
-                <th>CompanyName</th>
-                <th>Name</th>
-                <th>PhoneNumber</th>
+                <th>Nom de l'entreprise</th>
+                <th>Nom</th>
+                <th>N° de Teleĥone</th>
                 <th>Email</th>
                 <th>Favicon</th>
-                <th>actions</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -37,7 +37,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="8">no records found</td>
+                <td colspan="8">Aucune infos trouvées</td>
             </tr>
         {% endfor %}
         </tbody>
