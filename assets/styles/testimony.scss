@@ -20,6 +20,17 @@
         height: $height-header;
     }
 
+    .testimonies-container {
+        .card {
+            margin: $spacing-4 0;
+
+            .logo {
+                max-width: $max-width-figure-home;
+            }
+
+        }
+    }
+
     .separate {
         img {
             margin-left: $spacing;
