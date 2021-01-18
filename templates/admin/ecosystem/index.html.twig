@@ -1,13 +1,25 @@
 {% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}{{ parent() }} | Ecosystème{% endblock %}
+{% block title %}{{ parent() }} |
+    {% if page == 'ecosystem' %}
+        Écosystème
+    {% elseif page == 'adhesion' %}
+        Demandes d'adhésion
+    {% endif %}
+{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
     {{ encore_entry_link_tags('adminEcosystem') }}
 {% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Écosystème</h1>
+    <h1 class="text-center">
+        {% if page == 'ecosystem' %}
+            Écosystème
+        {% elseif page == 'adhesion' %}
+            Demandes d'adhésion
+        {% endif %}
+    </h1>
     <div class="container">
         <div class="row filter-status mx-0 mb-2 justify-content-between align-items-end">
             <div class="col-md-6">
@@ -55,7 +67,8 @@
                 {% for ecosystem in ecosystems %}
                     <tr>
                         <td>{{ ecosystem.name }}</td>
-                        <td><img class="logo" src="{{ asset('uploads/logos/' ~ ecosystem.logo) }}" alt="{{ ecosystem.name }}">
+                        <td><img class="logo" src="{{ asset('uploads/logos/' ~ ecosystem.logo) }}"
+                                 alt="{{ ecosystem.name }}">
                         </td>
                         <td>{{ ecosystem.activity }}</td>
                         <td>{{ ecosystem.status.name }}</td>
