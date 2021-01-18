@@ -114,7 +114,7 @@
             <div class="row mx-0 justify-content-center">
                 {% for testimony in testimonies %}
                     <figure class="d-flex flex-column align-items-center m-5">
-                        <img class="img-figure" src="{{ testimony.ecosystem.logo }}" alt="logo ecosystem">
+                        <img class="img-figure" src="{{ asset('uploads/logos/' ~ testimony.ecosystem.logo) }}" alt="logo ecosystem">
                         <h3 class="my-3 text-center">{{ testimony.ecosystem.name }}</h3>
                         <figcaption>
                             <img src="{{ asset('build/images/quotes.svg') }}" alt="quote" class="img quote-start pt-2"/>
