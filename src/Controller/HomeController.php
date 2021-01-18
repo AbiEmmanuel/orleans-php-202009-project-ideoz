@@ -19,6 +19,7 @@ class HomeController extends AbstractController
      * @param TestimonyRepository $testimonyRepository
      * @param OfferRepository $offerRepository
      * @param EcosystemRepository $ecosystemRepository
+     * @param StatusRepository $statusRepository
      * @return Response
      */
 
