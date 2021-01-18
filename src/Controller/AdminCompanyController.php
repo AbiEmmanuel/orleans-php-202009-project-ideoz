@@ -26,6 +26,4 @@ class AdminCompanyController extends AbstractController
             'companies' => $companyRepository->findAll(),
         ]);
     }
-
-
 }
