@@ -29,6 +29,9 @@ class LegalNoticeController extends AbstractController
 
     /**
      * @Route("/{id}/edition", name="legal_notice_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param LegalNotice $legalNotice
+     * @return Response
      */
     public function edit(Request $request, LegalNotice $legalNotice): Response
     {
@@ -37,6 +40,8 @@ class LegalNoticeController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+
+            $this->addFlash('success', 'Les mentions légales ont bien été modifiées.');
 
             return $this->redirectToRoute('admin_legal_notice_index');
         }
