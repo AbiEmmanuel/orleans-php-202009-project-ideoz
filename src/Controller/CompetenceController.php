@@ -41,7 +41,7 @@ class CompetenceController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            $this->addFlash('success', 'Compétence mise à jour');
             return $this->redirectToRoute('admin_competence_index');
         }
 
