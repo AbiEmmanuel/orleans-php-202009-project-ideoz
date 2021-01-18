@@ -40,6 +40,7 @@ Encore
     .addEntry('adminOffer', './assets/styles/adminOffer.scss')
     .addEntry('testimony', './assets/styles/testimony.scss')
     .addEntry('adminEcosystem', './assets/styles/adminEcosystem.scss')
+    .addEntry('adminLegalNotice', './assets/styles/adminLegalNotice.scss')
     .addEntry('adminProject', './assets/styles/adminProject.scss')
     .addEntry('contact', './assets/styles/contact.scss')
     .addEntry('login', './assets/styles/login.scss')
