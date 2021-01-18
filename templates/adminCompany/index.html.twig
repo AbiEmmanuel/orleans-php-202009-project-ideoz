@@ -1,6 +1,6 @@
 {% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}Company index{% endblock %}
+{% block title %}{{ parent() }} | Company index{% endblock %}
 
 {% block body %}
     <h1 class="text-center">Info sur l'entreprise</h1>
@@ -10,7 +10,7 @@
             <tr>
                 <th>Nom de l'entreprise</th>
                 <th>Nom</th>
-                <th>N° de Telephone</th>
+                <th>N° de Teléphone</th>
                 <th>Email</th>
                 <th>Favicon</th>
                 <th>Action</th>
