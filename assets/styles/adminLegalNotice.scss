@@ -1,0 +1,21 @@
+@import 'app.scss';
+
+.back {
+  background-color: $secondary;
+  box-shadow: 0 2px 0.5rem lighten($dark, 5%);
+
+  &:hover {
+    background-color: lighten($secondary, 3%);
+    box-shadow: 0 0 1rem lighten($primary, 10%);
+  }
+}
+
+.save {
+  background-color: $primary;
+  box-shadow: 0 2px 0.5rem lighten($dark, 5%);
+
+  &:hover {
+    background-color: lighten($primary, 10%);
+    box-shadow: 0 0 1rem lighten($light-primary, 10%);
+  }
+}
