@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Repository\CompetenceRepository;
 use App\Repository\EcosystemRepository;
+use App\Repository\ProjectRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -22,6 +24,20 @@ class CooperativeController extends AbstractController
 
         return $this->render('cooperative/companies.html.twig', [
             'companies' => $ecosystemRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @param ProjectRepository $projectRepository
+     * @param CompetenceRepository $competenceRepository
+     * @return Response
+     * @Route ("/projects", name="projects")
+     */
+    public function showAllProjects(ProjectRepository $projectRepository, CompetenceRepository $competenceRepository)
+    {
+        return $this->render('cooperative/projects.html.twig', [
+            'projects' => $projectRepository->findAll(),
+            'competences' => $competenceRepository->findAll(),
         ]);
     }
 }
