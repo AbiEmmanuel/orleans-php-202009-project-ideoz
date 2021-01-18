@@ -11,6 +11,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=CompanyRepository::class)
+ * @Vich\Uploadable
  */
 class Company
 {
