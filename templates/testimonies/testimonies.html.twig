@@ -20,23 +20,24 @@
             <img class="d-none d-sm-inline-block"
                  src="{{ asset('build/images/doublequotes3.png') }}" alt="quotes">
         </h2>
-        <div class="container">
-            <div class="row mx-0">
-                {% for testimony in testimonies %}
-                    <div class="col-md-6 col-lg-4 d-flex justify-content-center">
-                        <div class="card mb-5 text-center">
-                            <img src="{{ asset('uploads/logos/' ~ testimony.ecosystem.logo) }}" class="card-img-top img-fluid" alt="logo">
+
+        <div class="container testimonies-container">
+            {% for testimony in testimonies %}
+                <div class="card border-0">
+                    <div class="row mx-0 no-gutters {{ loop.index is even ? 'flex-row-reverse' }}">
+                        <div class="col-md-3 d-flex justify-content-center align-items-center">
+                            <img src="{{ asset('uploads/logos/' ~ testimony.ecosystem.logo) }}"
+                                 class="card-img img-fluid logo" alt="logo">
+                        </div>
+                        <div class="col-md-9">
                             <div class="card-body">
-                                <h5 class="card-title">{{ testimony.ecosystem.name }}</h5>
-                                <p class="badge badge-primary text-center">
-                                    {{ testimony.ecosystem.activity }}
-                                </p>
-                                <div class="card-text text-muted">{{ testimony.content | raw}}</div>
+                                <h2 class="card-title h3 pt-0 mt-0">{{ testimony.ecosystem.name }}</h2>
+                                <div class="card-text">{{ testimony.content | raw }}</div>
                             </div>
                         </div>
                     </div>
-                {% endfor %}
-            </div>
+                </div>
+            {% endfor %}
 
             <div class="row mx-0 contact justify-content-around">
                 <div class="card text-center col-md-4 d-flex justify-content-center mt-4">
