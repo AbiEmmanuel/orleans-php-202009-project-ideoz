@@ -1,0 +1,12 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %} {{ parent() }} | Mentions légales {% endblock %}
+
+{% block body %}
+    <main>
+        <h1 class="text-center">Mentions légales</h1>
+        <div class="container pb-5">
+            <p>{{ legal_notice.content | raw }}</p>
+        </div>
+    </main>
+{% endblock %}
