@@ -24,10 +24,7 @@
         <div class="container testimonies-container">
             {% for testimony in testimonies %}
                 <div class="card border-0">
-                    <div class="row mx-0 no-gutters
-                        {% if loop.index % 2 == 0 %}
-                            flex-row-reverse
-                        {% endif %}">
+                    <div class="row mx-0 no-gutters {{ loop.index is even ? 'flex-row-reverse' }}">
                         <div class="col-md-3 d-flex justify-content-center align-items-center">
                             <img src="{{ asset('uploads/logos/' ~ testimony.ecosystem.logo) }}"
                                  class="card-img img-fluid logo" alt="logo">
