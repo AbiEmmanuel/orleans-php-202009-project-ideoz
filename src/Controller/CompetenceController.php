@@ -50,4 +50,30 @@ class CompetenceController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+    /**
+     * @Route("/ajout", name="competence_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
+     */
+    public function new(Request $request): Response
+    {
+        $competence = new Competence();
+        $form = $this->createForm(CompetenceType::class, $competence);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($competence);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'La compétence a bien été créé');
+
+            return $this->redirectToRoute('admin_competence_index');
+        }
+
+        return $this->render('adminCompetence/new.html.twig', [
+            'competence' => $competence,
+            'form' => $form->createView(),
+        ]);
+    }
 }
