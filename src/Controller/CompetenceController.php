@@ -26,4 +26,28 @@ class CompetenceController extends AbstractController
             'competences' => $competenceRepository->findAll(),
         ]);
     }
+
+
+    /**
+     * @Route("/{id}/edit", name="competence_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Competence $competence
+     * @return Response
+     */
+    public function edit(Request $request, Competence $competence): Response
+    {
+        $form = $this->createForm(CompetenceType::class, $competence);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'Compétence mise à jour');
+            return $this->redirectToRoute('admin_competence_index');
+        }
+
+        return $this->render('adminCompetence/edit.html.twig', [
+            'competence' => $competence,
+            'form' => $form->createView(),
+        ]);
+    }
 }
