@@ -18,7 +18,7 @@
         </div>
     </section>
 
-        <section class="about-us text-center container-fluid">
+        <section id="about" class="about-us text-center container-fluid">
             <h2>À Propos</h2>
             <div class="row mx-0">
                 <div class="col-lg-3 offset-lg-1 about-us-text">
@@ -114,7 +114,7 @@
             <div class="row mx-0 justify-content-center">
                 {% for testimony in testimonies %}
                     <figure class="d-flex flex-column align-items-center m-5">
-                        <img class="img-figure" src="{{ testimony.ecosystem.logo }}" alt="logo ecosystem">
+                        <img class="img-figure" src="{{ asset('uploads/logos/' ~ testimony.ecosystem.logo) }}" alt="logo ecosystem">
                         <h3 class="my-3 text-center">{{ testimony.ecosystem.name }}</h3>
                         <figcaption>
                             <img src="{{ asset('build/images/quotes.svg') }}" alt="quote" class="img quote-start pt-2"/>
@@ -147,7 +147,7 @@
                     <div class="logo">
                         <a href="{{ client.url }}" target="_blank" class="text-decoration-none">
                             <div class="container-image text-center d-flex justify-content-center align-items-center">
-                                <img src="{{ asset('uploads/' ~ client.logo) }}" alt="{{ client.name }}">
+                                <img src="{{ asset('uploads/logos/' ~ client.logo) }}" alt="{{ client.name }}">
                                 <div class="background">
                                     <p class="font-weight-bold">{{ client.name }}</p>
                                     <div class="text-left px-1">{{ client.abstract | raw }}</div>
@@ -179,7 +179,7 @@
                     <div class="logo">
                         <a href="{{ partner.url }}" target="_blank" class="text-decoration-none">
                             <div class="container-image text-center d-flex justify-content-center align-items-center">
-                                <img src="{{ asset('uploads/' ~ partner.logo) }}" alt="{{ partner.name }}">
+                                <img src="{{ asset('uploads/logos/' ~ partner.logo) }}" alt="{{ partner.name }}">
                                 <div class="background">
                                     <p class="font-weight-bold">{{ partner.name }}</p>
                                     <div class="text-left px-1">{{ partner.abstract | raw }}</div>

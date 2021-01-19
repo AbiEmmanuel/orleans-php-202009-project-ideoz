@@ -30,7 +30,7 @@
     }
 }
 
-#ecosystem_status {
+#ecosystem_status, #ecosystem_isValidated {
     display: flex;
     flex-wrap: wrap;
 
@@ -47,14 +47,6 @@
     .form-check {
         margin: $spacing;
     }
-}
-
-.custom-file-label {
-    display: none;
-}
-
-.custom-file-input {
-    opacity: 1;
 }
 
 .filter-status {

@@ -36,11 +36,18 @@ Encore
      */
     .addEntry('app', './assets/js/app.js')
     .addEntry('home', './assets/js/home.js')
+    .addEntry('admin', './assets/styles/admin.scss')
     .addEntry('adminOffer', './assets/styles/adminOffer.scss')
     .addEntry('testimony', './assets/styles/testimony.scss')
     .addEntry('adminEcosystem', './assets/styles/adminEcosystem.scss')
+    .addEntry('adminLegalNotice', './assets/styles/adminLegalNotice.scss')
+    .addEntry('adminProject', './assets/styles/adminProject.scss')
     .addEntry('contact', './assets/styles/contact.scss')
+    .addEntry('login', './assets/styles/login.scss')
     .addEntry('adminTestimony', './assets/styles/adminTestimony.scss')
+    .addEntry('companies', './assets/styles/companies.scss')
+    .addEntry('projects', './assets/styles/projects.scss')
+
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
