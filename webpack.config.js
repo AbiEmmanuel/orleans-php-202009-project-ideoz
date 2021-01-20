@@ -44,6 +44,7 @@ Encore
     .addEntry('adminProject', './assets/styles/adminProject.scss')
     .addEntry('contact', './assets/styles/contact.scss')
     .addEntry('login', './assets/styles/login.scss')
+    .addEntry('register', './assets/styles/register.scss')
     .addEntry('adminTestimony', './assets/styles/adminTestimony.scss')
     .addEntry('companies', './assets/styles/companies.scss')
     .addEntry('projects', './assets/styles/projects.scss')
