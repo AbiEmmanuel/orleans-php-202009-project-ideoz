@@ -3,9 +3,11 @@
 {% block title %}Edit Company{% endblock %}
 
 {% block body %}
-    <h1>Edit Company</h1>
+    <h1 class="text-center">Edit Company</h1>
 
-    {{ include('company/_form.html.twig', {'button_label': 'Update'}) }}
+    <div class="container">
+    {{ include('adminCompany/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('company_index') }}">back to list</a>
+    <a href="{{ path('admin_company_index') }}">back to list</a>
+    </div>
 {% endblock %}

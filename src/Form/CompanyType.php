@@ -9,7 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Vich\UploaderBundle\Form\Type\VichFileType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class CompanyType extends AbstractType
 {
@@ -20,11 +20,6 @@ class CompanyType extends AbstractType
             ->add('email', EmailType::class)
             ->add('name', TextType::class)
             ->add('companyName', TextType::class)
-            ->add('faviconFile', VichFileType::class, [
-                'required'      => false,
-                'allow_delete'  => true,
-                'download_uri' => true,
-            ])
         ;
     }
 

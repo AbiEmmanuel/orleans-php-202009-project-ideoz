@@ -41,10 +41,10 @@ class AdminCompanyController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('adminCompany_index');
+            return $this->redirectToRoute('admin_company_index');
         }
 
-        return $this->render('company/edit.html.twig', [
+        return $this->render('adminCompany/edit.html.twig', [
             'company' => $company,
             'form' => $form->createView(),
         ]);
