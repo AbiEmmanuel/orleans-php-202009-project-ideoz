@@ -26,13 +26,13 @@
                 {% endif %}
 
                 <label for="inputEmail">Email</label>
-                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control"
+                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="mb-3 form-control"
                        required
-                       autofocus><br/>
+                       autofocus>
                 <label for="inputPassword">Mot de passe</label>
-                <input type="password" name="password" id="inputPassword" class="form-control" required>
+                <input type="password" name="password" id="inputPassword" class="mb-3 form-control" required>
 
-                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"><br/>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
                 <div class="checkbox">
                     <label>
@@ -47,7 +47,7 @@
                 </div>
             </form>
             <p class="text-center py-4">Vous ne possédez pas encore de compte sur l'espace Co-oZ ?
-                <a href="{{ path('app_register') }}">Créez-en un dès maintenant !</a>
+                <a href="">Créez-en un dès maintenant !</a>
             </p>
         </div>
     </main>
