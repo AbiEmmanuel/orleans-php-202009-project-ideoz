@@ -16,10 +16,16 @@ class CompanyType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('phoneNumber', TelType::class)
+            ->add('phoneNumber', TelType::class, [
+                'label' => 'Numéro de Téléphone'
+            ])
             ->add('email', EmailType::class)
-            ->add('name', TextType::class)
-            ->add('companyName', TextType::class)
+            ->add('name', TextType::class, [
+                'label' => 'Votre nom'
+            ])
+            ->add('companyName', TextType::class, [
+                'label' => 'Nom de l\'entreprise'
+            ])
         ;
     }
 
