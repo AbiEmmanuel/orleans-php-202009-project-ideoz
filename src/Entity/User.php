@@ -155,7 +155,7 @@ class User implements UserInterface
     {
         $this->ecosystem = $ecosystem;
     }
-    
+
     public function isVerified(): bool
     {
         return $this->isVerified;
