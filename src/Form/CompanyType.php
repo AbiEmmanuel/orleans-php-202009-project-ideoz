@@ -17,7 +17,7 @@ class CompanyType extends AbstractType
     {
         $builder
             ->add('phoneNumber', TelType::class, [
-                'label' => 'Numéro de Téléphone'
+                'label' => 'Numéro de téléphone'
             ])
             ->add('email', EmailType::class)
             ->add('name', TextType::class, [
