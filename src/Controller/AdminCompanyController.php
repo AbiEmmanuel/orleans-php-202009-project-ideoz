@@ -26,4 +26,27 @@ class AdminCompanyController extends AbstractController
             'companies' => $companyRepository->findAll(),
         ]);
     }
+
+    /**
+     * @Route("/{id}/edit", name="company_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Company $company
+     * @return Response
+     */
+    public function edit(Request $request, Company $company): Response
+    {
+        $form = $this->createForm(CompanyType::class, $company);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'Vos informations ont bien été modifiées');
+            return $this->redirectToRoute('admin_company_index');
+        }
+
+        return $this->render('adminCompany/edit.html.twig', [
+            'company' => $company,
+            'form' => $form->createView(),
+        ]);
+    }
 }
