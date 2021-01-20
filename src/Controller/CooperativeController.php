@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/espace_co-oz", name="cooperative_")
+ * @Route("/espace-cooz", name="cooperative_")
  */
 class CooperativeController extends AbstractController
 {
