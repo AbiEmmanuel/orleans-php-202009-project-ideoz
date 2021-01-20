@@ -19,6 +19,7 @@ class HomeController extends AbstractController
      * @param TestimonyRepository $testimonyRepository
      * @param OfferRepository $offerRepository
      * @param EcosystemRepository $ecosystemRepository
+     * @param StatusRepository $statusRepository
      * @return Response
      */
 
@@ -34,8 +35,16 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', [
             'services' => $offerRepository->findAll(),
             'testimonies' => $testimonyRepository->findBy([], ['id' => 'DESC'], 4),
-            'clients' => $ecosystemRepository->findBy(['status' => $client], ['id' => 'ASC'], 10),
-            'partners' => $ecosystemRepository->findBy(['status' => $partner], ['id' => 'ASC'], 10),
+            'clients' => $ecosystemRepository->findBy(
+                ['status' => $client, 'isValidated' => true],
+                ['id' => 'ASC'],
+                10
+            ),
+            'partners' => $ecosystemRepository->findBy(
+                ['status' => $partner, 'isValidated' => true],
+                ['id' => 'ASC'],
+                10
+            ),
         ]);
     }
 

@@ -35,15 +35,50 @@ class AdminEcosystemController extends AbstractController
             $statusName = $form->getData()['status'];
             if ($statusName) {
                 $status = $statusRepository->findOneBy(['name' => $statusName]);
-                $ecosystems = $ecosystemRepository->findBy(['status' => $status], ['name' => 'ASC']);
+                $ecosystems = $ecosystemRepository->findBy(
+                    ['status' => $status, 'isValidated' => true],
+                    ['name' => 'ASC']
+                );
             }
         }
 
-        $ecosystems ??= $ecosystemRepository->findBy([], ['name' => 'ASC']);
+        $ecosystems ??= $ecosystemRepository->findBy(['isValidated' => true], ['name' => 'ASC']);
 
         return $this->render('admin/ecosystem/index.html.twig', [
             'ecosystems' => $ecosystems,
             'form' => $form->createView(),
+            'page' => 'ecosystem',
+        ]);
+    }
+
+    /**
+     * @Route("/adhesion", name="adhesion_index", methods={"GET","POST"})
+     * @param EcosystemRepository $ecosystemRepository
+     * @param Request $request
+     * @param StatusRepository $statusRepository
+     * @return Response
+     */
+    public function adhesionIndex(
+        EcosystemRepository $ecosystemRepository,
+        Request $request,
+        StatusRepository $statusRepository
+    ): Response {
+        $form = $this->createForm(StatusFilterType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $statusName = $form->getData()['status'];
+            if ($statusName) {
+                $status = $statusRepository->findOneBy(['name' => $statusName]);
+                $ecosystems = $ecosystemRepository->findBy(['status' => $status, 'isValidated' => false]);
+            }
+        }
+
+        $ecosystems ??= $ecosystemRepository->findBy(['isValidated' => false]);
+
+        return $this->render('admin/ecosystem/index.html.twig', [
+            'ecosystems' => $ecosystems,
+            'form' => $form->createView(),
+            'page' => 'adhesion',
         ]);
     }
 

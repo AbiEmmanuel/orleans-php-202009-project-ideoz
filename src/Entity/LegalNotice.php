@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\LegalNoticeRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -19,6 +20,7 @@ class LegalNotice
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
      */
     private string $content;
 

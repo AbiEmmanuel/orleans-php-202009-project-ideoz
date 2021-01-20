@@ -1,0 +1,19 @@
+{% extends 'layoutAdmin.html.twig' %}
+
+{% block title %}{{ parent() }} | Mentions légales{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('adminLegalNotice') }}
+{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Modifier les mentions légales</h1>
+
+    <div class="container">
+        {{ include('admin/legal_notice/_form.html.twig', {'button_label': 'Modifier'}) }}
+        <div class="row mx-0">
+            <a class="back text-decoration-none text-dark btn rounded-pill my-4 px-3 py-1"
+               href="{{ path('admin_legal_notice_index') }}">Retour</a>
+        </div>
+    </div>
+{% endblock %}
