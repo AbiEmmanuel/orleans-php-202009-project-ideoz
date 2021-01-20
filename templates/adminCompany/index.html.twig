@@ -1,16 +1,16 @@
 {% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}{{ parent() }} | Info entreprise{% endblock %}
+{% block title %}{{ parent() }} | Informations personnelles{% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Info sur l'entreprise</h1>
+    <h1 class="text-center">Informations personnelles</h1>
     <div class="container">
     <table class="table table-striped">
         <thead class="bg-primary text-white">
             <tr>
                 <th>Nom de l'entreprise</th>
                 <th>Nom</th>
-                <th>N° de Téléphone</th>
+                <th>Numéro de téléphone</th>
                 <th>Email</th>
                 <th>Favicon</th>
                 <th>Action</th>
@@ -37,7 +37,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="8">Aucune infos trouvées</td>
+                <td colspan="8">Aucune informations trouvées</td>
             </tr>
         {% endfor %}
         </tbody>
