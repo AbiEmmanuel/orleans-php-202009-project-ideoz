@@ -48,9 +48,16 @@ class User implements UserInterface
     private string $username;
 
     /**
+     * @ORM\OneToOne(targetEntity=Ecosystem::class)
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private ?Ecosystem $ecosystem;
+
+    /**
      * @ORM\Column(type="boolean")
      */
     private bool $isVerified = false;
+
 
     public function getId(): ?int
     {
@@ -135,6 +142,18 @@ class User implements UserInterface
     public function setUsername(string $username): self
     {
         $this->username = $username;
+
+        return $this;
+    }
+
+    public function getEcosystem(): ?Ecosystem
+    {
+        return $this->ecosystem;
+    }
+
+    public function setEcosystem(?Ecosystem $ecosystem): self
+    {
+        $this->ecosystem = $ecosystem;
 
         return $this;
     }
