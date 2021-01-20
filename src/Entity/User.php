@@ -4,11 +4,13 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @UniqueEntity(fields={"email"}, message="Il existe déjà un compte utilisant cet email.")
  */
 class User implements UserInterface
 {
@@ -21,8 +23,8 @@ class User implements UserInterface
 
     /**
      * @Assert\Email
-     * @Assert\NotBlank
-     * @Assert\Length(max="180")
+     * @Assert\NotBlank(message="Vous devez écrire votre adresse mail.")
+     * @Assert\Length(max="180", maxMessage="Votre adresse email ne peut contenir plus de {{ limit }} caractères.")
      * @ORM\Column(type="string", length=180, unique=true)
      */
     private string $email;
@@ -35,12 +37,13 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
-     * @Assert\NotBlank
      */
     private string $password;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Vous devez définir un nom d'utilisateur.")
+     * @Assert\Length(max="255", maxMessage="Votre nom d'utilisateur ne doit pas faire plus de {{ limit }} caractères.")
      */
     private string $username;
 
@@ -50,12 +53,18 @@ class User implements UserInterface
      */
     private ?Ecosystem $ecosystem;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private bool $isVerified = false;
+
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getEmail(): ?string
+    public function getEmail(): string
     {
         return $this->email;
     }
@@ -145,6 +154,16 @@ class User implements UserInterface
     public function setEcosystem(?Ecosystem $ecosystem): self
     {
         $this->ecosystem = $ecosystem;
+    }
+  
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): self
+    {
+        $this->isVerified = $isVerified;
 
         return $this;
     }
