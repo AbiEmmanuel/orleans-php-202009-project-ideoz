@@ -40,7 +40,7 @@ class AdminCompanyController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-            $this->addFlash('success', 'Vos informations ont bien été modifié');
+            $this->addFlash('success', 'Vos informations ont bien été modifiées');
             return $this->redirectToRoute('admin_company_index');
         }
 
