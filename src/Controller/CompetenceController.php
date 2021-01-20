@@ -91,7 +91,7 @@ class CompetenceController extends AbstractController
             $entityManager->flush();
         }
 
-        $this->addFlash('danger', 'La compétence a bien été supprimé');
+        $this->addFlash('danger', 'La compétence a bien été supprimée');
 
         return $this->redirectToRoute('admin_competence_index');
     }
