@@ -1,0 +1,36 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{{ parent() }} | Inscription{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('register') }}{% endblock %}
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+    <main>
+        <div class="header mt-0 d-flex align-items-center justify-content-center">
+            <h1>Inscription</h1>
+        </div>
+        <div class="container">
+            <h2 class="text-center py-5">Inscrivez-vous à l'espace Co-oZ !</h2>
+            {% if app.user %}
+                <div class="mb-3">
+                    Vous êtes déjà connecté à l'espace Co-oZ, {{ app.user.username }}.
+                    <a href="{{ path('app_logout') }}">Déconnexion</a>
+                </div>
+            {% endif %}
+            {{ form_start(registrationForm) }}
+            {{ form_row(registrationForm.username) }}
+            {{ form_row(registrationForm.email) }}
+            {{ form_row(registrationForm.plainPassword, {
+                label: 'Mot de passe'
+            }) }}
+            <div class="col text-center pt-4">
+                <button class="button-yellow text-decoration-none btn-lg rounded-pill my-4 px-5 py-3" type="submit">
+                    Valider
+                </button>
+            </div>
+            {{ form_end(registrationForm) }}
+    </main>
+{% endblock %}
