@@ -154,6 +154,8 @@ class User implements UserInterface
     public function setEcosystem(?Ecosystem $ecosystem): self
     {
         $this->ecosystem = $ecosystem;
+
+        return $this;
     }
 
     public function isVerified(): bool
