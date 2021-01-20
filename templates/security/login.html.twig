@@ -2,8 +2,8 @@
 
 {% block title %}{{ parent() }} | Connexion{% endblock %}
 {% block stylesheets %}
-{{ parent() }}
-{{ encore_entry_link_tags('login') }}
+    {{ parent() }}
+    {{ encore_entry_link_tags('login') }}
 {% endblock %}
 
 {% block body %}
@@ -28,24 +28,27 @@
                 <label for="inputEmail">Email</label>
                 <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control"
                        required
-                       autofocus>
+                       autofocus><br/>
                 <label for="inputPassword">Mot de passe</label>
                 <input type="password" name="password" id="inputPassword" class="form-control" required>
 
-                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"><br/>
 
-                <div class="checkbox mb-3">
+                <div class="checkbox">
                     <label>
                         <input type="checkbox" name="_remember_me"> Se souvenir de moi
                     </label>
                 </div>
 
-                <div class="col text-center pt-4">
+                <div class="col text-center">
                     <button class="button-yellow text-decoration-none btn-lg rounded-pill my-4 px-5 py-3" type="submit">
                         Connexion
                     </button>
                 </div>
             </form>
+            <p class="text-center py-4">Vous ne possédez pas encore de compte sur l'espace Co-oZ ?
+                <a href="">Créez-en un dès maintenant !</a>
+            </p>
         </div>
     </main>
 {% endblock %}
