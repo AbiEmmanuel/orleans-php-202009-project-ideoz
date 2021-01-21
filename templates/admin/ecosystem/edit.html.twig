@@ -1,13 +1,13 @@
 {% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}{{ parent() }} | Ecosystème - Modifier{% endblock %}
+{% block title %}{{ parent() }} | Modifier le membre{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
     {{ encore_entry_link_tags('adminEcosystem') }}
 {% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Modifier un membre de l'écosystème</h1>
+    <h1 class="text-center">Modifier le membre</h1>
 
     <div class="container">
         {{ include('admin/ecosystem/_form.html.twig', {'button_label': 'Modifier'}) }}
