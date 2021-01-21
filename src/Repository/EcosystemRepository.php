@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Ecosystem;
+use App\Entity\EcosystemSearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -17,6 +18,18 @@ class EcosystemRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Ecosystem::class);
+    }
+
+    public function findLikeName(EcosystemSearch $ecosystemSearch)
+    {
+        $queryBuilder = $this->createQueryBuilder('e');
+        if ($ecosystemSearch->getInput()) {
+            $queryBuilder->
+            where('e.name LIKE :name')
+                ->setParameter('name', '%' . $ecosystemSearch->getInput() . '%');
+                }
+
+        return $queryBuilder->getQuery()->getResult();
     }
 
     // /**

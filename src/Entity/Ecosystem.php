@@ -93,7 +93,7 @@ class Ecosystem
     /**
      * @ORM\ManyToMany(targetEntity=Competence::class, inversedBy="companies")
      */
-    private Collection $competence;
+    private Collection $competences;
 
     /**
      * @ORM\OneToMany(targetEntity=Project::class, mappedBy="owner", orphanRemoval=true)
@@ -102,7 +102,7 @@ class Ecosystem
 
     public function __construct()
     {
-        $this->competence = new ArrayCollection();
+        $this->competences = new ArrayCollection();
         $this->projects = new ArrayCollection();
         $this ->updatedAt = new DateTime('now');
     }
@@ -254,15 +254,15 @@ class Ecosystem
     /**
      * @return Collection|Competence[]
      */
-    public function getCompetence(): Collection
+    public function getCompetences(): Collection
     {
-        return $this->competence;
+        return $this->competences;
     }
 
     public function addCompetence(Competence $competence): self
     {
-        if (!$this->competence->contains($competence)) {
-            $this->competence[] = $competence;
+        if (!$this->competences->contains($competence)) {
+            $this->competences[] = $competence;
         }
 
         return $this;
@@ -270,7 +270,7 @@ class Ecosystem
 
     public function removeCompetence(Competence $competence): self
     {
-        $this->competence->removeElement($competence);
+        $this->competences->removeElement($competence);
 
         return $this;
     }
