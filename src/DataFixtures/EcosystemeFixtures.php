@@ -23,6 +23,7 @@ class EcosystemeFixtures extends Fixture implements DependentFixtureInterface
             $ecosystem->setStatus($this->getReference('status_' . rand(0, 3)));
             $ecosystem->setActivity($faker->jobTitle);
             $ecosystem->setUrl($faker->url);
+            $ecosystem->setEmail($faker->email);
             $ecosystem->setAbstract($faker->text());
             $ecosystem->setPresentation($faker->text(600));
             $ecosystem->setIsValidated(rand(0, 1));
