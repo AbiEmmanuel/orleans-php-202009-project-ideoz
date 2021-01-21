@@ -7,6 +7,7 @@ use App\Form\EcosystemType;
 use App\Form\StatusFilterType;
 use App\Repository\EcosystemRepository;
 use App\Repository\StatusRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -95,6 +96,9 @@ class AdminEcosystemController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            if (!in_array("ROLE_MEMBER", $ecosystem->getUser()->getRoles()) && $ecosystem->getIsValidated() === true) {
+                $ecosystem->getUser()->setRoles(["ROLE_MEMBER"]);
+            }
             $entityManager->persist($ecosystem);
             $entityManager->flush();
 
@@ -133,8 +137,11 @@ class AdminEcosystemController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
+            $entityManager = $this->getDoctrine()->getManager();
+            if (!in_array("ROLE_MEMBER", $ecosystem->getUser()->getRoles()) && $ecosystem->getIsValidated() === true) {
+                $ecosystem->getUser()->setRoles(["ROLE_MEMBER"]);
+            }
+            $entityManager->flush();
             $this->addFlash('success', 'L\'entreprise a bien été modifiée.');
 
             return $this->redirectToRoute('ecosystem_index');

@@ -1,22 +1,18 @@
 {% extends 'layout.html.twig' %}
-
 {% block title %}{{ parent() }} | Mon profil{% endblock %}
-
 {% block stylesheets %}
-    {{ parent() }}
     {{ encore_entry_link_tags('profile') }}
 {% endblock %}
-
 {% block body %}
-<main>
-    <div class="header mt-0 d-flex align-items-center justify-content-center">
-        <h1 class="text-center text-light mt-5 d-flex align-self-center">Profil</h1>
-    </div>
-    <div class="container">
-        <h2 class="text-center py-5">Votre profil</h2>
-        <p><span class="font-weight-bold">Nom d'utilisateur :</span> {{ app.user.username }}</p>
-        <p><span class="font-weight-bold">Adresse email :</span>{{ app.user.email }}</p>
-        <button></button>
-    </div>
-</main>
+    <main>
+        <div class="header mt-0 d-flex align-items-center justify-content-center">
+            <h1 class="text-center text-light mt-5 d-flex align-self-center">Mon profil</h1>
+        </div>
+        <div class="container">
+            <h2 class="text-center py-5">Vos informations personnelles</h2>
+            <p></p>
+            <p></p>
+            <p></p>
+        </div>
+    </main>
 {% endblock %}
