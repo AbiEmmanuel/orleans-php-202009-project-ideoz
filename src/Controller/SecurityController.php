@@ -54,6 +54,7 @@ class SecurityController extends AbstractController
     public function membershipForm(Request $request): Response
     {
         $ecosystem = new Ecosystem();
+        /** @var User $user */
         $user = $this->getUser();
         if ($user->isVerified() == false) {
             $this->addFlash(
