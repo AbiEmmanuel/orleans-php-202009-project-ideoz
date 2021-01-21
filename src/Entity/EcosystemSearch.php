@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Entity;
-
 
 use Doctrine\Common\Collections\Collection;
 
@@ -44,5 +42,4 @@ class EcosystemSearch
 
         $this->competences = $competences;
     }
-
 }

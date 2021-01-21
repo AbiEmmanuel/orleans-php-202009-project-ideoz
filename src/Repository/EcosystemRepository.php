@@ -20,14 +20,14 @@ class EcosystemRepository extends ServiceEntityRepository
         parent::__construct($registry, Ecosystem::class);
     }
 
-    public function findLikeName(EcosystemSearch $ecosystemSearch)
+    public function findLikeName(EcosystemSearch $ecosystemSearch): array
     {
         $queryBuilder = $this->createQueryBuilder('e');
         if ($ecosystemSearch->getInput()) {
             $queryBuilder->
             where('e.name LIKE :name')
-                ->setParameter('name', '%' . $ecosystemSearch->getInput() . '%');
-                }
+            ->setParameter('name', '%' . $ecosystemSearch->getInput() . '%');
+        }
 
         return $queryBuilder->getQuery()->getResult();
     }
