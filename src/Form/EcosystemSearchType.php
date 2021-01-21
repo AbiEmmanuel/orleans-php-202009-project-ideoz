@@ -24,7 +24,7 @@ class EcosystemSearchType extends AbstractType
                 'class' => Competence::class,
                 'label' => 'Compétences',
                 'choice_label' => 'name',
-                'attr' => ['class'=> 'competence row  justify-content-xs-center px-3 text-primary'],
+                'attr' => ['class' => 'competence row  justify-content-xs-center px-3 text-primary'],
                 'expanded' => true,
                 'multiple' => true,
 
