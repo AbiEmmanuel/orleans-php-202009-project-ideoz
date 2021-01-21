@@ -28,6 +28,12 @@ class EcosystemRepository extends ServiceEntityRepository
             where('e.name LIKE :name')
             ->setParameter('name', '%' . $ecosystemSearch->getInput() . '%');
         }
+        if ($ecosystemSearch->getCompetences()) {
+            $queryBuilder
+                ->join('e.competences', 'c')
+                ->orWhere('c.id IN(:competences)')
+                ->setParameter('competences', $ecosystemSearch->getCompetences());
+        }
 
         return $queryBuilder->getQuery()->getResult();
     }

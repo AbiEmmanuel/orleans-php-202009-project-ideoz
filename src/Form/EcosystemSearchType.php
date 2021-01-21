@@ -17,8 +17,17 @@ class EcosystemSearchType extends AbstractType
     {
         $builder
             ->add('input', SearchType::class, [
-                'label' => 'Nom de l\'entreprise',
+                'label' => 'Nom de l\'entreprise ',
                 'required' => false,
+            ])
+            ->add('competences', EntityType::class, [
+                'class' => Competence::class,
+                'label' => 'Compétences',
+                'choice_label' => 'name',
+                'attr' => ['class'=> 'competence row  justify-content-xs-center px-3 text-primary'],
+                'expanded' => true,
+                'multiple' => true,
+
             ])
         ;
     }
