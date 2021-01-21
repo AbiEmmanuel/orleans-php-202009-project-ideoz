@@ -1,0 +1,15 @@
+{% extends 'layoutAdmin.html.twig' %}
+
+{% block title %}{{ parent() }} | Modifier vos informations{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('adminOffer') }}
+{% endblock %}
+{% block body %}
+    <h1 class="text-center">Modifier vos informations</h1>
+
+    <div class="container edit">
+            {{ include('adminCompany/_form.html.twig', {'button_label': 'Update'}) }}
+    <a class="back text-decoration-none text-dark btn rounded-pill my-4 px-3 py-1" href="{{ path('admin_company_index') }}">Retour</a>
+    </div>
+{% endblock %}

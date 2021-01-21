@@ -25,12 +25,12 @@ class Competence
     private string $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Ecosystem::class, mappedBy="competence")
+     * @ORM\ManyToMany(targetEntity=Ecosystem::class, mappedBy="competences")
      */
     private Collection $companies;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Project::class, mappedBy="competence")
+     * @ORM\ManyToMany(targetEntity=Project::class, mappedBy="competences")
      */
     private Collection $projects;
 

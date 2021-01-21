@@ -1,12 +1,12 @@
 {% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}{{ parent() }} | Modifier une Compétence{% endblock %}
+{% block title %}{{ parent() }} | Éditer une compétence{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
     {{ encore_entry_link_tags('adminOffer') }}
 {% endblock %}
 {% block body %}
-    <h1 class="text-center">Modifier une compétence</h1>
+    <h1 class="text-center">Éditer une compétence</h1>
     <div class="container edit">
         {{ include('adminCompetence/_form.html.twig', {'button_label': 'Update'}) }}
         <div class="text-center">

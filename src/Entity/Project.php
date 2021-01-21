@@ -51,11 +51,11 @@ class Project
      * @ORM\ManyToMany(targetEntity=Competence::class, inversedBy="projects")
      * @Assert\NotBlank
      */
-    private Collection $competence;
+    private Collection $competences;
 
     public function __construct()
     {
-        $this->competence = new ArrayCollection();
+        $this->competences = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -114,15 +114,15 @@ class Project
     /**
      * @return Collection|Competence[]
      */
-    public function getCompetence(): Collection
+    public function getCompetences(): Collection
     {
-        return $this->competence;
+        return $this->competences;
     }
 
     public function addCompetence(Competence $competence): self
     {
-        if (!$this->competence->contains($competence)) {
-            $this->competence[] = $competence;
+        if (!$this->competences->contains($competence)) {
+            $this->competences[] = $competence;
         }
 
         return $this;
@@ -130,7 +130,7 @@ class Project
 
     public function removeCompetence(Competence $competence): self
     {
-        $this->competence->removeElement($competence);
+        $this->competences->removeElement($competence);
 
         return $this;
     }
