@@ -100,6 +100,16 @@ class Ecosystem
      */
     private Collection $projects;
 
+    /**
+     * @ORM\Column(type="string", length=15, nullable=true)
+     */
+    private ?string $phoneNumber;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private string $email;
+
     public function __construct()
     {
         $this->competence = new ArrayCollection();
@@ -301,6 +311,30 @@ class Ecosystem
                 $project->setOwner(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPhoneNumber(): ?string
+    {
+        return $this->phoneNumber;
+    }
+
+    public function setPhoneNumber(?string $phoneNumber): self
+    {
+        $this->phoneNumber = $phoneNumber;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
 
         return $this;
     }
