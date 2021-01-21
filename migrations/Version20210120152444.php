@@ -21,11 +21,13 @@ final class Version20210120152444 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE ecosystem ADD phone_number VARCHAR(15) DEFAULT NULL, ADD email VARCHAR(255) NOT NULL');
+        $this->addSql('ALTER TABLE user ADD is_verified TINYINT(1) NOT NULL');
     }
 
     public function down(Schema $schema) : void
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE ecosystem DROP phone_number, DROP email');
+        $this->addSql('ALTER TABLE user DROP is_verified');
     }
 }
