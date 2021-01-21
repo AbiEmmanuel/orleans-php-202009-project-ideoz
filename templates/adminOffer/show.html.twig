@@ -1,6 +1,6 @@
 {% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}Services{% endblock %}
+{% block title %}{{ parent() }} | {{ offer.name }}{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Mes services</h1>
+    <h1 class="text-center">{{ offer.name }}</h1>
     <div class="show container">
         <table class="table table-hover table-bordered">
             <tbody>
@@ -30,10 +30,6 @@
             </tr>
         </tbody>
     </table>
-
-    <a href="{{ path('admin_offer_index') }}">back to list</a>
-
-    <a href="{{ path('admin_offer_edit', {'id': offer.id}) }}">edit</a>
 
         <div class="button-list d-flex justify-content-center">
             <a class="text-decoration-none mt-2"
