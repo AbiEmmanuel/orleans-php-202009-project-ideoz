@@ -93,18 +93,33 @@ class Ecosystem
     /**
      * @ORM\ManyToMany(targetEntity=Competence::class, inversedBy="companies")
      */
-    private Collection $competence;
+    private Collection $competences;
 
     /**
      * @ORM\OneToMany(targetEntity=Project::class, mappedBy="owner", orphanRemoval=true)
      */
     private Collection $projects;
 
+    /**
+     * @ORM\OneToOne(targetEntity=User::class, cascade={"persist", "remove"})
+     */
+    private ?User $user;
+
+    /**
+     * @ORM\Column(type="string", length=15, nullable=true)
+     */
+    private ?string $phoneNumber;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private string $email;
+
     public function __construct()
     {
-        $this->competence = new ArrayCollection();
+        $this->competences = new ArrayCollection();
         $this->projects = new ArrayCollection();
-        $this ->updatedAt = new DateTime('now');
+        $this->updatedAt = new DateTime('now');
     }
 
     public function getId(): ?int
@@ -254,15 +269,15 @@ class Ecosystem
     /**
      * @return Collection|Competence[]
      */
-    public function getCompetence(): Collection
+    public function getCompetences(): Collection
     {
-        return $this->competence;
+        return $this->competences;
     }
 
     public function addCompetence(Competence $competence): self
     {
-        if (!$this->competence->contains($competence)) {
-            $this->competence[] = $competence;
+        if (!$this->competences->contains($competence)) {
+            $this->competences[] = $competence;
         }
 
         return $this;
@@ -270,7 +285,7 @@ class Ecosystem
 
     public function removeCompetence(Competence $competence): self
     {
-        $this->competence->removeElement($competence);
+        $this->competences->removeElement($competence);
 
         return $this;
     }
@@ -301,6 +316,42 @@ class Ecosystem
                 $project->setOwner(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getPhoneNumber(): ?string
+    {
+        return $this->phoneNumber;
+    }
+
+    public function setPhoneNumber(?string $phoneNumber): self
+    {
+        $this->phoneNumber = $phoneNumber;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
 
         return $this;
     }

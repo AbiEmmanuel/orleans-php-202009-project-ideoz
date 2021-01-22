@@ -1,13 +1,13 @@
 {% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}Nouveau témoignage{% endblock %}
+{% block title %}{{ parent() }} | Ajouter un témoignage{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
     {{ encore_entry_link_tags('adminTestimony') }}
 {% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Créer un témoignage</h1>
+    <h1 class="text-center">Ajouter un témoignage</h1>
 
     <div class="container">
         {{ include('adminTestimony/_form.html.twig') }}

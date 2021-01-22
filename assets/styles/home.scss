@@ -6,7 +6,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    height: calc(100vh - 80px);
     padding-top: $spacing-4;
     padding-bottom: $spacing-4;
 
@@ -195,5 +195,13 @@
     p {
         font-size: $spacing-2;
         font-weight: bolder;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .see-further {
+        height: calc(100vh - (79px + 76px));
+        padding-top: $spacing-3;
+
     }
 }

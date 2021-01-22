@@ -1,6 +1,6 @@
 {% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}Testimony index{% endblock %}
+{% block title %}{{ parent() }} | Liste des témoignages{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
     {{ encore_entry_link_tags('adminTestimony') }}
