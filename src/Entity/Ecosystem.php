@@ -102,6 +102,11 @@ class Ecosystem
     private Collection $projects;
 
     /**
+     * @ORM\OneToOne(targetEntity=User::class, cascade={"persist", "remove"})
+     */
+    private ?User $user;
+
+    /**
      * @ORM\Column(type="string", length=15, nullable=true)
      */
     private ?string $phoneNumber;
@@ -115,7 +120,7 @@ class Ecosystem
     {
         $this->competences = new ArrayCollection();
         $this->projects = new ArrayCollection();
-        $this ->updatedAt = new DateTime('now');
+        $this->updatedAt = new DateTime('now');
     }
 
     public function getId(): ?int
@@ -312,6 +317,18 @@ class Ecosystem
                 $project->setOwner(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
