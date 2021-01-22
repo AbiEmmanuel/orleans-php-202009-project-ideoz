@@ -44,11 +44,11 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     role_hierarchy:
-        ROLE_ENTERPRISE: ROLE_USER
-        ROLE_CLIENT: ROLE_USER
-        ROLE_ADMIN: ROLE_CLIENT, ROLE_ENTERPRISE
+        ROLE_MEMBER: ROLE_USER
+        ROLE_ADMIN: ROLE_USER, ROLE_MEMBER
 
     access_control:
          - { path: ^/admin, roles: ROLE_ADMIN }
+         - { path: ^/formulaire-informations, roles: ROLE_USER }
          - { path: ^/profile, roles: ROLE_USER }
          - { path: ^/espace-cooz, roles: ROLE_USER }
