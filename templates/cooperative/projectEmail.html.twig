@@ -1,0 +1,10 @@
+{% extends 'baseEmail.html.twig' %}
+
+{% block title %}Demande de participation à un projet{% endblock %}
+
+{% block body %}
+    <h1>Demande de participation à un projet</h1>
+    <p>Bonjour !</p>
+    <p>{{ ecosystem.name }} souhaiterait participer au projet {{ project.title }}.</p>
+    <p>Email : <a href="{{ ecosystem.user.email }}">{{ ecosystem.user.email }}</a></p>
+{% endblock %}
