@@ -75,7 +75,7 @@ class CooperativeController extends AbstractController
         $user = $this->getUser();
         $company = $ecosystemRepository->findOneBy(['user' => $user]);
         $email = (new Email())
-            ->from($user->getEmail())
+            ->from((string)$user->getEmail())
             ->to($this->getParameter('mailer_admin'))
             ->subject('Un membre souhaite participer à un projet')
             ->html($this->renderView('cooperative/projectEmail.html.twig', [
