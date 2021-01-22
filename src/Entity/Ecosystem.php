@@ -119,7 +119,7 @@ class Ecosystem
     {
         $this->competences = new ArrayCollection();
         $this->projects = new ArrayCollection();
-        $this ->updatedAt = new DateTime('now');
+        $this->updatedAt = new DateTime('now');
     }
 
     public function getId(): ?int
@@ -328,10 +328,10 @@ class Ecosystem
     public function setUser(?User $user): self
     {
         $this->user = $user;
-        
+
         return $this;
     }
-    
+
     public function getPhoneNumber(): ?string
     {
         return $this->phoneNumber;
