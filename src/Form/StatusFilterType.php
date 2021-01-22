@@ -14,6 +14,7 @@ class StatusFilterType extends AbstractType
         'Client' => 'Client',
         'Partenaire' => 'Partenaire',
         'Adhérent' => 'Adhérent',
+        'Extérieur' => 'Extérieur',
     ];
 
     public function buildForm(FormBuilderInterface $builder, array $options): void

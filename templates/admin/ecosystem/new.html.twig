@@ -1,13 +1,13 @@
 {% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}{{ parent() }} | Ecosystème - Ajout{% endblock %}
+{% block title %}{{ parent() }} | Ajouter un membre{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
     {{ encore_entry_link_tags('adminEcosystem') }}
 {% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Ajouter un membre à l'écosystème</h1>
+    <h1 class="text-center">Ajouter un membre</h1>
 
     <div class="container">
     {{ include('admin/ecosystem/_form.html.twig') }}

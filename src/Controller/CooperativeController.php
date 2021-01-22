@@ -4,12 +4,15 @@ namespace App\Controller;
 
 use App\Entity\Project;
 use App\Entity\User;
+use App\Entity\EcosystemSearch;
+use App\Form\EcosystemSearchType;
 use App\Repository\CompetenceRepository;
 use App\Repository\EcosystemRepository;
 use App\Repository\ProjectRepository;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Routing\Annotation\Route;
@@ -22,13 +25,21 @@ class CooperativeController extends AbstractController
     /**
      * @Route("/entreprise", name="companies")
      * @param EcosystemRepository $ecosystemRepository
+     * @param Request $request
      * @return Response
      */
-    public function showAllCompanies(EcosystemRepository $ecosystemRepository): Response
+    public function showAllCompanies(EcosystemRepository $ecosystemRepository, Request $request): Response
     {
+        $ecosystemSearch = new EcosystemSearch();
+        $form = $this->createForm(EcosystemSearchType::class, $ecosystemSearch);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $companies = $ecosystemRepository->findLikeName($ecosystemSearch);
+        }
 
         return $this->render('cooperative/companies.html.twig', [
-            'companies' => $ecosystemRepository->findAll(),
+            'companies' => $companies ?? $ecosystemRepository->findAll(),
+            'form' => $form->createView(),
         ]);
     }
 

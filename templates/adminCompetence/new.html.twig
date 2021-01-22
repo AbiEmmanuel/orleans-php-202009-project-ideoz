@@ -1,11 +1,11 @@
 {% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}{{ parent() }} |Nouvelle Compétence{% endblock %}
+{% block title %}{{ parent() }} | Ajouter une compétence{% endblock %}
 {% block stylesheets %}
     {{ encore_entry_link_tags('adminOffer') }}
 {% endblock %}
 {% block body %}
-    <h1 class="text-center">Crée une compétence</h1>
+    <h1 class="text-center">Ajouter une compétence</h1>
     <div class="new container ">
         {{ include('adminCompetence/_form.html.twig') }}
         <a class="back text-decoration-none text-dark btn rounded-pill my-4 px-3 py-1"

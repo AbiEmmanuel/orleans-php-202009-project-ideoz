@@ -1,6 +1,6 @@
 {% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}Modifier mes services{% endblock %}
+{% block title %}{{ parent() }} | Éditer un service{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block body %}
-    <h1 class="text-center py-5">Modifier mes services</h1>
+    <h1 class="text-center py-5">Éditer un service</h1>
     <div class="container edit">
         <div class="text-center align-items-center">
             {{ include('adminOffer/_form.html.twig') }}
