@@ -44,3 +44,18 @@
         }
     }
 }
+
+.project {
+    .header {
+        height: $height-header;
+        background-image: url("../images/header_project.jpg");
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    span {
+        font-size: $h4-font-size;
+    }
+}
