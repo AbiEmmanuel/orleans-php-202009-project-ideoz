@@ -135,10 +135,9 @@ class CooperativeController extends AbstractController
             ->subject('Un membre souhaite participer à un projet')
             ->html($this->renderView('cooperative/projectEmail.html.twig', [
                 'project' => $project,
-                'company' => $company
+                'ecosystem' => $company
             ]));
         $mailer->send($email);
-        dump($company);
         $this->addFlash('success', 'Votre demande de participation a bien été enregistrée.');
 
         return $this->redirectToRoute('cooperative_project_sheet', [
