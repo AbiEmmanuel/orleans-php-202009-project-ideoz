@@ -24,7 +24,8 @@ class OfferFixtures extends Fixture
             $service->setDescription($faker->text(700));
             $service->setAbstract($faker->text(400));
             $service->setCatchPhrase($faker->sentence);
-            $service->setExample($faker->text);
+            $service->setExample($faker->text(600));
+            $service->setNumber($index + 1);
             $manager->persist($service);
             $this->addReference('offer_' . $index, $service);
         }

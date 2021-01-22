@@ -47,6 +47,11 @@ class Offer
      */
     private ?string $example;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private int $number;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -108,6 +113,18 @@ class Offer
     public function setExample(?string $example): self
     {
         $this->example = $example;
+
+        return $this;
+    }
+
+    public function getNumber(): ?int
+    {
+        return $this->number;
+    }
+
+    public function setNumber(int $number): self
+    {
+        $this->number = $number;
 
         return $this;
     }
