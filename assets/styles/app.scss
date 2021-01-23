@@ -31,12 +31,12 @@ h4, h5, h6 {
     font-weight: 700;
     color: $light;
     background-color: $secondary;
-    box-shadow: 0 1px 0.25rem lighten($dark, 50%);
+    box-shadow: 0 1px 0.25rem darken($secondary, 50%);
 
     &:hover {
         color: $light;
         background-color: lighten($secondary, 3%);
-        box-shadow: 0 0 0.5rem lighten($primary, 10%);
+        box-shadow: 0 1px 0.5rem darken($primary, 10%);
     }
 }
 
