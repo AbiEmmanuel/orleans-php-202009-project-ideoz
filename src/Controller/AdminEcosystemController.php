@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Ecosystem;
+use App\Entity\User;
 use App\Form\EcosystemType;
 use App\Form\StatusFilterType;
 use App\Repository\EcosystemRepository;
@@ -96,9 +97,6 @@ class AdminEcosystemController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            if (!in_array("ROLE_MEMBER", $ecosystem->getUser()->getRoles()) && $ecosystem->getIsValidated() === true) {
-                $ecosystem->getUser()->setRoles(["ROLE_MEMBER"]);
-            }
             $entityManager->persist($ecosystem);
             $entityManager->flush();
 
@@ -138,8 +136,10 @@ class AdminEcosystemController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            if (!in_array("ROLE_MEMBER", $ecosystem->getUser()->getRoles()) && $ecosystem->getIsValidated() === true) {
-                $ecosystem->getUser()->setRoles(["ROLE_MEMBER"]);
+            /** @var User $user */
+            $user = $ecosystem->getUser();
+            if (!in_array("ROLE_MEMBER", $user->getRoles()) && $ecosystem->getIsValidated() === true) {
+                $user->setRoles(["ROLE_MEMBER"]);
             }
             $entityManager->flush();
             $this->addFlash('success', 'L\'entreprise a bien été modifiée.');
