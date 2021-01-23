@@ -121,6 +121,8 @@ class ResetPasswordController extends AbstractController
             $this->resetPasswordHelper->removeResetRequest($token);
 
             // Encode the plain password, and set it.
+            /** @var User $user */
+            $user = $this->getUser();
             $encodedPassword = $passwordEncoder->encodePassword(
                 $user,
                 $form->get('plainPassword')->getData()
