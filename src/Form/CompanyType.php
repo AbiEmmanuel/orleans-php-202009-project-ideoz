@@ -19,12 +19,11 @@ class CompanyType extends AbstractType
             ->add('phoneNumber', TelType::class, [
                 'label' => 'Numéro de téléphone'
             ])
-            ->add('email', EmailType::class)
+            ->add('email', EmailType::class, [
+                'label' => 'Email'
+            ])
             ->add('name', TextType::class, [
                 'label' => 'Votre nom'
-            ])
-            ->add('companyName', TextType::class, [
-                'label' => 'Nom de l\'entreprise'
             ])
         ;
     }
