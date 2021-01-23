@@ -6,6 +6,7 @@ use App\Entity\Ecosystem;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
@@ -35,6 +36,10 @@ class MembershipType extends AbstractType
             ])
             ->add('url', UrlType::class, [
                 'label' => 'Site internet',
+                'required' => false,
+            ])
+            ->add('phoneNumber', TelType::class, [
+                'label' => 'Numéro de téléphone',
                 'required' => false,
             ])
             ->add('abstract', TextType::class, [

@@ -65,6 +65,10 @@ class SecurityController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
+        if (in_array("ROLE_MEMBER", $user->getRoles())) {
+            return $this->redirectToRoute('app_profile');
+        }
+
         $form = $this->createForm(MembershipType::class, $ecosystem);
         $form->handleRequest($request);
 
@@ -96,10 +100,13 @@ class SecurityController extends AbstractController
         /** @var User $user */
         $user = $this->getUser();
         $member = $ecosystemRepository->findOneBy(['user' => $user]);
+
         if (!in_array("ROLE_MEMBER", $user->getRoles())) {
             return $this->redirectToRoute('membershipForm');
         }
+
         return $this->render('security/profile.html.twig', [
+            'user' => $user,
             'member' => $member
         ]);
         // TODO : Reste à finir les vues et vérifier les méthodes du contrôleur après que les PRs de Damien et Amélie
