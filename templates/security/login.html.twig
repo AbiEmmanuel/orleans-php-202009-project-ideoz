@@ -9,7 +9,7 @@
 {% block body %}
     <main>
         <div class="header mt-0 d-flex align-items-center justify-content-center">
-            <h1 class="text-center text-light mt-5 d-flex align-self-center">Connexion</h1>
+            <h1 class="text-center text-light">Connexion</h1>
         </div>
         <div class="container">
             <h2 class="text-center py-5">Connectez-vous à votre espace Co-oZ</h2>
@@ -39,6 +39,7 @@
                         <input type="checkbox" name="_remember_me"> Se souvenir de moi
                     </label>
                 </div>
+                <p><a href="{{ path('app_forgot_password_request') }}">Mot de passe oublié ?</a></p>
 
                 <div class="col text-center">
                     <button class="button-yellow text-decoration-none btn-lg rounded-pill my-4 px-5 py-3" type="submit">
