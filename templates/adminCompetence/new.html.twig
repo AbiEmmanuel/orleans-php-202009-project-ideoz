@@ -2,13 +2,15 @@
 
 {% block title %}{{ parent() }} | Ajouter une compétence{% endblock %}
 {% block stylesheets %}
-    {{ encore_entry_link_tags('adminOffer') }}
+    {{ encore_entry_link_tags('adminEcosystem') }}
 {% endblock %}
 {% block body %}
     <h1 class="text-center">Ajouter une compétence</h1>
     <div class="new container ">
         {{ include('adminCompetence/_form.html.twig') }}
-        <a class="back text-decoration-none text-dark btn rounded-pill my-4 px-3 py-1"
-           href="{{ path('admin_competence_index') }}">Retour</a>
+        <div class="row mx-0">
+            <a class="back text-decoration-none text-dark btn rounded-pill my-4 px-3 py-1"
+               href="{{ path('admin_competence_index') }}">Retour</a>
+        </div>
     </div>
 {% endblock %}
