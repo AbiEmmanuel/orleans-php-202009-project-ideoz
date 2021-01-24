@@ -159,7 +159,7 @@ class AdminEcosystemController extends AbstractController
             $entityManager->remove($ecosystem);
             $entityManager->flush();
 
-            $this->addFlash('danger', 'L\'entreprise a bien été retirée de l\écosystème.');
+            $this->addFlash('danger', 'L\'entreprise a bien été retirée de l\'écosystème.');
         }
 
         return $this->redirectToRoute('ecosystem_index');
