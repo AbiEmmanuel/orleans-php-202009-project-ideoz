@@ -11,28 +11,27 @@
         background-position: center center;
     }
 
-    .jumbotron {
-        border-left: $spacing double $primary;
+    .row {
+        row-gap: $spacing-4;
+        column-gap: $spacing-4;
 
-        p {
-            font-family: $font-text;
-            font-weight: bolder;
+        .card {
+            border: none;
+            border-radius: 0 6px 6px 0;
+            border-left: $spacing double $primary;
+            box-shadow: 2px 2px 4px 0 darken($third-color, 70%);
+            transition: all 0.5s ease-out;
+            background-color: $third-color;
+            width: 24rem;
+
+            p {
+                font-weight: bolder;
+            }
+
+            &:hover {
+                transform: scale(1.1);
+            }
         }
-
-        li {
-            list-style-type: none;
-        }
-
-        img {
-            width: 150px;
-            height: auto;
-        }
-    }
-
-    .jumbotron:hover {
-        cursor: pointer;
-        transform: scale(1.1);
-        box-shadow: 2px 2px 4px 0 darken($third-color, 70%);
     }
 
     .more {

@@ -45,7 +45,7 @@ class CooperativeController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="show", methods={"GET"})
+     * @Route("entreprise/{id}", name="show", methods={"GET"})
      * @param Ecosystem $ecosystem
      * @return Response
      */
@@ -57,7 +57,7 @@ class CooperativeController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/mise_en_relation", name="company_work")
+     * @Route("entreprise/{id}/mise_en_relation", name="company_work")
      * @param Ecosystem $ecosystem
      * @param EcosystemRepository $ecosystemRepository
      * @param MailerInterface $mailer
@@ -93,11 +93,13 @@ class CooperativeController extends AbstractController
      * @return Response
      * @Route ("/projet", name="projects")
      */
-    public function showAllProjects(ProjectRepository $projectRepository, CompetenceRepository $competenceRepository)
-    {
+    public function showAllProjects(
+        ProjectRepository $projectRepository,
+        CompetenceRepository $competenceRepository
+    ): Response {
         return $this->render('cooperative/projects.html.twig', [
-            'projects' => $projectRepository->findAll(),
-            'competences' => $competenceRepository->findAll(),
+            'projects' => $projectRepository->findBy([], ['title' => 'ASC']),
+            'competences' => $competenceRepository->findBy([], ['name' => 'ASC']),
         ]);
     }
 
