@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Form\ChangePasswordAfterLoginType;
 use App\Form\ChangePasswordFormType;
 use App\Form\ResetPasswordRequestFormType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -186,6 +187,7 @@ class ResetPasswordController extends AbstractController
 
     /**
      * @Route("/changer-mot-de-passe", name="changePassword")
+     * @IsGranted("ROLE_USER")
      * @param Request $request
      * @param UserPasswordEncoderInterface $passwordEncoder
      * @return RedirectResponse|Response
