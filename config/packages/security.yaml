@@ -50,5 +50,5 @@ security:
     access_control:
          - { path: ^/admin, roles: ROLE_ADMIN }
          - { path: ^/formulaire-informations, roles: ROLE_USER }
-         - { path: ^/profile, roles: ROLE_USER }
+         - { path: ^/profil, roles: ROLE_USER }
          - { path: ^/espace-cooz, roles: ROLE_USER }
