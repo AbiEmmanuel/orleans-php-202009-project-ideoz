@@ -23,6 +23,7 @@ class Contact
 
     /**
      * @Assert\Length(max="255")
+     * @Assert\Regex("^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$")
      */
     private ?string $phone = null;
 
