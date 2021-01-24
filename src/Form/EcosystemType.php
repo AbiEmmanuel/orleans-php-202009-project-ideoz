@@ -30,7 +30,7 @@ class EcosystemType extends AbstractType
                 'label' => 'Secteur d\'activité',
                 'required' => false,
             ])
-            ->add('competence', null, [
+            ->add('competences', null, [
                 'label' => 'Compétence différenciante',
                 'choice_label' => 'name',
                 'expanded' => true,
