@@ -1,0 +1,79 @@
+{% extends 'layout.html.twig' %}
+{% block title %}{{ parent() }} | Mon profil{% endblock %}
+{% block stylesheets %}
+    {{ encore_entry_link_tags('profile') }}
+{% endblock %}
+{% block body %}
+    <main>
+        <div class="header mt-0 d-flex align-items-center justify-content-center">
+            <h1 class="text-center text-light">Mon profil</h1>
+        </div>
+        <div class="container">
+            <h2 class="text-center py-5">Vos informations d'entreprise</h2>
+            <div class="row mx-0 my-5">
+                <div class="offset-sm-3 col-md-3">
+                    <p>Votre entreprise : </p>
+                </div>
+                <div class="offset-sm-1 col-md-4">
+                    <b>{{ member.name }}</b>
+                </div>
+            </div>
+
+            <div class="row mx-0 my-5">
+                <div class="offset-sm-3 col-md-3">
+                    <p>Votre email : </p>
+                </div>
+                <div class="offset-sm-1 col-md-4">
+                    <b><a href="{{ member.email }}">{{ member.email }}</a></b>
+                </div>
+            </div>
+
+            <div class="row mx-0 my-5">
+                <div class="offset-sm-3 col-md-3">
+                    <p>Votre logo : </p>
+                </div>
+                <div class="offset-sm-1 col-md-4">
+                    <img src="{{ asset('uploads/logos/' ~ member.logo) }}" alt="Logo Entreprise {{ member.name }}">
+                </div>
+            </div>
+
+            <div class="row mx-0 my-5">
+                <div class="offset-sm-3 col-md-3">
+                    <p>Votre secteur d'activité : </p>
+                </div>
+                <div class="offset-sm-1 col-md-4">
+                    <b>{{ member.activity }}</b>
+                </div>
+            </div>
+
+            <div class="row mx-0 my-5">
+                <div class="offset-sm-3 col-md-3">
+                    <p>Votre site internet : </p>
+                </div>
+                <div class="offset-sm-1 col-md-4">
+                    <b><a href="{{ member.url }}">{{ member.url }}</a></b>
+                </div>
+            </div>
+
+            <div class="row mx-0 my-5">
+                <div class="offset-sm-3 col-md-3">
+                    <p>Numéro de téléphone : </p>
+                </div>
+                <div class="offset-sm-1 col-md-4">
+                    <b><a href="{{ member.phoneNumber }}">{{ member.phoneNumber }}</a></b>
+                </div>
+            </div>
+
+            <div class="row mx-0 my-5">
+                <div class="offset-sm-3 col-md-3">
+                    <p>Résumé de votre entreprise : </p>
+                </div>
+                <div class="offset-sm-1 col-md-4">
+                    <b>{{ member.abstract }}</b>
+                </div>
+            </div>
+            <hr>
+            <p class="text-center py-5">Besoin de changer vos informations ? <a href="{{ path('contact') }}">Contactez-moi !</a></p>
+        </div>
+    </main>
+{% endblock %}
