@@ -10,9 +10,9 @@ use Doctrine\Persistence\ObjectManager;
 class OfferFixtures extends Fixture
 {
     public const OFFERS = [
-        'Transmettre - Former',
-        'Conseil Flash',
-        'Accompagnement',
+        'Formation et transmission',
+        'Conseil',
+        'Accompagnement engagé',
     ];
 
     public function load(ObjectManager $manager)
@@ -23,6 +23,9 @@ class OfferFixtures extends Fixture
             $service->setName($offer);
             $service->setDescription($faker->text(700));
             $service->setAbstract($faker->text(400));
+            $service->setCatchPhrase($faker->sentence);
+            $service->setExample($faker->text(600));
+            $service->setNumber($index + 1);
             $manager->persist($service);
             $this->addReference('offer_' . $index, $service);
         }

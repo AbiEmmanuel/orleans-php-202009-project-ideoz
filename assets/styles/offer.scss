@@ -1,0 +1,123 @@
+@import 'app.scss';
+
+.service1 {
+    .header {
+        background-image: url('../images/header_service1.jpg');
+
+        h1 {
+            color: darken($light-primary, 30%);
+        }
+    }
+
+    .button {
+        background-color: $light-primary;
+        box-shadow: 0 1px 0.25rem $primary;
+
+        &:hover {
+            color: $light;
+            background-color: lighten($light-primary, 3%);
+            box-shadow: 0 0 0.25rem lighten($primary, 10%);
+        }
+    }
+
+    h2, h3, h4, h5 {
+        color: $light-primary;
+    }
+
+    ul li::marker {
+        color: $light-primary;
+    }
+}
+
+.service2 {
+    .header {
+        background-image: url('../images/header_service2.jpg');
+
+        h1 {
+            color: darken($secondary, 5%);
+        }
+    }
+
+    .button {
+        background-color: $secondary;
+        box-shadow: 0 1px 0.25rem darken($secondary, 30%);
+
+        &:hover {
+            color: $light;
+            background-color: lighten($secondary, 3%);
+            box-shadow: 0 0 0.25rem lighten($secondary, 10%);
+        }
+    }
+
+    h2, h3, h4, h5 {
+        color: $secondary;
+    }
+
+    ul li::marker {
+        color: $secondary;
+    }
+}
+
+.service3 {
+    .header {
+        background-image: url('../images/header_service3.jpg');
+
+        h1 {
+            color: darken($light-secondary, 10%);
+        }
+    }
+
+    .button {
+        background-color: $light-secondary;
+        box-shadow: 0 1px 0.25rem darken($light-secondary, 50%);
+
+        &:hover {
+            color: $light;
+            background-color: lighten($light-secondary, 3%);
+            box-shadow: 0 0 0.25rem darken($light-secondary, 10%);
+        }
+    }
+
+    h2, h3, h4, h5 {
+        color: $light-secondary;
+    }
+
+    ul li::marker {
+        color: $light-secondary;
+    }
+}
+
+.all-services {
+    .header {
+        background-attachment: fixed;
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: $height-header;
+
+        p {
+            font-family: $font-title;
+        }
+    }
+
+    .button {
+        font-family: $font-title;
+        font-weight: 700;
+        color: $light;
+    }
+
+    .photo {
+        height: 530px;
+        width:400px;
+        border-radius: 6px;
+    }
+
+    h3, h4, h5 {
+        margin-bottom: $spacing-2;
+    }
+
+    ul li {
+        list-style-type: square;
+        margin: $spacing;
+    }
+}
