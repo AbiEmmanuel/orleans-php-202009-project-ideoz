@@ -91,7 +91,7 @@ class CooperativeController extends AbstractController
      * @param ProjectRepository $projectRepository
      * @param CompetenceRepository $competenceRepository
      * @return Response
-     * @Route ("/projet", name="projects")
+     * @Route ("/projet", name="projects", methods={"GET"})
      */
     public function showAllProjects(
         ProjectRepository $projectRepository,
