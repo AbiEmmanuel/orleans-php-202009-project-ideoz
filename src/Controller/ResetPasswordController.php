@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\ChangePasswordAfterLoginType;
 use App\Form\ChangePasswordFormType;
 use App\Form\ResetPasswordRequestFormType;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
@@ -18,9 +19,6 @@ use SymfonyCasts\Bundle\ResetPassword\Controller\ResetPasswordControllerTrait;
 use SymfonyCasts\Bundle\ResetPassword\Exception\ResetPasswordExceptionInterface;
 use SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface;
 
-/**
- * @Route("/reinitialisation-mot-de-passe")
- */
 class ResetPasswordController extends AbstractController
 {
     use ResetPasswordControllerTrait;
@@ -35,7 +33,7 @@ class ResetPasswordController extends AbstractController
     /**
      * Display & process form to request a password reset.
      *
-     * @Route("", name="app_forgot_password_request")
+     * @Route("/reinitialisation-mot-de-passe", name="app_forgot_password_request")
      * @param Request $request
      * @param MailerInterface $mailer
      * @return Response
@@ -60,7 +58,7 @@ class ResetPasswordController extends AbstractController
     /**
      * Confirmation page after a user has requested a password reset.
      *
-     * @Route("/email-envoye", name="app_check_email")
+     * @Route("/reinitialisation-mot-de-passe/email-envoye", name="app_check_email")
      */
     public function checkEmail(): Response
     {
@@ -77,7 +75,7 @@ class ResetPasswordController extends AbstractController
     /**
      * Validates and process the reset URL that the user clicked in their email.
      *
-     * @Route("/reinitialisation/{token}", name="app_reset_password")
+     * @Route("/reinitialisation-mot-de-passe/reinitialisation/{token}", name="app_reset_password")
      * @param Request $request
      * @param UserPasswordEncoderInterface $passwordEncoder
      * @param string|null $token
@@ -184,5 +182,40 @@ class ResetPasswordController extends AbstractController
         $mailer->send($email);
 
         return $this->redirectToRoute('app_check_email');
+    }
+
+    /**
+     * @Route("/changer-mot-de-passe", name="changePassword")
+     * @param Request $request
+     * @param UserPasswordEncoderInterface $passwordEncoder
+     * @return RedirectResponse|Response
+     */
+    public function editPassword(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+        $entityManager = $this->getDoctrine()->getManager();
+        $form = $this->createForm(ChangePasswordAfterLoginType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Encode the plain password, and set it.
+            $oldPassword = $form->get('oldPassword')->getData();
+            if ($passwordEncoder->isPasswordValid($user, $oldPassword)) {
+                $encodedPassword = $passwordEncoder->encodePassword(
+                    $user,
+                    $form->get('plainPassword')->getData()
+                );
+
+                $user->setPassword($encodedPassword);
+                $entityManager->flush();
+                $this->addFlash('success', 'Votre mot de passe a bien été modifié.');
+
+                return $this->redirectToRoute('home');
+            }
+        }
+        return $this->render('reset_password/changePasswordAfterLogin.html.twig', [
+            'changePasswordForm' => $form->createView(),
+        ]);
     }
 }

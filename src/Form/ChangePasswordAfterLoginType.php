@@ -6,15 +6,24 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class ChangePasswordFormType extends AbstractType
+class ChangePasswordAfterLoginType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add('oldPassword', PasswordType::class, [
+                'label' => 'Mot de passe actuel',
+                'mapped' => false,
+                'constraints' => [
+                    new UserPassword([
+                        'message' => 'Votre mot de passe actuel est incorrect.'
+                    ])
+                ]
+            ])
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'first_options' => [
@@ -35,15 +44,9 @@ class ChangePasswordFormType extends AbstractType
                     'label' => 'Répétez votre nouveau mot de passe',
                 ],
                 'invalid_message' => 'Les deux champs mot de passe doivent correspondre.',
-                // Instead of being set onto the object directly,
-                // this is read and encoded in the controller
+                'required' => true,
                 'mapped' => false,
             ])
         ;
-    }
-
-    public function configureOptions(OptionsResolver $resolver): void
-    {
-        $resolver->setDefaults([]);
     }
 }
