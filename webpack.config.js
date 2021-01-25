@@ -38,6 +38,7 @@ Encore
     .addEntry('home', './assets/js/home.js')
     .addEntry('admin', './assets/styles/admin.scss')
     .addEntry('adminOffer', './assets/styles/adminOffer.scss')
+    .addEntry('offer', './assets/styles/offer.scss')
     .addEntry('testimony', './assets/styles/testimony.scss')
     .addEntry('adminEcosystem', './assets/styles/adminEcosystem.scss')
     .addEntry('adminLegalNotice', './assets/styles/adminLegalNotice.scss')
@@ -48,6 +49,7 @@ Encore
     .addEntry('adminTestimony', './assets/styles/adminTestimony.scss')
     .addEntry('companies', './assets/styles/companies.scss')
     .addEntry('projects', './assets/styles/projects.scss')
+    .addEntry('profile', './assets/styles/profile.scss')
 
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.

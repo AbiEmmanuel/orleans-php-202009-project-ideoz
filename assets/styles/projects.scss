@@ -12,7 +12,7 @@
     }
 
     .jumbotron {
-        background: linear-gradient($light, $light-primary);
+        border-left: $spacing double $primary;
 
         p {
             font-family: $font-text;
@@ -29,6 +29,12 @@
         }
     }
 
+    .jumbotron:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+        box-shadow: 2px 2px 4px 0 darken($third-color, 70%);
+    }
+
     .more {
         font-family: $font-text;
         font-weight: bolder;
@@ -36,5 +42,20 @@
         svg {
             padding-bottom: $spacing / 2;
         }
+    }
+}
+
+.project {
+    .header {
+        height: $height-header;
+        background-image: url("../images/header_project.jpg");
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    span {
+        font-size: $h4-font-size;
     }
 }

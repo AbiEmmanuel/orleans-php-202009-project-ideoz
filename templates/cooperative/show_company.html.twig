@@ -1,0 +1,33 @@
+{% extends 'layout.html.twig'%}
+
+{% block title %}{{ parent () }} | Co-oZ - {{ company.name }}{% endblock %}
+{% block body %}
+<h1 class="text-center">{{ company.name }}</h1>
+    <div class="container">
+        <div class="d-flex justify-content-center my-4">
+            <img src="{{ vich_uploader_asset(company, 'logoFile') }}" alt="">
+        </div>
+        <div class="text-center px-5">
+            <p class="badge badge-primary text-center text-capitalize px-2 py-2">
+                {{ company.activity }}
+            </p>
+        </div>
+        <a class="btn btn-secondary rounded-pill text-white" href="{{ company.url }}">Voir leur site</a>
+        <p class="my-4">{{ company.presentation }}</p>
+
+        <h2 class="mb-1">Compétence</h2>
+        <ul>
+            {% for competence in company.competences %}
+            <li>{{competence.name }}</li>
+            {% endfor %}
+        </ul>
+        <div class="text-center my-4 ">
+         <a class="btn btn-secondary rounded-pill text-white px-3 py-2" href="{{ path('cooperative_company_work', {'id' : company.id }) }}">
+             <span class="mr-2">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                 <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
+                 </svg>
+             </span>Être mis en relation</a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,4 +1,5 @@
-<form method="post" action="{{ path('admin_testimony_delete', {'id': testimony.id}) }}" onsubmit="return confirm('Confirmez la suppression ?');">
+<form method="post" action="{{ path('admin_testimony_delete', {'id': testimony.id}) }}"
+      onsubmit="return confirm('Voulez-vous vraiment supprimer ce témoignage ?');">
     <input type="hidden" name="_method" value="DELETE">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ testimony.id) }}">
     <button title="Supprimer" class="btn text-primary m-2 p-2 ml-2">

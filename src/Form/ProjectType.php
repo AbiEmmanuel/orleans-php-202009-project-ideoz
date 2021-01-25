@@ -30,7 +30,7 @@ class ProjectType extends AbstractType
                 'multiple' => false,
                 'required' => true,
             ])
-            ->add('competence', null, [
+            ->add('competences', null, [
                 'label' => 'Compétences',
                 'choice_label' => 'name',
                 'expanded' => true,

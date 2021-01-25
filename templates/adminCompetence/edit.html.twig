@@ -3,17 +3,19 @@
 {% block title %}{{ parent() }} | Éditer une compétence{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
-    {{ encore_entry_link_tags('adminOffer') }}
+    {{ encore_entry_link_tags('adminEcosystem') }}
 {% endblock %}
 {% block body %}
     <h1 class="text-center">Éditer une compétence</h1>
-    <div class="container edit">
-        {{ include('adminCompetence/_form.html.twig', {'button_label': 'Update'}) }}
-        <div class="text-center">
-        {{ include('adminCompetence/_delete_form.html.twig') }}
+    <div class="container">
+        {{ include('adminCompetence/_form.html.twig', {'button_label': 'Modifier'}) }}
+        <div class="row mx-0 d-flex justify-content-center">
+            {{ include('adminCompetence/_delete_form.html.twig', {'button_label': 'Supprimer'}) }}
         </div>
-        <a class="back text-decoration-none text-dark btn rounded-pill my-4 px-3 py-1"
-           href="{{ path('admin_competence_index') }}">Retour</a>
-
+        <div class="row mx-0">
+            <a class="back text-decoration-none text-dark btn rounded-pill my-4 px-3 py-1"
+               href="{{ path('admin_competence_index') }}">Retour</a>
+        </div>
     </div>
+
 {% endblock %}
