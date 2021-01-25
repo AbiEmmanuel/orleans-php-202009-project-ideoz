@@ -10,6 +10,7 @@ use App\Form\EcosystemSearchType;
 use App\Repository\CompetenceRepository;
 use App\Repository\EcosystemRepository;
 use App\Repository\ProjectRepository;
+use App\Repository\StatusRepository;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -27,10 +28,15 @@ class CooperativeController extends AbstractController
      * @Route("/entreprise", name="companies")
      * @param EcosystemRepository $ecosystemRepository
      * @param Request $request
+     * @param StatusRepository $statusRepository
      * @return Response
      */
-    public function showAllCompanies(EcosystemRepository $ecosystemRepository, Request $request): Response
-    {
+    public function showAllCompanies(
+        EcosystemRepository $ecosystemRepository,
+        Request $request,
+        StatusRepository $statusRepository
+    ): Response {
+        $partner = $statusRepository->findOneBy(['name' => 'Partenaire']);
         $ecosystemSearch = new EcosystemSearch();
         $form = $this->createForm(EcosystemSearchType::class, $ecosystemSearch);
         $form->handleRequest($request);
@@ -39,7 +45,10 @@ class CooperativeController extends AbstractController
         }
 
         return $this->render('cooperative/companies.html.twig', [
-            'companies' => $companies ?? $ecosystemRepository->findAll(),
+            'companies' => $companies ?? $ecosystemRepository->findBy(
+                ['status' => $partner, 'isValidated' => true],
+                ['name' => 'ASC']
+            ),
             'form' => $form->createView(),
         ]);
     }
