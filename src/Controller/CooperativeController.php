@@ -151,7 +151,7 @@ class CooperativeController extends AbstractController
         $mailer->send($email);
         $this->addFlash('success', 'Votre demande de participation a bien été enregistrée.');
 
-        return $this->redirectToRoute('cooperative_project_sheet', [
+        return $this->redirectToRoute('cooperative_projects', [
             'id' => $project->getId(),
         ]);
     }
