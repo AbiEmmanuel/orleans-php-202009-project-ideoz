@@ -16,7 +16,7 @@
                 <tbody>
                 {% for offer in offers %}
                     <tr>
-                        <td>{{ offer.name | capitalize }}</td>
+                        <td>{{ offer.name }}</td>
                         <td class="d-flex justify-content-end align-items-center">
                             <a class="mx-3 text-decoration-none"
                                href="{{ path('admin_offer_show', {'id': offer.id}) }}" title="Détails">

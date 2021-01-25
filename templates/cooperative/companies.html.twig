@@ -47,16 +47,16 @@
                     {% for company in companies %}
                         <div class="card">
                             <img src="{{ asset('uploads/logos/' ~ company.logo) }}" class="logo img-fluid"
-                                 alt="{{ company.name | title }}">
+                                 alt="{{ company.name }}">
 
                             <div class="card-title my-3">
-                                <h3 class="card-title text-center">{{ company.name | title }}</h3>
+                                <h3 class="card-title text-center">{{ company.name }}</h3>
                             </div>
                             <div class="card-body d-flex flex-column justify-content-between">
-                                <p class="card-text text-justify">{{ company.abstract | capitalize }}</p>
+                                <p class="card-text text-justify">{{ company.abstract }}</p>
                                 <p class="card-text">
                                     <span class="text-primary">Secteur d'activité : </span>
-                                    {{ company.activity | capitalize }}
+                                    {{ company.activity }}
                                 </p>
                                 <p class="text-primary card-text mb-1">Compétences : </p>
                                 <div class="d-flex">

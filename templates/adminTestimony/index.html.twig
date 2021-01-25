@@ -30,8 +30,8 @@
                 <tbody>
                 {% for testimony in testimonies %}
                     <tr>
-                        <td>{{ testimony.ecosystem.name | title }}</td>
-                        <td>{{ testimony.content | capitalize }}</td>
+                        <td>{{ testimony.ecosystem.name }}</td>
+                        <td>{{ testimony.content }}</td>
                         <td class="d-flex justify-content-around align-items-center">
                             <a class="text-decoration-none mx-1"
                                title="Modifier" href="{{ path('admin_testimony_edit', {'id': testimony.id}) }}">
