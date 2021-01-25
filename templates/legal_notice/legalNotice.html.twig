@@ -1,4 +1,8 @@
 {% extends 'layout.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('adminLegalNotice') }}
+{% endblock %}
 
 {% block title %}{{ parent() }} | Mentions légales{% endblock %}
 

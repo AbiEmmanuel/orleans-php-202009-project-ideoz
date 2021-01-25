@@ -8,11 +8,10 @@
 
     h2 {
         margin-top: $spacing-4;
-        padding-top: $spacing-3;
     }
 
     .header {
-        background-image: url('../images/shakinghands.jpg');
+        background-image: url('../images/header_testimony.jpg');
         background-attachment: fixed;
         background-position: bottom;
         background-repeat: no-repeat;
@@ -30,16 +29,12 @@
         }
     }
 
-    .separate {
-        img {
-            margin-left: $spacing;
-            margin-bottom: $spacing-4;
-        }
+    .quote-primary {
+        height: 20px;
+    }
 
-        .quotes {
-            margin-right: $spacing;
-            margin-top: $spacing-4;
-        }
+    .quote-start {
+        transform: rotate(180deg);
     }
 
     .contact {

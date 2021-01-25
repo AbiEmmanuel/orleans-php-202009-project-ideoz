@@ -19,3 +19,9 @@
         box-shadow: 0 0 1rem lighten($light-primary, 10%);
     }
 }
+
+.button-list {
+    a, form {
+        margin: $spacing-2;
+    }
+}

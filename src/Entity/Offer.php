@@ -37,6 +37,21 @@ class Offer
      */
     private string $abstract;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private string $catchPhrase;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private ?string $example;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private int $number;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -74,6 +89,42 @@ class Offer
     public function setAbstract(string $abstract): self
     {
         $this->abstract = $abstract;
+
+        return $this;
+    }
+
+    public function getCatchPhrase(): ?string
+    {
+        return $this->catchPhrase;
+    }
+
+    public function setCatchPhrase(string $catchPhrase): self
+    {
+        $this->catchPhrase = $catchPhrase;
+
+        return $this;
+    }
+
+    public function getExample(): ?string
+    {
+        return $this->example;
+    }
+
+    public function setExample(?string $example): self
+    {
+        $this->example = $example;
+
+        return $this;
+    }
+
+    public function getNumber(): ?int
+    {
+        return $this->number;
+    }
+
+    public function setNumber(int $number): self
+    {
+        $this->number = $number;
 
         return $this;
     }
