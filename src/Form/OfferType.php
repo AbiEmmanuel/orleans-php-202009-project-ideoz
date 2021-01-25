@@ -18,9 +18,19 @@ class OfferType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => 'Nom'
             ])
-            ->add('description', CKEditorType::class)
+            ->add('catchPhrase', TextType::class, [
+                'label' => 'Phrase d\'accroche',
+                'help' => 'Texte présent en haut de la page, sous le titre'
+            ])
             ->add('abstract', CKEditorType::class, [
-                'label' => 'Résumé'
+                'label' => 'Résumé',
+                'help' => 'Description rapide présente sur la page d\'accueil'
+            ])
+            ->add('description', CKEditorType::class, [
+                'label' => 'Description du service'
+            ])
+            ->add('example', CKEditorType::class, [
+                'label' => 'Exemple'
             ])
         ;
     }
