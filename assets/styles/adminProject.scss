@@ -25,3 +25,9 @@
         margin: $spacing-2;
     }
 }
+
+form {
+    label, legend {
+        font-weight: bold;
+    }
+}

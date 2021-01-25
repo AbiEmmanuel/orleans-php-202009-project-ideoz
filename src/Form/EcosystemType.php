@@ -7,6 +7,8 @@ use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -21,6 +23,16 @@ class EcosystemType extends AbstractType
             ->add('name', TextType::class, [
             'label' => 'Nom',
             ])
+            ->add('phoneNumber', TelType::class, [
+                'label' => 'Téléphone',
+            ])
+            ->add('email', EmailType::class, [
+                'label' => 'Adresse e-mail',
+            ])
+            ->add('url', TextType::class, [
+                'label' => 'Site internet',
+                'required' => false,
+            ])
             ->add('logoFile', VichImageType::class, [
                 'label' => 'Logo',
                 'required' => false,
@@ -31,17 +43,19 @@ class EcosystemType extends AbstractType
                 'required' => false,
             ])
             ->add('competences', null, [
-                'label' => 'Compétence différenciante',
+                'label' => 'Compétences',
                 'choice_label' => 'name',
                 'expanded' => true,
                 'multiple' => true,
             ])
-            ->add('url', TextType::class, [
-                'label' => 'Site internet',
-                'required' => false,
-            ])
             ->add('abstract', CKEditorType::class, [
                 'label' => 'Présentation rapide',
+                'help' => 'Description rapide présente dans la partie écosystème de la page d\'accueil',
+                'required' => false,
+            ])
+            ->add('presentation', CKEditorType::class, [
+                'label' => 'Présentation',
+                'help' => 'Description complète présente sur les fiches individuelles',
                 'required' => false,
             ])
             ->add('status', null, [
