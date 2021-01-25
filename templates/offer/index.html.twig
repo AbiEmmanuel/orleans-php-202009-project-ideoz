@@ -9,8 +9,8 @@
 {% block body %}
     <main class="service{{ service.number }} all-services">
         <div class="header d-flex flex-column justify-content-center align-items-center mt-0">
-            <h1 class="text-center mt-0 pt-0">{{ service.name }}</h1>
-            <p class="text-center text-light h3">{{ service.catchPhrase }}</p>
+            <h1 class="text-center mt-0 pt-0">{{ service.name |capitalize }}</h1>
+            <p class="text-center text-light h3">{{ service.catchPhrase | capitalize }}</p>
         </div>
         <section class="container description">
             <div class="card mt-5 border-0">
@@ -40,7 +40,6 @@
             {% endif %}
         </section>
         <section class="container price">
-            {# <h2 class="text-center"></h2> #}
             <div class="row justify-content-center align-items-center mx-0">
                 <div class="col-lg-4 text-center my-4">
                     <h3 class="m-0">Tarifs sur demande</h3>

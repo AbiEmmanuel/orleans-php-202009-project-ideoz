@@ -8,13 +8,13 @@
 {% endblock %}
 
 {% block body %}
-    <h1 class="text-center">{{ offer.name }}</h1>
+    <h1 class="text-center">{{ offer.name | capitalize }}</h1>
     <div class="container">
         <table class="table table-striped">
             <tbody>
             <tr>
                 <th>Nom</th>
-                <td>{{ offer.name }}</td>
+                <td>{{ offer.name |capitalize }}</td>
             </tr>
             <tr>
                 <th>Résumé</th>

@@ -14,25 +14,25 @@
             <tbody>
             <tr>
                 <th>Titre</th>
-                <td>{{ project.title }}</td>
+                <td>{{ project.title | capitalize }}</td>
             </tr>
             <tr>
                 <th>Présentation</th>
-                <td>{{ project.presentation }}</td>
+                <td>{{ project.presentation | raw }}</td>
             </tr>
             <tr>
                 <th>Ambition</th>
-                <td>{{ project.purpose }}</td>
+                <td>{{ project.purpose | capitalize }}</td>
             </tr>
             <tr>
                 <th>Porteur</th>
-                <td>{{ project.owner.name }}</td>
+                <td>{{ project.owner.name |title }}</td>
             </tr>
             <tr>
                 <th>Compétences</th>
                 <td>
                     {% for competence in project.competences %}
-                        {{ competence.name }}
+                        {{ competence.name | capitalize }}
                     {% endfor %}
                 </td>
             </tr>

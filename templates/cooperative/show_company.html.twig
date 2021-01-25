@@ -12,7 +12,7 @@
             <h1>Fiche Entreprise</h1>
         </div>
         <section>
-            <h2 class="text-center">{{ company.name }}</h2>
+            <h2 class="text-center">{{ company.name | title }}</h2>
             <div class="container">
                 <div class="row mx-0">
                     <div class="col text-center">
@@ -20,12 +20,14 @@
                     </div>
                     <div class="col">
                         <p>Secteur d'activité : {{ company.activity }}</p>
-                        <p class="my-4">{{ company.presentation }}</p>
+                        <p class="my-4">{{ company.presentation | raw }}</p>
 
                         <h4 class="my-2">Compétences</h4>
 
                             {% for competence in company.competences %}
-                            <p class="badge badge-primary text-center text-capitalize px-2 my-2 py-2">{{competence.name }}</p>
+                            <p class="badge badge-primary text-center text-capitalize px-2 my-2 py-2">
+                                {{ competence.name | capitalize }}
+                            </p>
                             {% endfor %}
                     </div>
                 </div>

@@ -26,11 +26,11 @@
                         </div>
                         <div class="col-md-9">
                             <div class="card-body">
-                                <h2 class="card-title h3 pt-0 mt-0">{{ testimony.ecosystem.name }}</h2>
+                                <h2 class="card-title h3 pt-0 mt-0">{{ testimony.ecosystem.name | title }}</h2>
                                 <div class="card-text">
                                     <img src="{{ asset('build/images/yellow_quotes.png') }}" alt="quote"
                                          class="quote-primary quote-start pt-2"/>
-                                    {{ testimony.content | raw }}
+                                    {{ testimony.content | capitalize }}
                                     <img src="{{ asset('build/images/yellow_quotes.png') }}" alt="quote"
                                          class="quote-primary quote-end pb-2"/>
                                 </div>
