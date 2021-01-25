@@ -23,7 +23,7 @@ class CompetenceController extends AbstractController
     public function index(CompetenceRepository $competenceRepository): Response
     {
         return $this->render('adminCompetence/index.html.twig', [
-            'competences' => $competenceRepository->findAll(),
+            'competences' => $competenceRepository->findBy([], ['name' => 'ASC']),
         ]);
     }
 
