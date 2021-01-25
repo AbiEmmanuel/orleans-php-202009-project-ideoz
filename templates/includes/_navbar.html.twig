@@ -1,5 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-primary d-none d-sm-block fixed-top">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand d-lg-none navbar-mobile-logo" href="{{ path("home") }}">
@@ -11,17 +12,19 @@
                 <a class="nav-link text-light" href="/#about">À propos</a>
             </li>
             <div class="nav-item dropdown mx-5 my-2 align-self-lg-center">
-                <a class="dropdown-toggle text-light text-decoration-none py-2" href="#" role="button" id="dropdownMenuLink"
+                <a class="dropdown-toggle text-light text-decoration-none py-2" href="#" role="button"
+                   id="dropdownMenuLink"
                    data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
                     Mes services
                 </a>
-                <div class="dropdown-menu bg-primary" aria-labelledby="dropdownMenuLink">
+                <div class="dropdown-menu pt-lg-4 bg-primary" aria-labelledby="dropdownMenuLink">
                     {{ render(controller('App\\Controller\\HomeController::navbarOffer')) }}
                 </div>
             </div>
             <li class="nav-item mr-5 d-none d-lg-block">
-                <a class="navbar-brand" href="{{ path("home") }}"><img src="{{ asset('build/images/logo.png') }}" alt="logo"></a>
+                <a class="navbar-brand" href="{{ path("home") }}"><img src="{{ asset('build/images/logo.png') }}"
+                                                                       alt="logo"></a>
             </li>
             <li class="nav-item mr-lg-5 mr-2 ml-5 ml-lg-0 align-self-lg-center">
                 <a class="nav-link text-light" href="{{ path('testimony_index') }}">Témoignages</a>
@@ -33,8 +36,9 @@
     </div>
     {% if not app.user %}
         <ul class="navbar-nav d-flex justify-content-end">
-            <li class="nav-item dropleft align-self-center">
-                <a class="nav-link text-light icon-connexion dropdown-toggle text-decoration-none" href="#" role="button" id="dropdownMenuLink"
+            <li class="nav-item dropleft align-self-end">
+                <a class="nav-link text-light icon-connexion dropdown-toggle text-decoration-none" href="#"
+                   role="button" id="dropdownMenuLink"
                    data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
                     <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor"
@@ -44,28 +48,39 @@
                     </svg>
                 </a>
                 <div class="dropdown-menu bg-primary" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="{{ path('app_login') }}">Connexion</a>
-                    <a class="dropdown-item" href="{{ path('app_register') }}">Inscription</a>
+                    <a class="dropdown-item text-right text-lg-left" href="{{ path('app_login') }}">Connexion</a>
+                    <a class="dropdown-item text-right text-lg-left" href="{{ path('app_register') }}">Inscription</a>
                 </div>
             </li>
         </ul>
     {% else %}
         <ul class="navbar-nav d-flex justify-content-end">
-            <li class="nav-item dropleft align-self-center">
-                <a class="nav-link text-light icon-connexion dropdown-toggle text-decoration-none" href="#" role="button" id="dropdownMenuLink"
+            <li class="nav-item dropleft align-self-end">
+                <a class="nav-link text-secondary icon-connexion dropdown-toggle text-decoration-none" href="#"
+                   role="button" id="dropdownMenuLink"
                    data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
-                    <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor"
+                    <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="#ff9900"
                          xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0
                     0 0 0 6z"/>
                     </svg>
                 </a>
                 <div class="dropdown-menu bg-primary" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="{{ path('app_profile') }}">Mon profil</a>
-                    <a class="dropdown-item" href="{{ path('cooperative_companies') }}">Entreprises Partenaires</a>
-                    <a class="dropdown-item" href="{{ path('cooperative_projects') }}">Projets Partenaires</a>
-                    <a class="dropdown-item" href="{{ path('app_logout') }}">Déconnexion</a>
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <a class="dropdown-item text-right text-lg-left" href="{{ path('admin_home') }}">
+                            Espace administrateur
+                        </a>
+                    {% else %}
+                        <a class="dropdown-item text-right text-lg-left" href="{{ path('app_profile') }}">Mon profil</a>
+                    {% endif %}
+                    <a class="dropdown-item text-right text-lg-left" href="{{ path('cooperative_companies') }}">
+                        Entreprises Partenaires
+                    </a>
+                    <a class="dropdown-item text-right text-lg-left" href="{{ path('cooperative_projects') }}">
+                        Projets Partenaires
+                    </a>
+                    <a class="dropdown-item text-right text-lg-left" href="{{ path('app_logout') }}">Déconnexion</a>
                 </div>
             </li>
         </ul>

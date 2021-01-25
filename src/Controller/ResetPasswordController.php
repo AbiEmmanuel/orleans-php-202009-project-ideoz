@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\ChangePasswordAfterLoginType;
 use App\Form\ChangePasswordFormType;
 use App\Form\ResetPasswordRequestFormType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -184,5 +186,41 @@ class ResetPasswordController extends AbstractController
         $mailer->send($email);
 
         return $this->redirectToRoute('app_check_email');
+    }
+
+    /**
+     * @Route("/changer-mot-de-passe", name="changePassword", methods={"GET","POST"})
+     * @IsGranted("ROLE_USER")
+     * @param Request $request
+     * @param UserPasswordEncoderInterface $passwordEncoder
+     * @return RedirectResponse|Response
+     */
+    public function editPassword(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+        $entityManager = $this->getDoctrine()->getManager();
+        $form = $this->createForm(ChangePasswordAfterLoginType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Encode the plain password, and set it.
+            $oldPassword = $form->get('oldPassword')->getData();
+            if ($passwordEncoder->isPasswordValid($user, $oldPassword)) {
+                $encodedPassword = $passwordEncoder->encodePassword(
+                    $user,
+                    $form->get('plainPassword')->getData()
+                );
+
+                $user->setPassword($encodedPassword);
+                $entityManager->flush();
+                $this->addFlash('success', 'Votre mot de passe a bien été modifié.');
+
+                return $this->redirectToRoute('home');
+            }
+        }
+        return $this->render('reset_password/changePasswordAfterLogin.html.twig', [
+            'changePasswordForm' => $form->createView(),
+        ]);
     }
 }

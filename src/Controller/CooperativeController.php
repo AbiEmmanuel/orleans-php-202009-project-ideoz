@@ -10,6 +10,7 @@ use App\Form\EcosystemSearchType;
 use App\Repository\CompetenceRepository;
 use App\Repository\EcosystemRepository;
 use App\Repository\ProjectRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Repository\StatusRepository;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
@@ -20,6 +21,7 @@ use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
+ * @IsGranted("ROLE_MEMBER")
  * @Route("/espace-cooz", name="cooperative_")
  */
 class CooperativeController extends AbstractController
@@ -151,7 +153,7 @@ class CooperativeController extends AbstractController
         $mailer->send($email);
         $this->addFlash('success', 'Votre demande de participation a bien été enregistrée.');
 
-        return $this->redirectToRoute('cooperative_project_sheet', [
+        return $this->redirectToRoute('cooperative_projects', [
             'id' => $project->getId(),
         ]);
     }

@@ -1,6 +1,6 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Email de réinitialisation de mot de passe envoyé{% endblock %}
+{% block title %}{{ parent() }} | Email de réinitialisation de mot de passe envoyé{% endblock %}
 {% block stylesheets %}{{ encore_entry_link_tags('login') }}{% endblock %}
 
 {% block body %}
