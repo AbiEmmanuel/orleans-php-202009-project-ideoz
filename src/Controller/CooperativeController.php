@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Ecosystem;
 use App\Entity\Project;
 use App\Entity\User;
 use App\Entity\EcosystemSearch;
@@ -41,6 +42,49 @@ class CooperativeController extends AbstractController
             'companies' => $companies ?? $ecosystemRepository->findAll(),
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/{id}", name="show", methods={"GET"})
+     * @param Ecosystem $ecosystem
+     * @return Response
+     */
+    public function showCompanie(Ecosystem $ecosystem): Response
+    {
+        return $this->render('cooperative/show_company.html.twig', [
+            'company' => $ecosystem
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/mise_en_relation", name="company_work")
+     * @param Ecosystem $ecosystem
+     * @param EcosystemRepository $ecosystemRepository
+     * @param MailerInterface $mailer
+     * @return Response
+     * @throws TransportExceptionInterface
+     */
+    public function workWithCompany(
+        Ecosystem $ecosystem,
+        EcosystemRepository $ecosystemRepository,
+        MailerInterface $mailer
+    ): Response {
+        /** @var User $user */
+        $user = $this->getUser();
+        $company = $ecosystemRepository->findOneBy(['user' => $user]);
+        $email = (new Email())
+            ->from($user->getEmail())
+            ->to($this->getParameter('mailer_admin'))
+            ->subject('Un membre souhaite être mis en relation avec une entreprise')
+            ->html($this->renderView('cooperative/companyEmail.html.twig', [
+                'ecosystem' => $ecosystem,
+                'company' => $company
+            ]));
+
+        $mailer->send($email);
+        $this->addFlash('success', 'Votre demande de mise en relation à bien été envoyée');
+
+        return $this->redirectToRoute('cooperative_companies');
     }
 
     /**
@@ -91,10 +135,9 @@ class CooperativeController extends AbstractController
             ->subject('Un membre souhaite participer à un projet')
             ->html($this->renderView('cooperative/projectEmail.html.twig', [
                 'project' => $project,
-                'ecosystem' => $company,
+                'ecosystem' => $company
             ]));
         $mailer->send($email);
-
         $this->addFlash('success', 'Votre demande de participation a bien été enregistrée.');
 
         return $this->redirectToRoute('cooperative_project_sheet', [

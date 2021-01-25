@@ -9,13 +9,11 @@
 
 {% block body %}
     <h1 class="text-center py-5">Éditer un service</h1>
-    <div class="container edit">
-        <div class="text-center align-items-center">
-            {{ include('adminOffer/_form.html.twig') }}
-
-            {{ include('adminOffer/_delete_form.html.twig') }}
+    <div class="container">
+            {{ include('adminOffer/_form.html.twig', {'button_label': 'Modifier'}) }}
+        <div class="row mx-0">
+            <a class="back text-decoration-none text-dark btn rounded-pill my-4 px-3 py-1"
+               href="{{ path('admin_offer_index') }}">Retour</a>
         </div>
-        <a class="back text-decoration-none text-dark btn rounded-pill my-4 px-3 py-1" href="{{ path('admin_offer_index') }}">Retour</a>
-
     </div>
 {% endblock %}

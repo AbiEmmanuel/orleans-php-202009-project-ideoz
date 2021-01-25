@@ -3,8 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Testimony;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,8 +13,13 @@ class TestimonyType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('ecosystem', null, ['choice_label' => 'name'])
-            ->add('content', CKEditorType::class)
+            ->add('ecosystem', null, [
+                'choice_label' => 'name',
+                'label' => 'Membre de l\'écosystème'
+            ])
+            ->add('content', TextareaType::class, [
+                'label' => 'Témoignage'
+            ])
         ;
     }
 

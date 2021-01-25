@@ -56,6 +56,7 @@ class Ecosystem
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max="255")
+     * @Assert\Url()
      */
     private ?string $url;
 
@@ -88,7 +89,7 @@ class Ecosystem
     /**
      * @ORM\Column(type="boolean")
      */
-    private bool $isValidated;
+    private bool $isValidated = false;
 
     /**
      * @ORM\ManyToMany(targetEntity=Competence::class, inversedBy="companies")

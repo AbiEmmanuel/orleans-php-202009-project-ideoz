@@ -3,13 +3,16 @@
 {% block title %}{{ parent() }} | Modifier vos informations{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
-    {{ encore_entry_link_tags('adminOffer') }}
+    {{ encore_entry_link_tags('adminEcosystem') }}
 {% endblock %}
 {% block body %}
     <h1 class="text-center">Modifier vos informations</h1>
 
-    <div class="container edit">
-            {{ include('adminCompany/_form.html.twig', {'button_label': 'Update'}) }}
-    <a class="back text-decoration-none text-dark btn rounded-pill my-4 px-3 py-1" href="{{ path('admin_company_index') }}">Retour</a>
+    <div class="container">
+        {{ include('adminCompany/_form.html.twig', {'button_label': 'Modifier'}) }}
+        <div class="row mx-0">
+            <a class="back text-decoration-none text-dark btn rounded-pill my-4 px-3 py-1"
+               href="{{ path('admin_company_index') }}">Retour</a>
+        </div>
     </div>
 {% endblock %}

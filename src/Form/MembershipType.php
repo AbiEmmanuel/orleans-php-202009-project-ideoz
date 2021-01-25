@@ -4,22 +4,26 @@ namespace App\Form;
 
 use App\Entity\Ecosystem;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Vich\UploaderBundle\Form\Type\VichFileType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
-class EcosystemType extends AbstractType
+class MembershipType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('name', TextType::class, [
-            'label' => 'Nom',
+                'label' => 'Nom',
+            ])
+            ->add('email', EmailType::class, [
+                'label' => 'Email',
             ])
             ->add('logoFile', VichImageType::class, [
                 'label' => 'Logo',
@@ -30,35 +34,17 @@ class EcosystemType extends AbstractType
                 'label' => 'Secteur d\'activité',
                 'required' => false,
             ])
-            ->add('competences', null, [
-                'label' => 'Compétence différenciante',
-                'choice_label' => 'name',
-                'expanded' => true,
-                'multiple' => true,
-            ])
-            ->add('url', TextType::class, [
+            ->add('url', UrlType::class, [
                 'label' => 'Site internet',
                 'required' => false,
             ])
-            ->add('abstract', CKEditorType::class, [
-                'label' => 'Présentation rapide',
+            ->add('phoneNumber', TelType::class, [
+                'label' => 'Numéro de téléphone',
                 'required' => false,
             ])
-            ->add('status', null, [
-                'label' => 'Statut',
-                'choice_label' => 'name',
-                'expanded' => true,
-                'multiple' => false,
-                'required' => true,
-            ])
-            ->add('isValidated', ChoiceType::class, [
-                'label' => 'Adhésion validée',
-                'choices'  => [
-                    'Oui' => true,
-                    'Non' => false,
-                ],
-                'expanded' => true,
-                'multiple' => false,
+            ->add('abstract', TextType::class, [
+                'label' => 'Présentation rapide',
+                'required' => false,
             ])
         ;
     }
