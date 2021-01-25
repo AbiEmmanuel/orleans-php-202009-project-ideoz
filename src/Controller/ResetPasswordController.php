@@ -20,6 +20,9 @@ use SymfonyCasts\Bundle\ResetPassword\Controller\ResetPasswordControllerTrait;
 use SymfonyCasts\Bundle\ResetPassword\Exception\ResetPasswordExceptionInterface;
 use SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface;
 
+/**
+ * @Route("/reinitialisation-mot-de-passe")
+ */
 class ResetPasswordController extends AbstractController
 {
     use ResetPasswordControllerTrait;
@@ -34,7 +37,7 @@ class ResetPasswordController extends AbstractController
     /**
      * Display & process form to request a password reset.
      *
-     * @Route("/reinitialisation-mot-de-passe", name="app_forgot_password_request")
+     * @Route("", name="app_forgot_password_request", methods={"GET","POST"})
      * @param Request $request
      * @param MailerInterface $mailer
      * @return Response
@@ -59,7 +62,7 @@ class ResetPasswordController extends AbstractController
     /**
      * Confirmation page after a user has requested a password reset.
      *
-     * @Route("/reinitialisation-mot-de-passe/email-envoye", name="app_check_email")
+     * @Route("/email-envoye", name="app_check_email")
      */
     public function checkEmail(): Response
     {
@@ -76,7 +79,7 @@ class ResetPasswordController extends AbstractController
     /**
      * Validates and process the reset URL that the user clicked in their email.
      *
-     * @Route("/reinitialisation-mot-de-passe/reinitialisation/{token}", name="app_reset_password")
+     * @Route("/reinitialisation/{token}", name="app_reset_password")
      * @param Request $request
      * @param UserPasswordEncoderInterface $passwordEncoder
      * @param string|null $token
@@ -186,7 +189,7 @@ class ResetPasswordController extends AbstractController
     }
 
     /**
-     * @Route("/changer-mot-de-passe", name="changePassword")
+     * @Route("/changer-mot-de-passe", name="changePassword", methods={"GET","POST"})
      * @IsGranted("ROLE_USER")
      * @param Request $request
      * @param UserPasswordEncoderInterface $passwordEncoder

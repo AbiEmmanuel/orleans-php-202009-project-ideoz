@@ -27,7 +27,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class CooperativeController extends AbstractController
 {
     /**
-     * @Route("/entreprise", name="companies")
+     * @Route("/entreprise", name="companies", methods={"GET","POST"})
      * @param EcosystemRepository $ecosystemRepository
      * @param Request $request
      * @param StatusRepository $statusRepository
@@ -56,11 +56,11 @@ class CooperativeController extends AbstractController
     }
 
     /**
-     * @Route("entreprise/{id}", name="show", methods={"GET"})
+     * @Route("entreprise/{id<^[0-9]+$>}", name="show", methods={"GET"})
      * @param Ecosystem $ecosystem
      * @return Response
      */
-    public function showCompanie(Ecosystem $ecosystem): Response
+    public function showCompany(Ecosystem $ecosystem): Response
     {
         return $this->render('cooperative/show_company.html.twig', [
             'company' => $ecosystem
@@ -68,7 +68,7 @@ class CooperativeController extends AbstractController
     }
 
     /**
-     * @Route("entreprise/{id}/mise_en_relation", name="company_work")
+     * @Route("entreprise/{id<^[0-9]+$>}/mise-en-relation", name="company_work")
      * @param Ecosystem $ecosystem
      * @param EcosystemRepository $ecosystemRepository
      * @param MailerInterface $mailer

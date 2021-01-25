@@ -127,7 +127,7 @@ class AdminEcosystemController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edition", name="edit", methods={"GET","POST"})
+     * @Route("/{id<^[0-9]+$>}/edition", name="edit", methods={"GET","POST"})
      * @param Request $request
      * @param Ecosystem $ecosystem
      * @return Response
@@ -157,7 +157,7 @@ class AdminEcosystemController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="delete", methods={"DELETE"})
+     * @Route("/{id<^[0-9]+$>}", name="delete", methods={"DELETE"})
      * @param Request $request
      * @param Ecosystem $ecosystem
      * @return Response
