@@ -27,6 +27,7 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class CooperativeController extends AbstractController
 {
+    private const RESULT_PAGE = 16;
     /**
      * @Route("/entreprise", name="companies", methods={"GET","POST"})
      * @param EcosystemRepository $ecosystemRepository
@@ -56,7 +57,7 @@ class CooperativeController extends AbstractController
         $companies = $paginator->paginate(
             $companies,
             $request->query->getInt('page', 1),
-            16
+            self::RESULT_PAGE
         );
         return $this->render('cooperative/companies.html.twig', [
             'companies' => $companies,
