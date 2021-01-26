@@ -25,3 +25,9 @@
         box-shadow: 0 0 1rem lighten($light-primary, 10%);
     }
 }
+
+form {
+    label {
+        font-weight: bold;
+    }
+}

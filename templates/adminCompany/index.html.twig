@@ -16,7 +16,6 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for company in companies %}
                     <tr>
                         <td>{{ company.name }}</td>
                         <td>{{ company.phoneNumber }}</td>
@@ -32,11 +31,6 @@
                             </a>
                         </td>
                     </tr>
-                {% else %}
-                    <tr>
-                        <td colspan="8">Aucune information trouvée</td>
-                    </tr>
-                {% endfor %}
                 </tbody>
             </table>
         </div>

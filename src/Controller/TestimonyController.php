@@ -18,7 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class TestimonyController extends AbstractController
 {
     /**
-     * @Route ("/temoignages/", name="testimony_index")
+     * @Route ("/temoignages/", name="testimony_index", methods={"GET"})
      * @param TestimonyRepository $testimonyRepository
      * @param CompanyRepository $companyRepository
      * @return Response
@@ -45,7 +45,7 @@ class TestimonyController extends AbstractController
     }
 
    /**
-    * @Route("/admin/temoignages/{id}", name="admin_testimony_delete", methods={"DELETE"})
+    * @Route("/admin/temoignages/{id<^[0-9]+$>}", name="admin_testimony_delete", methods={"DELETE"})
     * @param Request $request
     * @param Testimony $testimony
     * @return Response
@@ -86,7 +86,7 @@ class TestimonyController extends AbstractController
     }
 
    /**
-    * @Route("/admin/temoignages/{id}/edition", name="admin_testimony_edit", methods={"GET","POST"})
+    * @Route("/admin/temoignages/{id<^[0-9]+$>}/edition", name="admin_testimony_edit", methods={"GET","POST"})
     * @param Request $request
     * @param Testimony $testimony
     * @return Response

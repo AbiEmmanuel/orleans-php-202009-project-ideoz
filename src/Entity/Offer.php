@@ -39,6 +39,7 @@ class Offer
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private string $catchPhrase;
 
