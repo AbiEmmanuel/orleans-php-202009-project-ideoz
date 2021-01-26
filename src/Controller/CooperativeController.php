@@ -10,7 +10,6 @@ use App\Form\EcosystemSearchType;
 use App\Repository\CompetenceRepository;
 use App\Repository\EcosystemRepository;
 use App\Repository\ProjectRepository;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Repository\StatusRepository;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
@@ -19,9 +18,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 /**
- * @IsGranted("ROLE_MEMBER")
  * @Route("/espace-cooz", name="cooperative_")
  */
 class CooperativeController extends AbstractController
@@ -38,6 +37,15 @@ class CooperativeController extends AbstractController
         Request $request,
         StatusRepository $statusRepository
     ): Response {
+        /** @var User $user */
+        $user = $this->getUser();
+        if (!in_array("ROLE_MEMBER", $user->getRoles())) {
+            throw new AccessDeniedException(
+                'Vous devez être validé pour accéder à ces pages. Si vous avez déjà rempli ces informations, 
+                veuillez patienter que l\'admininistrateur les valide.'
+            );
+        }
+
         $partner = $statusRepository->findOneBy(['name' => 'Partenaire']);
         $ecosystemSearch = new EcosystemSearch();
         $form = $this->createForm(EcosystemSearchType::class, $ecosystemSearch);
@@ -62,6 +70,15 @@ class CooperativeController extends AbstractController
      */
     public function showCompany(Ecosystem $ecosystem): Response
     {
+        /** @var User $user */
+        $user = $this->getUser();
+        if (!in_array("ROLE_MEMBER", $user->getRoles())) {
+            throw new AccessDeniedException(
+                'Vous devez être validé pour accéder à ces pages. Si vous avez déjà rempli ces informations, 
+                veuillez patienter que l\'admininistrateur les valide.'
+            );
+        }
+
         return $this->render('cooperative/show_company.html.twig', [
             'company' => $ecosystem
         ]);
@@ -82,6 +99,13 @@ class CooperativeController extends AbstractController
     ): Response {
         /** @var User $user */
         $user = $this->getUser();
+        if (!in_array("ROLE_MEMBER", $user->getRoles())) {
+            throw new AccessDeniedException(
+                'Vous devez être validé pour accéder à ces pages. Si vous avez déjà rempli ces informations, 
+                veuillez patienter que l\'admininistrateur les valide.'
+            );
+        }
+
         $company = $ecosystemRepository->findOneBy(['user' => $user]);
         $email = (new Email())
             ->from($user->getEmail())
@@ -108,6 +132,15 @@ class CooperativeController extends AbstractController
         ProjectRepository $projectRepository,
         CompetenceRepository $competenceRepository
     ): Response {
+        /** @var User $user */
+        $user = $this->getUser();
+        if (!in_array("ROLE_MEMBER", $user->getRoles())) {
+            throw new AccessDeniedException(
+                'Vous devez être validé pour accéder à ces pages. Si vous avez déjà rempli ces informations, 
+                veuillez patienter que l\'admininistrateur les valide.'
+            );
+        }
+
         return $this->render('cooperative/projects.html.twig', [
             'projects' => $projectRepository->findAll(),
             'competences' => $competenceRepository->findBy([], ['name' => 'ASC']),
@@ -121,6 +154,15 @@ class CooperativeController extends AbstractController
      */
     public function showProject(Project $project): Response
     {
+        /** @var User $user */
+        $user = $this->getUser();
+        if (!in_array("ROLE_MEMBER", $user->getRoles())) {
+            throw new AccessDeniedException(
+                'Vous devez être validé pour accéder à ces pages. Si vous avez déjà rempli ces informations, 
+                veuillez patienter que l\'admininistrateur les valide.'
+            );
+        }
+
         return $this->render('cooperative/projectSheet.html.twig', [
             'project' => $project,
         ]);
@@ -141,6 +183,13 @@ class CooperativeController extends AbstractController
     ): Response {
         /** @var User $user */
         $user = $this->getUser();
+        if (!in_array("ROLE_MEMBER", $user->getRoles())) {
+            throw new AccessDeniedException(
+                'Vous devez être validé pour accéder à ces pages. Si vous avez déjà rempli ces informations, 
+                veuillez patienter que l\'admininistrateur les valide.'
+            );
+        }
+
         $company = $ecosystemRepository->findOneBy(['user' => $user]);
         $email = (new Email())
             ->from((string)$user->getEmail())
