@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("admin/competence", name="admin_")
+ * @Route("admin/competences", name="admin_")
  */
 class CompetenceController extends AbstractController
 {
@@ -29,7 +29,7 @@ class CompetenceController extends AbstractController
 
 
     /**
-     * @Route("/{id}/edit", name="competence_edit", methods={"GET","POST"})
+     * @Route("/{id<^[0-9]+$>}/edition", name="competence_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Competence $competence
      * @return Response
@@ -78,7 +78,7 @@ class CompetenceController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="competence_delete", methods={"DELETE"})
+     * @Route("/{id<^[0-9]+$>}", name="competence_delete", methods={"DELETE"})
      * @param Request $request
      * @param Competence $competence
      * @return Response

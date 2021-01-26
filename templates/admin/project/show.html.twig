@@ -18,7 +18,7 @@
             </tr>
             <tr>
                 <th>Présentation</th>
-                <td>{{ project.presentation }}</td>
+                <td>{{ project.presentation | raw }}</td>
             </tr>
             <tr>
                 <th>Ambition</th>
@@ -32,7 +32,7 @@
                 <th>Compétences</th>
                 <td>
                     {% for competence in project.competences %}
-                        {{ competence.name }}
+                        {{ competence.name | capitalize }}
                     {% endfor %}
                 </td>
             </tr>
