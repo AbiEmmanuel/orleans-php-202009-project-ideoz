@@ -38,7 +38,7 @@
                             mission
                         </li>
                     </ul>
-                    <h4 class="py-4">Plus de 10 ans d’expérience en montage de projet avec une
+                    <h4 class="py-4 reveal-3">Plus de 10 ans d’expérience en montage de projet avec une
                         expertise technique et stratégique</h4>
                 </div>
             </div>
@@ -47,8 +47,8 @@
                      class="simon mb-md-4 mt-4 mt-md-0 reveal-1" alt="Simon ABRAHAM">
                 <h3 class="my-md-5 my-3 reveal-1">Simon ABRAHAM</h3>
             </div>
-            <div class="col-xl-3 align-baseline about-us-text reveal-2">
-                <h3 class="mb-4 ">Les valeurs d'IdeOZ</h3>
+            <div class="col-xl-3 align-baseline about-us-text reveal-1">
+                <h3 class="mb-4">Les valeurs d'IdeOZ</h3>
                 <h4 class="pb-2 ">Le cabinet conseil qui permet d’oser</h4>
                 <ul class="text-justify">
                     <li>Même si on est petit et hésitant</li>
@@ -78,7 +78,7 @@
             <div class="row mx-0 justify-content-center">
                 {% for service in services %}
                     <a href="{{ path("show_service", { id: service.id }) }}" class="card p-3">
-                        <div class="card-title my-3">
+                        <div class="card-title my-3 reveal-2">
                             <h3>
                                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bookmarks-fill"
                                      fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -174,8 +174,8 @@
                 </svg>
             </button>
         </div>
-        <h3 class="text-center">Partenaires</h3>
-        <div class="d-flex justify-content-between align-items-center partner">
+        <h3 class="text-center reveal-1">Partenaires</h3>
+        <div class="d-flex justify-content-between align-items-center partner reveal-2">
             <button id="slideLeftPartner" type="button" class="btn text-primary pr-0 d-none d-xl-block">
                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
                      class="bi bi-chevron-left" viewBox="0 0 16 16">
@@ -183,7 +183,7 @@
                           d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
                 </svg>
             </button>
-            <div class="scrolling-wrapper text-center" id="partnerScrolling">
+            <div class="scrolling-wrapper text-center reveal-3" id="partnerScrolling">
                 {% for partner in partners %}
                     <div class="logo">
                         <a href="{{ partner.url }}" target="_blank" class="text-decoration-none">
