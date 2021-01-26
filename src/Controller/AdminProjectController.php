@@ -55,7 +55,7 @@ class AdminProjectController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="project_show", methods={"GET"})
+     * @Route("/{id<^[0-9]+$>}", name="project_show", methods={"GET"})
      */
     public function show(Project $project): Response
     {
@@ -65,7 +65,7 @@ class AdminProjectController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edition", name="project_edit", methods={"GET","POST"})
+     * @Route("/{id<^[0-9]+$>}/edition", name="project_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Project $project
      * @return Response
@@ -90,7 +90,7 @@ class AdminProjectController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="project_delete", methods={"DELETE"})
+     * @Route("/{id<^[0-9]+$>}", name="project_delete", methods={"DELETE"})
      * @param Request $request
      * @param Project $project
      * @return Response

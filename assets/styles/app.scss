@@ -58,7 +58,7 @@ nav {
 
 .navbar {
     font-size: $h4-font-size;
-    opacity: 0.9;
+    opacity: 0.95;
 
     .nav-item, a{
         font-family: $font-title;
@@ -82,6 +82,10 @@ nav {
 .dropleft {
     .dropdown-menu {
         border: none;
+    }
+
+    .dropdown-toggle::before {
+        transform: rotate(270deg);
     }
 }
 

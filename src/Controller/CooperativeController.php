@@ -10,6 +10,7 @@ use App\Form\EcosystemSearchType;
 use App\Repository\CompetenceRepository;
 use App\Repository\EcosystemRepository;
 use App\Repository\ProjectRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Repository\StatusRepository;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
@@ -20,12 +21,13 @@ use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
+ * @IsGranted("ROLE_MEMBER")
  * @Route("/espace-cooz", name="cooperative_")
  */
 class CooperativeController extends AbstractController
 {
     /**
-     * @Route("/entreprise", name="companies")
+     * @Route("/entreprise", name="companies", methods={"GET","POST"})
      * @param EcosystemRepository $ecosystemRepository
      * @param Request $request
      * @param StatusRepository $statusRepository
@@ -54,11 +56,11 @@ class CooperativeController extends AbstractController
     }
 
     /**
-     * @Route("entreprise/{id}", name="show", methods={"GET"})
+     * @Route("entreprise/{id<^[0-9]+$>}", name="show", methods={"GET"})
      * @param Ecosystem $ecosystem
      * @return Response
      */
-    public function showCompanie(Ecosystem $ecosystem): Response
+    public function showCompany(Ecosystem $ecosystem): Response
     {
         return $this->render('cooperative/show_company.html.twig', [
             'company' => $ecosystem
@@ -66,7 +68,7 @@ class CooperativeController extends AbstractController
     }
 
     /**
-     * @Route("entreprise/{id}/mise_en_relation", name="company_work")
+     * @Route("entreprise/{id<^[0-9]+$>}/mise-en-relation", name="company_work")
      * @param Ecosystem $ecosystem
      * @param EcosystemRepository $ecosystemRepository
      * @param MailerInterface $mailer
@@ -151,7 +153,7 @@ class CooperativeController extends AbstractController
         $mailer->send($email);
         $this->addFlash('success', 'Votre demande de participation a bien été enregistrée.');
 
-        return $this->redirectToRoute('cooperative_project_sheet', [
+        return $this->redirectToRoute('cooperative_projects', [
             'id' => $project->getId(),
         ]);
     }

@@ -71,11 +71,14 @@ class AdminEcosystemController extends AbstractController
             $statusName = $form->getData()['status'];
             if ($statusName) {
                 $status = $statusRepository->findOneBy(['name' => $statusName]);
-                $ecosystems = $ecosystemRepository->findBy(['status' => $status, 'isValidated' => false]);
+                $ecosystems = $ecosystemRepository->findBy(
+                    ['status' => $status, 'isValidated' => false],
+                    ['name' => 'ASC']
+                );
             }
         }
 
-        $ecosystems ??= $ecosystemRepository->findBy(['isValidated' => false]);
+        $ecosystems ??= $ecosystemRepository->findBy(['isValidated' => false], ['name' => 'ASC']);
 
         return $this->render('admin/ecosystem/index.html.twig', [
             'ecosystems' => $ecosystems,
@@ -124,7 +127,7 @@ class AdminEcosystemController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edition", name="edit", methods={"GET","POST"})
+     * @Route("/{id<^[0-9]+$>}/edition", name="edit", methods={"GET","POST"})
      * @param Request $request
      * @param Ecosystem $ecosystem
      * @return Response
@@ -154,7 +157,7 @@ class AdminEcosystemController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="delete", methods={"DELETE"})
+     * @Route("/{id<^[0-9]+$>}", name="delete", methods={"DELETE"})
      * @param Request $request
      * @param Ecosystem $ecosystem
      * @return Response

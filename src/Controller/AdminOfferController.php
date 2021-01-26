@@ -23,12 +23,14 @@ class AdminOfferController extends AbstractController
     public function index(OfferRepository $offerRepository): Response
     {
         return $this->render('adminOffer/index.html.twig', [
-            'offers' => $offerRepository->findAll(),
+            'offers' => $offerRepository->findBy([], ['number' => 'ASC']),
         ]);
     }
 
     /**
      * @Route("/ajout", name="offer_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -53,7 +55,7 @@ class AdminOfferController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="offer_show", methods={"GET"})
+     * @Route("/{id<^[0-9]+$>}", name="offer_show", methods={"GET"})
      */
     public function show(Offer $offer): Response
     {
@@ -63,7 +65,7 @@ class AdminOfferController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edition", name="offer_edit", methods={"GET","POST"})
+     * @Route("/{id<^[0-9]+$>}/edition", name="offer_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Offer $offer
      * @return Response
@@ -88,7 +90,7 @@ class AdminOfferController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="offer_delete", methods={"DELETE"})
+     * @Route("/{id<^[0-9]+$>}", name="offer_delete", methods={"DELETE"})
      * @param Request $request
      * @param Offer $offer
      * @return Response
