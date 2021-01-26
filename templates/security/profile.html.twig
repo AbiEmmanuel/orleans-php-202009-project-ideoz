@@ -73,7 +73,13 @@
                 </div>
             </div>
             <hr>
-            <p class="text-center py-5">Besoin de changer vos informations ? <a href="{{ path('contact') }}">Contactez-moi !</a></p>
+            <p class="text-center py-5 mb-0">Besoin de changer vos informations ? <a href="{{ path('contact') }}">Contactez-moi !</a></p>
+            <div class="d-flex justify-content-center py-2">
+                <a href="{{ path('changePassword') }}"
+                   class="button-yellow text-decoration-none btn-lg rounded-pill my-4 px-5 py-3">
+                    Changez votre mot de passe
+                </a>
+            </div>
         </div>
     </main>
 {% endblock %}
