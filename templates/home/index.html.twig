@@ -3,15 +3,15 @@
 {% block stylesheets %}{{ parent() }}{{ encore_entry_link_tags('home') }}{% endblock %}
 {% block body %}
     <section class="my-0 py-0">
-        <div class="see-further d-flex flex-column justify-content-center align-items-center">
-            <h1 class="text-center mt-4 pt-2 mt-md-0 pt-md-0">IdeOZ</h1>
-            <h2 class="text-center mt-sm-4 mb-4 mb-md-5">Voir plus loin</h2>
-            <div class="row mx-0">
+        <div class="see-further d-flex flex-column justify-content-center align-items-center ">
+            <h1 class="text-center mt-4 pt-2 mt-md-0 pt-md-0 reveal-1">IdeOZ</h1>
+            <h2 class="text-center mt-sm-4 mb-4 mb-md-5 reveal-2">Voir plus loin</h2>
+            <div class="row mx-0 reveal-3">
                 <p class="text-center col-md-8 offset-md-2 col-lg-10 offset-lg-1">Car il est nécessaire de se repenser
                     pour
                     façonner un monde durable, osons passer à l'action.</p>
             </div>
-            <div class="row mx-0">
+            <div class="row mx-0 reveal-3">
                 <p class="text-center col-md-8 offset-md-2 col-xl-6 offset-xl-3">IdeOZ vous propose du conseil
                     stratégique
                     au service de vos idées et des méthodes opérationnelles pour
@@ -26,12 +26,12 @@
         <h2>À Propos</h2>
         <div class="row mx-0">
             <div class="col-xl-3 offset-xl-1 pt-2 pt-xl-5 mt-xl-3 about-us-text">
-                <h3 class="mb-4">Qui suis-je ?</h3>
+                <h3 class="mb-4 reveal-1">Qui suis-je ?</h3>
                 <div>
-                    <h4 class="pb-2">Le consultant qui tisse le lien entre l’entreprise et tous les acteurs du
+                    <h4 class="pb-2 reveal-2">Le consultant qui tisse le lien entre l’entreprise et tous les acteurs du
                         territoire Centre-Val
                         de Loire</h4>
-                    <ul class="text-justify">
+                    <ul class="text-justify reveal-3">
                         <li>Œuvrer aussi bien avec les entreprises qu’avec les acteurs du territoire</li>
                         <li>Connaissance des acteurs et leurs outils pour les avoir pratiqués activement</li>
                         <li>Parce qu’il s’implique personnellement dans cette relation qui fait partie intégrante de sa
@@ -44,19 +44,19 @@
             </div>
             <div class="col-xl-4">
                 <img src="{{ asset('build/images/simon.5246a7c9.png') }}"
-                     class="simon mb-md-4 mt-4 mt-md-0" alt="Simon ABRAHAM">
-                <h3 class="my-md-5 my-3">Simon ABRAHAM</h3>
+                     class="simon mb-md-4 mt-4 mt-md-0 reveal-1" alt="Simon ABRAHAM">
+                <h3 class="my-md-5 my-3 reveal-1">Simon ABRAHAM</h3>
             </div>
-            <div class="col-xl-3 align-baseline about-us-text">
-                <h3 class="mb-4">Les valeurs d'IdeOZ</h3>
-                <h4 class="pb-2">Le cabinet conseil qui permet d’oser</h4>
+            <div class="col-xl-3 align-baseline about-us-text reveal-2">
+                <h3 class="mb-4 ">Les valeurs d'IdeOZ</h3>
+                <h4 class="pb-2 ">Le cabinet conseil qui permet d’oser</h4>
                 <ul class="text-justify">
                     <li>Même si on est petit et hésitant</li>
                     <li>Même pour un projet pas encore bien défini</li>
                     <li>Même si on craint d’engager des moyens qu’on n’est pas sûr d’avoir</li>
                     <li>Aussi pour se confronter à une perspective de changement qui peut faire peur</li>
                 </ul>
-                <h4 class="pt-3">Une manière singulière où la coopération est au cœur</h4>
+                <h4 class="pt-3  reveal-2">Une manière singulière où la coopération est au cœur</h4>
                 <ul class="text-justify">
                     <li>En interne avec l'entrepreneur ou le porteur de projet, son équipe, ses partenaires
                         externes
@@ -73,12 +73,12 @@
         </a>
     </section>
     <section class="service">
-        <h2 class="text-center">Mes services</h2>
+        <h2 class="text-center reveal-1">Mes services</h2>
         <div class="container-fluid">
             <div class="row mx-0 justify-content-center">
                 {% for service in services %}
                     <a href="" class="card p-3">
-                        <div class="card-title my-3">
+                        <div class="card-title my-3 reveal-2">
                             <h3>
                                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bookmarks-fill"
                                      fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -90,7 +90,7 @@
                                 {{ service.name }}
                             </h3>
                         </div>
-                        <div class="card-body d-flex flex-column justify-content-between mb-3">
+                        <div class="card-body d-flex flex-column justify-content-between mb-3 reveal-3">
                             <div class="card-text">{{ service.abstract | raw }}</div>
                             <div class="align-self-end mr-4">
                                 <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-arrow-right-circle"
@@ -108,7 +108,7 @@
         </div>
     </section>
     <section class="contact py-0">
-        <div class="bg-primary d-flex justify-content-center py-2">
+        <div class="bg-primary d-flex justify-content-center py-2 reveal-1">
             <a href="{{ path('contact') }}"
                class="button-yellow text-decoration-none btn-lg rounded-pill my-4 px-5 py-3">
                 Contactez-moi
@@ -116,9 +116,9 @@
         </div>
     </section>
     <section class="testimony">
-        <h2 class="text-center">Témoignages</h2>
+        <h2 class="text-center reveal-1">Témoignages</h2>
         <div class="container-fluid">
-            <div class="row mx-0 justify-content-center">
+            <div class="row mx-0 justify-content-center reveal-2">
                 {% for testimony in testimonies %}
                     <figure class="d-flex flex-column align-items-center m-5">
                         <img class="img-figure" src="{{ asset('uploads/logos/' ~ testimony.ecosystem.logo) }}"
@@ -133,7 +133,7 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center reveal-3">
             <a href="{{ path('testimony_index') }}"
                class="button-yellow text-decoration-none btn-lg rounded-pill my-4 px-5 py-3">
                 Tous les témoignages
@@ -141,9 +141,9 @@
         </div>
     </section>
     <section class="ecosystem">
-        <h2 class="text-center">Ecosystème</h2>
-        <h3 class="text-center">Clients</h3>
-        <div class="d-flex justify-content-between align-items-center client">
+        <h2 class="text-center reveal-1">Ecosystème</h2>
+        <h3 class="text-center reveal-2">Clients</h3>
+        <div class="d-flex justify-content-between align-items-center client reveal-3">
             <button id="slideLeftClient" type="button" class="btn text-primary pr-0 d-none d-xl-block">
                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
                      class="bi bi-chevron-left" viewBox="0 0 16 16">
@@ -151,11 +151,11 @@
                           d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
                 </svg>
             </button>
-            <div class="scrolling-wrapper text-center" id="clientScrolling">
+            <div class="scrolling-wrapper text-center reveal-1" id="clientScrolling">
                 {% for client in clients %}
                     <div class="logo">
                         <a href="{{ client.url }}" target="_blank" class="text-decoration-none">
-                            <div class="container-image text-center d-flex justify-content-center align-items-center">
+                            <div class="container-image text-center d-flex justify-content-center align-items-center reveal-2">
                                 <img src="{{ asset('uploads/logos/' ~ client.logo) }}" alt="{{ client.name }}">
                                 <div class="background">
                                     <p class="font-weight-bold">{{ client.name }}</p>
@@ -166,7 +166,7 @@
                     </div>
                 {% endfor %}
             </div>
-            <button id="slideRightClient" type="button" class="btn text-primary pl-0 d-none d-xl-block">
+            <button id="slideRightClient" type="button" class="btn text-primary pl-0 d-none d-xl-block reveal-3">
                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
                      class="bi bi-chevron-right" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
@@ -209,34 +209,34 @@
     </section>
     <section class="espace-co">
         <div class="image container-fluid d-flex flex-column justify-content-center align-items-center">
-            <h2 class="text-center pt-0 mb-5">Club Co-Oz</h2>
+            <h2 class="text-center pt-0 mb-5 reveal-1">Club Co-Oz</h2>
             <div class="d-flex justify-content-center align-items-center mb-5">
-                <p class="text-justify">
+                <p class="text-justify reveal-2">
                     Le club Co-oZ est un espace collaboratif dans le lequel je vous invite a inscrire votre entreprise.
                 </p>
             </div>
-            <h3 class="text-center mb-5">En quoi cela consiste ?</h3>
+            <h3 class="text-center mb-5 reveal-2">En quoi cela consiste ?</h3>
 
-            <div class="d-flex justify-content-center align-items-center mb-3">
+            <div class="d-flex justify-content-center align-items-center mb-3 reveal-3">
                 <p class="text-justify">
                     Inscrivez votre structure et ses compétences clés dans un écosystème
                     coopératif régional.
                 </p>
             </div>
-            <div class="d-flex justify-content-center align-items-center mb-3">
+            <div class="d-flex justify-content-center align-items-center mb-3 reveal-3">
                 <p class="text-justify">Pourquoi ?</p>
             </div>
-            <div class="d-flex justify-content-center align-items-center mb-3">
+            <div class="d-flex justify-content-center align-items-center mb-3 reveal-3">
                 <p class="text-justify">
                     Pour trouver des partenaires et identifier des nouvelles opportunitées de développement
                 </p>
             </div>
-            <div class="d-flex justify-content-center align-items-center mb-3">
+            <div class="d-flex justify-content-center align-items-center mb-3 reveal-3">
                 <p class="text-justify">
                     Pour plus d'informations contactez moi !
                 </p>
             </div>
-            <div class="d-flex justify-content-center align-items-center">
+            <div class="d-flex justify-content-center align-items-center reveal-3">
                 <a class="button-yellow text-decoration-none btn-lg rounded-pill my-4 px-5 py-3"
                    href="{{ path('app_register') }}">Inscrivez-vous !</a>
             </div>
@@ -244,6 +244,8 @@
     </section>
 {% endblock %}
 {% block javascripts %}
-    {{ parent() }}{{ encore_entry_script_tags('home') }}
+    {{ parent() }}
+    {{ encore_entry_script_tags('home') }}
+    {{ encore_entry_script_tags('intersection') }}
 {% endblock %}
 
