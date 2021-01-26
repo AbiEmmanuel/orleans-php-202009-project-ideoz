@@ -126,7 +126,7 @@
                         <h3 class="my-3 text-center">{{ testimony.ecosystem.name }}</h3>
                         <figcaption>
                             <img src="{{ asset('build/images/quotes.svg') }}" alt="quote" class="img quote-start pt-2"/>
-                            {{ testimony.content | raw }}
+                            {{ testimony.content }}
                             <img src="{{ asset('build/images/quotes.svg') }}" alt="quote" class="img quote-end pb-2"/>
                         </figcaption>
                     </figure>
@@ -158,8 +158,8 @@
                             <div class="container-image text-center d-flex justify-content-center align-items-center">
                                 <img src="{{ asset('uploads/logos/' ~ client.logo) }}" alt="{{ client.name }}">
                                 <div class="background">
-                                    <p class="font-weight-bold">{{ client.name }}</p>
-                                    <div class="text-left px-1 text-dark">{{ client.abstract | raw }}</div>
+                                    <p class="font-weight-bold">{{ client.name |title }}</p>
+                                    <div class="text-left px-1 text-dark">{{ client.abstract | capitalize }}</div>
                                 </div>
                             </div>
                         </a>
@@ -190,8 +190,8 @@
                             <div class="container-image text-center d-flex justify-content-center align-items-center">
                                 <img src="{{ asset('uploads/logos/' ~ partner.logo) }}" alt="{{ partner.name }}">
                                 <div class="background">
-                                    <p class="font-weight-bold">{{ partner.name }}</p>
-                                    <div class="text-left px-1 text-dark">{{ partner.abstract | raw }}</div>
+                                    <p class="font-weight-bold">{{ partner.name | title }}</p>
+                                    <div class="text-left px-1 text-dark">{{ partner.abstract }}</div>
                                 </div>
                             </div>
                         </a>

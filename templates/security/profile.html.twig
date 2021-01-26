@@ -15,7 +15,7 @@
                     <p>Votre entreprise : </p>
                 </div>
                 <div class="offset-sm-1 col-md-4">
-                    <b>{{ member.name }}</b>
+                    <b>{{ member.name | title }}</b>
                 </div>
             </div>
 
@@ -42,7 +42,7 @@
                     <p>Votre secteur d'activité : </p>
                 </div>
                 <div class="offset-sm-1 col-md-4">
-                    <b>{{ member.activity }}</b>
+                    <b>{{ member.activity | capitalize }}</b>
                 </div>
             </div>
 
@@ -69,7 +69,7 @@
                     <p>Résumé de votre entreprise : </p>
                 </div>
                 <div class="offset-sm-1 col-md-4">
-                    <b>{{ member.abstract }}</b>
+                    <b>{{ member.abstract | capitalize }}</b>
                 </div>
             </div>
             <hr>
