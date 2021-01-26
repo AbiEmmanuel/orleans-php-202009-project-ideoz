@@ -15,10 +15,10 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
         $faker = Faker\Factory::create('fr_FR');
         for ($i = 0; $i < 20; $i++) {
             $project = new Project();
-            $project->setTitle($faker->word());
+            $project->setTitle($faker->sentence());
             $project->setPurpose($faker->sentence);
-            $project->setPresentation($faker->text());
-            $project->setOwner($this->getReference('ecosystem_' . rand(0, 19)));
+            $project->setPresentation($faker->text(500));
+            $project->setOwner($this->getReference('ecosystem_' . rand(0, 49)));
             $manager->persist($project);
             $this->addReference('project_' . $i, $project);
         }
