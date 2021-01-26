@@ -11,6 +11,7 @@
     transform: translateY(0);
     transition: 1s cubic-bezier(0.5,0,0,1);
 }
+
 .reveal-1 {
     transition-delay: .1s;
 }
@@ -87,6 +88,7 @@
 
 .service {
     background-color: $third-color;
+
     .row {
         row-gap: $spacing-4;
         column-gap: $spacing-4;
