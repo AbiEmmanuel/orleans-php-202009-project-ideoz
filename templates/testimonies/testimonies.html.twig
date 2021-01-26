@@ -10,16 +10,16 @@
 {% block body %}
     <main class="testimonies">
         <div class="header mt-0 d-flex align-items-center justify-content-center">
-            <h1 class="text-center text-light">Ils m'ont fait confiance</h1>
+            <h1 class="text-center text-light reveal-1">Ils m'ont fait confiance</h1>
         </div>
-        <h2 class="text-center">
+        <h2 class="text-center reveal-2">
             Témoignages de clients
         </h2>
 
         <div class="container testimonies-container">
             {% for testimony in testimonies %}
                 <div class="card border-0">
-                    <div class="row mx-0 no-gutters {{ loop.index is even ? 'flex-row-reverse' }}">
+                    <div class="row mx-0 no-gutters {{ loop.index is even ? 'flex-row-reverse' }} reveal-3">
                         <div class="col-md-3 d-flex justify-content-center align-items-center">
                             <img src="{{ asset('uploads/logos/' ~ testimony.ecosystem.logo) }}"
                                  class="card-img img-fluid logo" alt="logo">
@@ -41,7 +41,7 @@
             {% endfor %}
             <hr class=" mt-5">
             <div class="row mx-0 contact justify-content-around mb-5">
-                <div class="card text-center col-lg-4 col-md-8 d-flex justify-content-center mt-4">
+                <div class="card text-center col-lg-4 col-md-8 d-flex justify-content-center mt-4 reveal-3">
                     <div class="card-body mt-3">
                         <div class="text-center text-primary m-0 p-0">
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"
@@ -60,7 +60,7 @@
                     </div>
                 </div>
 
-                <div class="card text-center col-lg-4 col-md-8 d-flex justify-content-center mt-4">
+                <div class="card text-center col-lg-4 col-md-8 d-flex justify-content-center mt-4 reveal-3">
                     <div class="card-body mt-3">
                         <div class="text-center text-primary m-0 p-0">
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"
@@ -83,4 +83,9 @@
             </div>
         </div>
     </main>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+     {{ encore_entry_script_tags('intersection') }}
 {% endblock %}
