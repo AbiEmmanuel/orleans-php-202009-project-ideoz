@@ -73,4 +73,10 @@
         margin-top: $spacing-4;
         padding-top: $spacing-3;
     }
+
+    @media screen and (max-width: 575px) {
+        .header {
+            height: calc(100vh - (79px + 76px));
+        }
+    }
 }

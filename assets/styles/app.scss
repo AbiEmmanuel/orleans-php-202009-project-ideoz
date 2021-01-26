@@ -148,6 +148,12 @@ h1 {
     margin-bottom: $spacing-3;
 }
 
+@media screen and (max-width: 575px) {
+    h1 {
+        font-size: $h1-font-size-responsive;
+    }
+}
+
 h2 {
     font-size: $h2-font-size;
     margin-bottom: $spacing-4;

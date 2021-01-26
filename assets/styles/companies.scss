@@ -43,6 +43,12 @@
         background-attachment: fixed;
     }
 
+    @media screen and (max-width: 575px) {
+        .header {
+            height: calc(100vh - (79px + 76px));
+        }
+    }
+
     .row-companies {
         row-gap: $spacing-4;
         column-gap: $spacing-4;
@@ -65,7 +71,6 @@
         svg {
             padding-bottom: $spacing / 2;
         }
-
     }
 
     .competence {
