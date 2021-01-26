@@ -3,14 +3,11 @@
 namespace App\Form;
 
 use App\Entity\Ecosystem;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Vich\UploaderBundle\Form\Type\VichFileType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class EcosystemType extends AbstractType
@@ -40,7 +37,7 @@ class EcosystemType extends AbstractType
                 'label' => 'Site internet',
                 'required' => false,
             ])
-            ->add('abstract', CKEditorType::class, [
+            ->add('abstract', TextType::class, [
                 'label' => 'Présentation rapide',
                 'required' => false,
             ])
