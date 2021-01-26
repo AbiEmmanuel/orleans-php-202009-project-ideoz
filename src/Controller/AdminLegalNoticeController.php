@@ -51,18 +51,4 @@ class AdminLegalNoticeController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
-    /**
-     * @Route("/{id}", name="legal_notice_delete", methods={"DELETE"})
-     */
-    public function delete(Request $request, LegalNotice $legalNotice): Response
-    {
-        if ($this->isCsrfTokenValid('delete' . $legalNotice->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($legalNotice);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('admin_legal_notice_index');
-    }
 }
