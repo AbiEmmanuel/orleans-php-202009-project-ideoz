@@ -109,7 +109,7 @@ class CooperativeController extends AbstractController
         CompetenceRepository $competenceRepository
     ): Response {
         return $this->render('cooperative/projects.html.twig', [
-            'projects' => $projectRepository->findBy([], ['title' => 'ASC']),
+            'projects' => $projectRepository->findAll(),
             'competences' => $competenceRepository->findBy([], ['name' => 'ASC']),
         ]);
     }
