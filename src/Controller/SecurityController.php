@@ -74,6 +74,7 @@ class SecurityController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $ecosystem->setUser($user);
             $entityManager->persist($ecosystem);
             $entityManager->flush();
 

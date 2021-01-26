@@ -23,12 +23,13 @@ class EcosystemRepository extends ServiceEntityRepository
     public function findLikeName(EcosystemSearch $ecosystemSearch): array
     {
         $queryBuilder = $this->createQueryBuilder('e');
-        if ($ecosystemSearch->getInput()) {
-            $queryBuilder->
-            where('e.name LIKE :name')
-            ->setParameter('name', '%' . $ecosystemSearch->getInput() . '%');
+
+        if (!empty($ecosystemSearch->getInput())) {
+            $queryBuilder
+                ->where('e.name LIKE :name')
+                ->setParameter('name', '%' . $ecosystemSearch->getInput() . '%');
         }
-        if ($ecosystemSearch->getCompetences()) {
+        if (!empty($ecosystemSearch->getCompetences())) {
             $queryBuilder
                 ->join('e.competences', 'c')
                 ->orWhere('c.id IN(:competences)')
