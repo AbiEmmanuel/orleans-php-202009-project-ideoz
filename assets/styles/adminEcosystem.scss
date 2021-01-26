@@ -62,3 +62,9 @@
 .filter-button {
     border: solid 1px $primary;
 }
+
+form {
+    label, legend {
+        font-weight: bold;
+    }
+}
