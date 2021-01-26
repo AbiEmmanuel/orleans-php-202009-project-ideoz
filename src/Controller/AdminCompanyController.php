@@ -23,12 +23,12 @@ class AdminCompanyController extends AbstractController
     public function index(CompanyRepository $companyRepository): Response
     {
         return $this->render('adminCompany/index.html.twig', [
-            'companies' => $companyRepository->findAll(),
+            'company' => $companyRepository->findOneBy([]),
         ]);
     }
 
     /**
-     * @Route("/{id}/edit", name="company_edit", methods={"GET","POST"})
+     * @Route("/{id<^[0-9]+$>}/edition", name="company_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Company $company
      * @return Response

@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminHomeController extends AbstractController
 {
     /**
-     * @Route("/admin", name="admin_home")
+     * @Route("/admin", name="admin_home", methods={"GET"})
      * @param EcosystemRepository $ecosystemRepository
      * @return Response
      */

@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class LegalNoticeController extends AbstractController
 {
     /**
-     * @Route("/mentions_legales", name="legal_notice_index", methods={"GET"})
+     * @Route("/mentions-legales", name="legal_notice_index", methods={"GET"})
      * @param LegalNoticeRepository $lnr
      * @return Response
      */

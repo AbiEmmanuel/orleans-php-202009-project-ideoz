@@ -1,9 +1,9 @@
 {% extends 'layoutAdmin.html.twig' %}
 
-{% block title %} {{ parent() }} |Liste des compétences {% endblock %}
+{% block title %} {{ parent() }} | Liste des compétences {% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Liste des compétences</h1>
+    <h1 class="text-center mt-4">Liste des compétences</h1>
     <div class="container">
         <div class="d-flex justify-content-end mr-2 pb-4">
             <a href="{{ path('admin_competence_new') }}" title="Créer une compétence">
@@ -23,7 +23,7 @@
         <tbody>
         {% for competence in competences %}
             <tr>
-                <td>{{ competence.name }}</td>
+                <td>{{ competence.name | capitalize }}</td>
                 <td class="row align-items-center justify-content-end pr-4">
                     <a href="{{ path('admin_competence_edit', {'id': competence.id}) }}" title="Modifier" class="mr-4">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
@@ -38,7 +38,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">Aucune données</td>
+                <td colspan="3">Aucune donnée</td>
             </tr>
         {% endfor %}
         </tbody>

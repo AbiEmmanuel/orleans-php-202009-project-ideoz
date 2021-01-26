@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/mentions_legales", name="admin_")
+ * @Route("/admin/mentions-legales", name="admin_")
  */
 class AdminLegalNoticeController extends AbstractController
 {
@@ -50,19 +50,5 @@ class AdminLegalNoticeController extends AbstractController
             'legal_notice' => $legalNotice,
             'form' => $form->createView(),
         ]);
-    }
-
-    /**
-     * @Route("/{id}", name="legal_notice_delete", methods={"DELETE"})
-     */
-    public function delete(Request $request, LegalNotice $legalNotice): Response
-    {
-        if ($this->isCsrfTokenValid('delete' . $legalNotice->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($legalNotice);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('admin_legal_notice_index');
     }
 }

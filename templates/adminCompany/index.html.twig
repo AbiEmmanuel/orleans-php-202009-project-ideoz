@@ -3,7 +3,7 @@
 {% block title %}{{ parent() }} | Informations personnelles{% endblock %}
 
 {% block body %}
-    <h1 class="text-center mb-5">Informations personnelles</h1>
+    <h1 class="text-center mb-5 mt-4">Informations personnelles</h1>
     <div class="container">
         <div class="table-responsive">
             <table class="table table-striped">
@@ -16,9 +16,8 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for company in companies %}
                     <tr>
-                        <td>{{ company.name }}</td>
+                        <td>{{ company.name | title }}</td>
                         <td>{{ company.phoneNumber }}</td>
                         <td>{{ company.email }}</td>
                         <td>
@@ -32,11 +31,6 @@
                             </a>
                         </td>
                     </tr>
-                {% else %}
-                    <tr>
-                        <td colspan="8">Aucune information trouvée</td>
-                    </tr>
-                {% endfor %}
                 </tbody>
             </table>
         </div>

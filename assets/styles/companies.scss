@@ -11,6 +11,27 @@
         background-attachment: fixed;
     }
 
+    @media screen and (max-width: 575px) {
+        .header {
+            height: calc(100vh - (79px + 76px));
+        }
+    }
+
+    .row-companies {
+        row-gap: $spacing-4;
+        column-gap: $spacing-4;
+
+        .logo {
+            max-height: 250px;
+        }
+
+        .card {
+            color: $dark;
+            width: 24rem;
+            border-radius: 0 6px 6px 0;
+        }
+    }
+
     .more {
         font-family: $font-text;
         font-weight: bolder;
@@ -18,7 +39,6 @@
         svg {
             padding-bottom: $spacing / 2;
         }
-
     }
 
     .competence {

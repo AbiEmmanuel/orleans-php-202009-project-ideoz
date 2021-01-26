@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Liste des témoignages</h1>
+    <h1 class="text-center mt-4">Liste des témoignages</h1>
     <div class="container">
         <div class="d-flex justify-content-end mr-4 pb-4">
             <a title="Créer un commentaire" href="{{ path('admin_testimony_new') }}" class=" p-2">
@@ -31,7 +31,7 @@
                 {% for testimony in testimonies %}
                     <tr>
                         <td>{{ testimony.ecosystem.name }}</td>
-                        <td>{{ testimony.content | raw }}</td>
+                        <td>{{ testimony.content }}</td>
                         <td class="d-flex justify-content-around align-items-center">
                             <a class="text-decoration-none mx-1"
                                title="Modifier" href="{{ path('admin_testimony_edit', {'id': testimony.id}) }}">

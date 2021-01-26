@@ -1,13 +1,13 @@
 {% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}{{ parent() }} | Projet - Modifier{% endblock %}
+{% block title %}{{ parent() }} | Modifier un projet{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
     {{ encore_entry_link_tags('adminProject') }}
 {% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Modifier un projet</h1>
+    <h1 class="text-center mt-4">Modifier un projet</h1>
 
     <div class="container">
         {{ include('admin/project/_form.html.twig', {'button_label': 'Modifier'}) }}

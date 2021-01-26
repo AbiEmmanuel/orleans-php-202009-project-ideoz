@@ -3,11 +3,9 @@
 namespace App\Form;
 
 use App\Entity\Ecosystem;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -25,6 +23,14 @@ class MembershipType extends AbstractType
             ->add('email', EmailType::class, [
                 'label' => 'Email',
             ])
+            ->add('phoneNumber', TelType::class, [
+                'label' => 'Numéro de téléphone',
+                'required' => false,
+            ])
+            ->add('url', UrlType::class, [
+                'label' => 'Site internet',
+                'required' => false,
+            ])
             ->add('logoFile', VichImageType::class, [
                 'label' => 'Logo',
                 'required' => false,
@@ -32,14 +38,6 @@ class MembershipType extends AbstractType
             ])
             ->add('activity', TextType::class, [
                 'label' => 'Secteur d\'activité',
-                'required' => false,
-            ])
-            ->add('url', UrlType::class, [
-                'label' => 'Site internet',
-                'required' => false,
-            ])
-            ->add('phoneNumber', TelType::class, [
-                'label' => 'Numéro de téléphone',
                 'required' => false,
             ])
             ->add('abstract', TextType::class, [

@@ -10,6 +10,8 @@ use App\Form\EcosystemSearchType;
 use App\Repository\CompetenceRepository;
 use App\Repository\EcosystemRepository;
 use App\Repository\ProjectRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use App\Repository\StatusRepository;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,18 +21,24 @@ use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
+ * @IsGranted("ROLE_MEMBER")
  * @Route("/espace-cooz", name="cooperative_")
  */
 class CooperativeController extends AbstractController
 {
     /**
-     * @Route("/entreprise", name="companies")
+     * @Route("/entreprise", name="companies", methods={"GET","POST"})
      * @param EcosystemRepository $ecosystemRepository
      * @param Request $request
+     * @param StatusRepository $statusRepository
      * @return Response
      */
-    public function showAllCompanies(EcosystemRepository $ecosystemRepository, Request $request): Response
-    {
+    public function showAllCompanies(
+        EcosystemRepository $ecosystemRepository,
+        Request $request,
+        StatusRepository $statusRepository
+    ): Response {
+        $partner = $statusRepository->findOneBy(['name' => 'Partenaire']);
         $ecosystemSearch = new EcosystemSearch();
         $form = $this->createForm(EcosystemSearchType::class, $ecosystemSearch);
         $form->handleRequest($request);
@@ -39,17 +47,20 @@ class CooperativeController extends AbstractController
         }
 
         return $this->render('cooperative/companies.html.twig', [
-            'companies' => $companies ?? $ecosystemRepository->findAll(),
+            'companies' => $companies ?? $ecosystemRepository->findBy(
+                ['status' => $partner, 'isValidated' => true],
+                ['name' => 'ASC']
+            ),
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="show", methods={"GET"})
+     * @Route("entreprise/{id<^[0-9]+$>}", name="show", methods={"GET"})
      * @param Ecosystem $ecosystem
      * @return Response
      */
-    public function showCompanie(Ecosystem $ecosystem): Response
+    public function showCompany(Ecosystem $ecosystem): Response
     {
         return $this->render('cooperative/show_company.html.twig', [
             'company' => $ecosystem
@@ -57,7 +68,7 @@ class CooperativeController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/mise_en_relation", name="company_work")
+     * @Route("entreprise/{id<^[0-9]+$>}/mise-en-relation", name="company_work")
      * @param Ecosystem $ecosystem
      * @param EcosystemRepository $ecosystemRepository
      * @param MailerInterface $mailer
@@ -91,13 +102,15 @@ class CooperativeController extends AbstractController
      * @param ProjectRepository $projectRepository
      * @param CompetenceRepository $competenceRepository
      * @return Response
-     * @Route ("/projet", name="projects")
+     * @Route ("/projet", name="projects", methods={"GET"})
      */
-    public function showAllProjects(ProjectRepository $projectRepository, CompetenceRepository $competenceRepository)
-    {
+    public function showAllProjects(
+        ProjectRepository $projectRepository,
+        CompetenceRepository $competenceRepository
+    ): Response {
         return $this->render('cooperative/projects.html.twig', [
             'projects' => $projectRepository->findAll(),
-            'competences' => $competenceRepository->findAll(),
+            'competences' => $competenceRepository->findBy([], ['name' => 'ASC']),
         ]);
     }
 
@@ -140,7 +153,7 @@ class CooperativeController extends AbstractController
         $mailer->send($email);
         $this->addFlash('success', 'Votre demande de participation a bien été enregistrée.');
 
-        return $this->redirectToRoute('cooperative_project_sheet', [
+        return $this->redirectToRoute('cooperative_projects', [
             'id' => $project->getId(),
         ]);
     }

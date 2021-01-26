@@ -58,7 +58,7 @@ nav {
 
 .navbar {
     font-size: $h4-font-size;
-    opacity: 0.9;
+    opacity: 0.95;
 
     .nav-item, a{
         font-family: $font-title;
@@ -82,6 +82,10 @@ nav {
 .dropleft {
     .dropdown-menu {
         border: none;
+    }
+
+    .dropdown-toggle::before {
+        transform: rotate(270deg);
     }
 }
 
@@ -142,6 +146,12 @@ h1 {
     font-size: $h1-font-size;
     padding-top: $spacing-4;
     margin-bottom: $spacing-3;
+}
+
+@media screen and (max-width: 575px) {
+    h1 {
+        font-size: $h1-font-size-responsive;
+    }
 }
 
 h2 {
