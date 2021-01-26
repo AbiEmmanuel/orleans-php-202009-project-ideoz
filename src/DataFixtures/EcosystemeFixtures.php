@@ -13,10 +13,10 @@ class EcosystemeFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {
         $faker = Faker\Factory::create('fr_FR');
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < 30; $i++) {
             $ecosystem = new Ecosystem();
             $ecosystem->setName($faker->company);
-            $image = 'https://loremflickr.com/320/240/';
+            $image = 'https://loremflickr.com/200/200/';
             $imageName = uniqid() . '.jpg';
             copy($image, __DIR__ . '/../../public/uploads/logos/' . $imageName);
             $ecosystem->setLogo($imageName);
@@ -24,17 +24,37 @@ class EcosystemeFixtures extends Fixture implements DependentFixtureInterface
             $ecosystem->setActivity($faker->jobTitle);
             $ecosystem->setUrl($faker->url);
             $ecosystem->setAbstract($faker->text());
-            $ecosystem->setPresentation($faker->text(600));
-            $ecosystem->setIsValidated(rand(0, 1));
+            $ecosystem->setPresentation($faker->text(800));
+            $ecosystem->setIsValidated(true);
             $ecosystem->setEmail($faker->email);
+            $ecosystem->setUser($this->getReference('member_' . $i));
             $manager->persist($ecosystem);
             $this->addReference('ecosystem_' . $i, $ecosystem);
         }
+        for ($i = 31; $i < 51; $i++) {
+            $ecosystem = new Ecosystem();
+            $ecosystem->setName($faker->company);
+            $image = 'https://loremflickr.com/200/200/';
+            $imageName = uniqid() . '.jpg';
+            copy($image, __DIR__ . '/../../public/uploads/logos/' . $imageName);
+            $ecosystem->setLogo($imageName);
+            $ecosystem->setStatus($this->getReference('status_' . rand(0, 3)));
+            $ecosystem->setActivity($faker->jobTitle);
+            $ecosystem->setUrl($faker->url);
+            $ecosystem->setAbstract($faker->text());
+            $ecosystem->setPresentation($faker->text(800));
+            $ecosystem->setIsValidated(false);
+            $ecosystem->setEmail($faker->email);
+            $ecosystem->setUser($this->getReference('client_' . $i));
+            $manager->persist($ecosystem);
+            $this->addReference('ecosystem_' . $i, $ecosystem);
+        }
+
         $manager->flush();
     }
 
     public function getDependencies(): array
     {
-        return [StatusFixtures::class];
+        return [StatusFixtures::class, UserFixtures::class];
     }
 }

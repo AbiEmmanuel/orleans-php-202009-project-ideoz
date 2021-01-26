@@ -13,10 +13,10 @@ class CompetenceFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {
         $faker = Faker\Factory::create('fr_FR');
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < 40; $i++) {
             $competence = new Competence();
             $competence->setName($faker->word);
-            $competence->addCompany($this->getReference('ecosystem_' . rand(0, 19)));
+            $competence->addCompany($this->getReference('ecosystem_' . rand(0, 49)));
             $competence->addProject($this->getReference('project_' . rand(0, 19)));
             $manager->persist($competence);
             $this->addReference('competence_' . $i, $competence);
