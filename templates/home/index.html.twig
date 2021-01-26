@@ -236,17 +236,15 @@
                     Pour plus d'informations contactez moi !
                 </p>
             </div>
-            {% if app.user %}
-                <div class="d-flex justify-content-center align-items-center">
-                    <a class="button-yellow text-decoration-none btn-lg rounded-pill my-4 px-5 py-3"
-                       href="{{ path('cooperative_companies') }}">Espace Co-oZ</a>
-                </div>
-            {% else %}
-                <div class="d-flex justify-content-center align-items-center">
-                    <a class="button-yellow text-decoration-none btn-lg rounded-pill my-4 px-5 py-3"
-                       href="{{ path('app_register') }}">Inscrivez-vous !</a>
-                </div>
-            {% endif %}
+            <div class="d-flex justify-content-center align-items-center">
+                <a class="button-yellow text-decoration-none btn-lg rounded-pill my-4 px-5 py-3"
+                    {% if app.user %}
+                        href="{{ path('cooperative_companies') }}">Espace Co-oZ
+                    {% else %}
+                        href="{{ path('app_register') }}">Inscrivez-vous !
+                    {% endif %}
+                </a>
+            </div>
         </div>
     </section>
 {% endblock %}
