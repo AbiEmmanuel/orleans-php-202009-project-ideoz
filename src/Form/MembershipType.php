@@ -23,6 +23,14 @@ class MembershipType extends AbstractType
             ->add('email', EmailType::class, [
                 'label' => 'Email',
             ])
+            ->add('phoneNumber', TelType::class, [
+                'label' => 'Numéro de téléphone',
+                'required' => false,
+            ])
+            ->add('url', UrlType::class, [
+                'label' => 'Site internet',
+                'required' => false,
+            ])
             ->add('logoFile', VichImageType::class, [
                 'label' => 'Logo',
                 'required' => false,
@@ -30,14 +38,6 @@ class MembershipType extends AbstractType
             ])
             ->add('activity', TextType::class, [
                 'label' => 'Secteur d\'activité',
-                'required' => false,
-            ])
-            ->add('url', UrlType::class, [
-                'label' => 'Site internet',
-                'required' => false,
-            ])
-            ->add('phoneNumber', TelType::class, [
-                'label' => 'Numéro de téléphone',
                 'required' => false,
             ])
             ->add('abstract', TextType::class, [

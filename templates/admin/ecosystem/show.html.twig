@@ -14,7 +14,19 @@
             <tbody>
             <tr>
                 <th>Nom</th>
-                <td>{{ ecosystem.name }}</td>
+                <td>{{ ecosystem.name | title }}</td>
+            </tr>
+            <tr>
+                <th>Numéro de téléphone</th>
+                <td>{{ ecosystem.phoneNumber }}</td>
+            </tr>
+            <tr>
+                <th>Adresse e-mail</th>
+                <td>{{ ecosystem.email }}</td>
+            </tr>
+            <tr>
+                <th>Site web</th>
+                <td>{{ ecosystem.url }}</td>
             </tr>
             <tr>
                 <th>Logo</th>
@@ -22,27 +34,27 @@
             </tr>
             <tr>
                 <th>Activité</th>
-                <td>{{ ecosystem.activity }}</td>
+                <td>{{ ecosystem.activity | capitalize }}</td>
             </tr>
             <tr>
-                <th>Compétence différentiante</th>
+                <th>Compétences</th>
                 <td>
-                    {% for competence in ecosystem.competence %}
-                        {{ competence.name }}
+                    {% for competence in ecosystem.competences %}
+                        {{ competence.name | capitalize }}
                     {% endfor %}
                 </td>
-            </tr>
-            <tr>
-                <th>Site web</th>
-                <td>{{ ecosystem.url }}</td>
             </tr>
             <tr>
                 <th>Résumé</th>
                 <td>{{ ecosystem.abstract | raw }}</td>
             </tr>
             <tr>
+                <th>Présentation</th>
+                <td>{{ ecosystem.presentation | raw }}</td>
+            </tr>
+            <tr>
                 <th>Statut</th>
-                <td>{{ ecosystem.status.name }}</td>
+                <td>{{ ecosystem.status.name | capitalize }}</td>
             </tr>
             </tbody>
         </table>
