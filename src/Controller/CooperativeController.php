@@ -10,6 +10,7 @@ use App\Form\EcosystemSearchType;
 use App\Repository\CompetenceRepository;
 use App\Repository\EcosystemRepository;
 use App\Repository\ProjectRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use App\Repository\StatusRepository;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
@@ -24,17 +25,20 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class CooperativeController extends AbstractController
 {
+    private const RESULT_PAGE = 16;
     /**
      * @Route("/entreprise", name="companies", methods={"GET","POST"})
      * @param EcosystemRepository $ecosystemRepository
      * @param Request $request
      * @param StatusRepository $statusRepository
+     * @param PaginatorInterface $paginator
      * @return Response
      */
     public function showAllCompanies(
         EcosystemRepository $ecosystemRepository,
         Request $request,
-        StatusRepository $statusRepository
+        StatusRepository $statusRepository,
+        PaginatorInterface $paginator
     ): Response {
         $partner = $statusRepository->findOneBy(['name' => 'Partenaire']);
         $ecosystemSearch = new EcosystemSearch();
@@ -42,13 +46,19 @@ class CooperativeController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $companies = $ecosystemRepository->findLikeName($ecosystemSearch);
-        }
-
-        return $this->render('cooperative/companies.html.twig', [
-            'companies' => $companies ?? $ecosystemRepository->findBy(
+        } else {
+            $companies = $ecosystemRepository->findBy(
                 ['status' => $partner, 'isValidated' => true],
                 ['name' => 'ASC']
-            ),
+            );
+        }
+        $companies = $paginator->paginate(
+            $companies,
+            $request->query->getInt('page', 1),
+            self::RESULT_PAGE
+        );
+        return $this->render('cooperative/companies.html.twig', [
+            'companies' => $companies,
             'form' => $form->createView(),
         ]);
     }

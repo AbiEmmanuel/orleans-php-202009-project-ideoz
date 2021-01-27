@@ -15,7 +15,7 @@ class TestimonyFixtures extends Fixture implements DependentFixtureInterface
     {
         $faker = Faker\Factory::create('fr_FR');
 
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $testimony = new Testimony();
             $testimony->setContent($faker->text);
             $testimony->setEcosystem($this->getReference('ecosystem_' . $i));
