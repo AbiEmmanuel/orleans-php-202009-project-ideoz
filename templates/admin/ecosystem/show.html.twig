@@ -54,7 +54,7 @@
             </tr>
             <tr>
                 <th>Statut</th>
-                <td>{{ ecosystem.status.name | capitalize }}</td>
+                <td>{{ ecosystem.status is not null ? ecosystem.status.name | capitalize }}</td>
             </tr>
             </tbody>
         </table>
