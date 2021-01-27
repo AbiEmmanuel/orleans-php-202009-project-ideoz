@@ -1,8 +1,6 @@
-# Project 3 - Starter Kit - Symfony 5.*
+# Project 3 - IdeOZ - Symfony 5.*
 
-![Wild Code School](https://wildcodeschool.fr/wp-content/uploads/2019/01/logo_pink_176x60.png)
-
-This starter kit is here to easily start a repository for your students.
+![IdeOZ](https://nsa40.casimages.com/img/2021/01/27/210127111658458707.png)
 
 It's symfony website-skeleton project with some additional tools to validate code standards.
 
@@ -18,34 +16,50 @@ It's symfony website-skeleton project with some additional tools to validate cod
 
     * Tasks to check if vendor, .idea, env.local are not versionned,
     * PHP_CodeSniffer, PHPStan and PHPmd with same configuration as GrumPHP.
- 
 
-### Trainers instructions
+Launch your server and read the instructions.
 
-1. Add your students team as contributor .
-2. Disallow both on 'dev' and 'master' branches your students writing credentials. 
-3. Disallow merge available while one approbation is not submitted on PR.
+## Requirements
 
-> You can watch this very tiny short video : (Loom : verrouillage branches GitHub)[https://www.loom.com/share/ad0c641d0b9447be9e40fa38a499953b]
+- Php ^7.2 http://php.net/manual/fr/install.php;
+- Composer https://getcomposer.org/download/;
+- Yarn https://classic.yarnpkg.com/en/docs/install/#debian-stable;
+- Node https://nodejs.org/en/;
 
-## Getting Started for Students
+## Installation
 
-### Prerequisites
+1. Clone the current repository.
 
-1. Check composer is installed
-2. Check yarn & node are installed
+2. Move into the directory and create an `.env.local` file.
+   **This one is not committed to the shared repository.**
+   Set `db_name` to **ideoz**.
 
-### Install
+3. Execute the following commands in your working folder to install the project:
 
-1. Clone this project
-2. Run `composer install`
-3. Run `yarn install`
-4. Run `yarn encore dev` to build assets
+```bash
+# Install dependencies
+composer install
+yarn install
+php bin/console ckeditor:install
+php bin/console assets:install public
 
-### Working
+# Create 'ideoz' DB
+php bin/console doctrine:database:create
 
-1. Run `symfony server:start` to launch your local php web server
-2. Run `yarn run dev --watch` to launch your local server for assets
+# Execute migrations and create tables
+php bin/console doctrine:migrations:migrate
+
+# Load fixtures
+php bin/console doctrine:fixtures:load
+```
+
+> Reminder: Don't use composer update to avoid problem
+
+## Usage
+
+Run `yarn encore dev` to build assets
+
+Run `php -S localhost:8000 -t public` or `symfony server:start` to launch server
 
 ### Testing
 
@@ -128,4 +142,3 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ## Acknowledgments
-
