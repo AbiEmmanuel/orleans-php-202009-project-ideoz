@@ -1,0 +1,19 @@
+{% extends 'layout.html.twig' %}
+{% block title %}{{ parent() }} | Page Introuvable{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('error') }}
+{% endblock %}
+{% block body %}
+    <div id="notfound">
+        <div class="notfound-bg"></div>
+        <div class="notfound">
+            <div class="notfound-404">
+                <h1>404</h1>
+            </div>
+            <h2>Oups! Page Introuvable</h2>
+            <a class=" bg-secondary text-white button-yellow align-self-center text-center text-decoration-none rounded-pill my-4 px-3 py-2"
+               href="{{ path('home') }}">Retour à l'accueil</a>
+        </div>
+    </div>
+{% endblock %}
