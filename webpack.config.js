@@ -51,7 +51,6 @@ Encore
     .addEntry('companies', './assets/styles/companies.scss')
     .addEntry('projects', './assets/styles/projects.scss')
     .addEntry('profile', './assets/styles/profile.scss')
-    .addEntry('404scss', './assets/styles/error404.scss')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
