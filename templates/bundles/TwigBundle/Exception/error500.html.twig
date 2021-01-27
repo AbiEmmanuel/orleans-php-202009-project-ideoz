@@ -1,0 +1,26 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %} {{ parent() }} | Erreur 500 ❌ {% endblock %}
+
+{% block stylesheets %}
+     {{ parent() }}
+     {{ encore_entry_link_tags('error') }}
+{% endblock %}
+
+{% block body %}
+     <div id="notfound">
+         <div class="notfound-bg"></div>
+         <div class="notfound">
+             <div class="notfound-404">
+                 <span class="badge badge-primary px-2 py-2">ERREUR</span>
+                 <h1>500</h1>
+             </div>
+             <h2 class="mt-5">Le serveur a rencontré une erreur interne</h2>
+
+             <div class="notfound-social">
+                 <img src="{{ asset('build/images/logo.png') }}" alt="logo" height="100px" width="200px">
+             </div>
+             <a class="btn btn-primary" href="{{ path('home') }}">👉🏻 Retour à l'accueil</a>
+         </div>
+     </div>
+{% endblock %}
