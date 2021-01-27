@@ -12,7 +12,7 @@ class StatusFixtures extends Fixture
         'Client',
         'Partenaire',
         'Adhérent',
-        'Extérieur',
+        'Autre',
     ];
 
     public function load(ObjectManager $manager)
