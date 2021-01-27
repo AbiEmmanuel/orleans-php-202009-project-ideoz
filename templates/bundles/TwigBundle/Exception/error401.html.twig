@@ -4,7 +4,7 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    {{ encore_entry_link_tags('error401') }}
+    {{ encore_entry_link_tags('error') }}
 {% endblock %}
 
 {% block body %}
@@ -12,10 +12,10 @@
         <div class="notfound-bg"></div>
         <div class="notfound">
             <div class="notfound-404">
+                <span class="badge badge-primary px-2 py-2">ERREUR</span>
                 <h1>401</h1>
             </div>
             <h2 class="mt-5">Authentification Requise 🚫</h2>
-
             <div class="notfound-social">
                 <img src="{{ asset('build/images/logo.png') }}" alt="logo" height="100px" width="200px">
             </div>
