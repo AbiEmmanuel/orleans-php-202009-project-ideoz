@@ -51,4 +51,4 @@ security:
          - { path: ^/admin, roles: ROLE_ADMIN }
          - { path: ^/formulaire-informations, roles: ROLE_USER }
          - { path: ^/profil, roles: ROLE_USER }
-         - { path: ^/espace-cooz, roles: ROLE_USER }
+         - { path: ^/espace-cooz, roles: ROLE_MEMBER }
