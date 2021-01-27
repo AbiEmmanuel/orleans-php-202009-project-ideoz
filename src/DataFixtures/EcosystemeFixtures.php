@@ -31,7 +31,7 @@ class EcosystemeFixtures extends Fixture implements DependentFixtureInterface
             $manager->persist($ecosystem);
             $this->addReference('ecosystem_' . $i, $ecosystem);
         }
-        for ($i = 31; $i < 51; $i++) {
+        for ($i = 30; $i < 50; $i++) {
             $ecosystem = new Ecosystem();
             $ecosystem->setName($faker->company);
             $image = 'https://loremflickr.com/200/200/';

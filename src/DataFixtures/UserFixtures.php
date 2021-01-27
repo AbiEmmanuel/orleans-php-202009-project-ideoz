@@ -36,7 +36,7 @@ class UserFixtures extends Fixture
             $manager->persist($membre);
             $this->addReference('member_' . $i, $membre);
         }
-        for ($i = 31; $i < 51; $i++) {
+        for ($i = 30; $i < 50; $i++) {
             $client = new User();
             $client->setEmail('client' . $i . '@email.com');
             $client->setUsername('client');
