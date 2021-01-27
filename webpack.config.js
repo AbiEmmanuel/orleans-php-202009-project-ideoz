@@ -52,7 +52,6 @@ Encore
     .addEntry('projects', './assets/styles/projects.scss')
     .addEntry('profile', './assets/styles/profile.scss')
 
-
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
 
