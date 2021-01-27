@@ -1,37 +1,5 @@
-@import 'app.scss';
+@import 'variables.scss';
 
-.reveal-loaded [class*="reveal-"]{
-    opacity:0;
-    transform: translateY(-30px);
-    transition: 0s;
-}
-
-
-.reveal-loaded .reveal-visible {
-    opacity: 1;
-    transform: translateY(0);
-    transition: 1s cubic-bezier(0.5,0,0,1);
-}
-
-.reveal-loaded .reveal-1 {
-    transition-delay: .1s;
-}
-
-.reveal-loaded .reveal-2 {
-    transition-delay: .2s;
-}
-
-.reveal-loaded .reveal-3 {
-    transition-delay: .3s;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .reveal-loaded [class*="reveal-"] {
-        opacity: 1;
-        transform: translateY(0);
-        transition: 0s;
-    }
-}
 
 .see-further {
     background-image: url('../images/binoculars.png');
@@ -220,7 +188,7 @@
     .image {
         height: 750px;
         margin-bottom: 0;
-        background-image: url('../images/CO-oz.png');
+        background-image: url('../images/co.png');
         background-attachment: fixed;
         background-position: center center;
         background-repeat: no-repeat;

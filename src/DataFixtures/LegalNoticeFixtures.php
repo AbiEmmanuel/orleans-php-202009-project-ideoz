@@ -13,7 +13,7 @@ class LegalNoticeFixtures extends Fixture
     {
         $faker = Faker\Factory::create('fr_FR');
         $legalNotice = new LegalNotice();
-        $legalNotice->setContent($faker->text(600));
+        $legalNotice->setContent($faker->text(1200));
         $manager->persist($legalNotice);
         $manager->flush();
     }

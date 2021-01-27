@@ -10,10 +10,10 @@
 {% block body %}
     <main class="projects">
         <div class="header mt-0 d-flex align-items-center justify-content-center">
-            <h1 class="text-center text-light">Club Co-oZ</h1>
+            <h1 class="text-center text-light reveal-1">Club Co-oZ</h1>
         </div>
         <section>
-            <h2 class="text-center text-secondary">
+            <h2 class="text-center text-secondary reveal-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                      class="bi bi-bookmark-star-fill" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
@@ -29,9 +29,9 @@
             <div class="container-fluid px-5">
                 <div class="row mx-0 justify-content-center">
                     {% for project in projects %}
-                        <div class="p-3 card mb-5">
-                            <div class="card-title my-3">
-                                <h3 class="text-primary">
+                        <div class="p-3 card mb-5 reveal-3">
+                            <div class="card-title my-3 ">
+                                <h3 class="text-primary reveal-3">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
                                          class="bi bi-bookmark-star-fill" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd"
@@ -40,7 +40,7 @@
                                     {{ project.title }}
                                 </h3>
                             </div>
-                            <div class="card-body d-flex flex-column justify-content-between">
+                            <div class="card-body d-flex flex-column justify-content-between reveal-3">
                                 <div class="d-flex flex-column justify-content-between">
                                     <p class="card-text"><span class="text-primary">Ambition : </span>
                                         {{ project.purpose }}</p>
@@ -80,4 +80,8 @@
             </div>
         </section>
     </main>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('intersection') }}
 {% endblock %}

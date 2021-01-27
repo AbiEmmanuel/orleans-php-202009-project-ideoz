@@ -9,10 +9,10 @@
 {% block body %}
     <main>
         <div class="header mt-0 d-flex align-items-center justify-content-center">
-            <h1 class="text-center text-light mt-5 d-flex align-self-center">Contact</h1>
+            <h1 class="text-center text-light mt-5 d-flex align-self-center reveal-1">Contact</h1>
         </div>
         <div class="container">
-            <h2 class="text-center py-5">Contactez-moi</h2>
+            <h2 class="text-center py-5 reveal-2">Contactez-moi</h2>
             {{ form_start(form) }}
             {{ form_widget(form) }}
             <div class="col text-center pt-4">
@@ -24,3 +24,8 @@
         </div>
     </main>
 {% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('intersection') }}
+{% endblock %}
+
