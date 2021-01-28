@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Ecosystem;
+use App\Repository\CompetenceRepository;
 use Symfony\Component\Form\AbstractType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -45,6 +46,10 @@ class EcosystemType extends AbstractType
                 'choice_label' => 'name',
                 'expanded' => true,
                 'multiple' => true,
+                'query_builder' => function (CompetenceRepository $cr) {
+                    return $cr->createQueryBuilder('c')
+                        ->orderBy('c.name', 'ASC');
+                }
             ])
             ->add('abstract', TextType::class, [
                 'label' => 'Présentation rapide',
