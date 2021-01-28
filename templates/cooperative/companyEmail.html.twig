@@ -5,5 +5,5 @@
     <p>Bonjour !</p>
     <p>L'entreprise {{ company.name }} souhaite être mis en relation avec l'entreprise {{ ecosystem.name }}.</p><br>
 
-    <p>Répondre par email : <a href="mailto:{{ app.user.email }}">{{ app.user.email }}</a></p>
+    <p>Répondre par email : <a href="{{ app.user.email }}">{{ app.user.email }}</a></p>
 {% endblock %}
