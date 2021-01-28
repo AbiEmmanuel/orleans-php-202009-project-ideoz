@@ -55,7 +55,6 @@ class SecurityController extends AbstractController
      * @return Response
      * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
      */
-    public function membershipForm(Request $request, EcosystemRepository $ecosystemRepository): Response
     public function membershipForm(Request $request, MailerInterface $mailer, EcosystemRepository $ecosystemRepository): Response
     {
         $ecosystem = new Ecosystem();
