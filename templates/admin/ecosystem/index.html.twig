@@ -71,7 +71,7 @@
                                  alt="{{ ecosystem.name }}">
                         </td>
                         <td>{{ ecosystem.activity | capitalize }}</td>
-                        <td>{{ ecosystem.status.name | capitalize }}</td>
+                        <td>{{ ecosystem.status is not null ? ecosystem.status.name | capitalize }}</td>
                         <td class="d-flex justify-content-around align-items-center">
                             <a class="mx-1 text-decoration-none"
                                href="{{ path('ecosystem_show', {'id': ecosystem.id}) }}" title="Détails">
