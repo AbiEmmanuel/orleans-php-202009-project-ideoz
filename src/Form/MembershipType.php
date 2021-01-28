@@ -18,7 +18,7 @@ class MembershipType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Nom',
+                'label' => 'Nom d\'entreprise',
                 'attr' => ['placeholder' => 'Duval SARL']
             ])
             ->add('email', EmailType::class, [
@@ -46,7 +46,7 @@ class MembershipType extends AbstractType
                 'attr' => ['placeholder' => 'Communication'],
             ])
             ->add('abstract', TextType::class, [
-                'label' => 'Présentation rapide',
+                'label' => 'Résumé de votre entreprise',
                 'required' => false,
             ])
         ;
