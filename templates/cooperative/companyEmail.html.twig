@@ -1,8 +1,8 @@
 {% extends 'baseEmail.html.twig' %}
 
 {% block body %}
-    <h1>Vous avez reçu un message de l'entreprise {{ app.user.username }} :</h1>
-
+    <h1>Demande de mise en relation avec une entreprise</h1>
+    <p>Bonjour !</p>
     <p>L'entreprise {{ company.name }} souhaite être mis en relation avec l'entreprise {{ ecosystem.name }}.</p><br>
 
     <p>Répondre par email : <a href="mailto:{{ app.user.email }}">{{ app.user.email }}</a></p>
