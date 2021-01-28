@@ -74,12 +74,14 @@
                     {% else %}
                         <a class="dropdown-item text-right text-lg-left" href="{{ path('app_profile') }}">Mon profil</a>
                     {% endif %}
-                    <a class="dropdown-item text-right text-lg-left" href="{{ path('cooperative_companies') }}">
-                        Entreprises Partenaires
-                    </a>
-                    <a class="dropdown-item text-right text-lg-left" href="{{ path('cooperative_projects') }}">
-                        Projets Partenaires
-                    </a>
+                    {% if is_granted("ROLE_MEMBER") %}
+                        <a class="dropdown-item text-right text-lg-left" href="{{ path('cooperative_companies') }}">
+                            Entreprises Partenaires
+                        </a>
+                        <a class="dropdown-item text-right text-lg-left" href="{{ path('cooperative_projects') }}">
+                            Projets Partenaires
+                        </a>
+                    {% endif %}
                     <a class="dropdown-item text-right text-lg-left" href="{{ path('app_logout') }}">Déconnexion</a>
                 </div>
             </li>
