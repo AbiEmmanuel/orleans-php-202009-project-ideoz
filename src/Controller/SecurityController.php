@@ -12,6 +12,8 @@ use Symfony\Component\Form\Exception\LogicException;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
@@ -49,9 +51,11 @@ class SecurityController extends AbstractController
     /**
      * @Route("/formulaire-informations", name="membershipForm")
      * @param Request $request
+     * @param MailerInterface $mailer
      * @return Response
+     * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
      */
-    public function membershipForm(Request $request): Response
+    public function membershipForm(Request $request, MailerInterface $mailer): Response
     {
         $ecosystem = new Ecosystem();
         /** @var User $user */
@@ -77,6 +81,14 @@ class SecurityController extends AbstractController
             $ecosystem->setUser($user);
             $entityManager->persist($ecosystem);
             $entityManager->flush();
+            $email = (new Email())
+                ->from((string)$user->getEmail())
+                ->to($this->getParameter('mailer_admin'))
+                ->subject('Vous avez reçu une demande d\'inscription')
+                ->html($this->renderView('security/profilEmail.html.twig', [
+                    'ecosystem' => $ecosystem
+                ]));
+            $mailer->send($email);
 
             $this->addFlash(
                 'success',
