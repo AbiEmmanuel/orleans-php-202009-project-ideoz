@@ -41,6 +41,7 @@ class CooperativeController extends AbstractController
         PaginatorInterface $paginator
     ): Response {
         $partner = $statusRepository->findOneBy(['name' => 'Partenaire']);
+        $adherent = $statusRepository->findOneBy(['name' => 'Adhérent']);
         $ecosystemSearch = new EcosystemSearch();
         $form = $this->createForm(EcosystemSearchType::class, $ecosystemSearch);
         $form->handleRequest($request);
@@ -48,7 +49,7 @@ class CooperativeController extends AbstractController
             $companies = $ecosystemRepository->findLikeName($ecosystemSearch);
         } else {
             $companies = $ecosystemRepository->findBy(
-                ['status' => $partner, 'isValidated' => true],
+                ['status' => [$partner, $adherent], 'isValidated' => true],
                 ['name' => 'ASC']
             );
         }
