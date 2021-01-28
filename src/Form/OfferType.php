@@ -29,7 +29,8 @@ class OfferType extends AbstractType
                 'label' => 'Description du service'
             ])
             ->add('example', CKEditorType::class, [
-                'label' => 'Exemple'
+                'label' => 'Exemple (optionnel)',
+                'required' => false,
             ])
         ;
     }

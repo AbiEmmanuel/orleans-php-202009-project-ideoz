@@ -26,27 +26,27 @@ class MembershipType extends AbstractType
                 'attr' => ['placeholder' => 'adresse@email.fr'],
             ])
             ->add('phoneNumber', TelType::class, [
-                'label' => 'Numéro de téléphone',
+                'label' => 'Numéro de téléphone (optionnel)',
                 'required' => false,
                 'attr' => ['placeholder' => '06 12 34 56 78'],
             ])
             ->add('url', UrlType::class, [
-                'label' => 'Site internet',
+                'label' => 'Site internet (optionnel)',
                 'required' => false,
                 'attr' => ['placeholder' => 'duval-sarl.fr'],
             ])
             ->add('logoFile', VichImageType::class, [
-                'label' => 'Logo',
+                'label' => 'Logo (optionnel)',
                 'required' => false,
                 'download_uri' => false,
             ])
             ->add('activity', TextType::class, [
-                'label' => 'Secteur d\'activité',
+                'label' => 'Secteur d\'activité (optionnel)',
                 'required' => false,
                 'attr' => ['placeholder' => 'Communication'],
             ])
             ->add('abstract', TextType::class, [
-                'label' => 'Résumé de votre entreprise',
+                'label' => 'Résumé de votre entreprise (optionnel)',
                 'required' => false,
             ])
         ;

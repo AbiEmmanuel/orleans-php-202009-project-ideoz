@@ -50,13 +50,13 @@
                 <div class="offset-sm-3 col-md-3">
                     <p>Compétences : </p>
                 </div>
-                {% for competence in member.competences %}
-                    <div class="offset-sm-1 col-md-4">
+                <div class="offset-sm-1 col-md-4">
+                    {% for competence in member.competences %}
                         <p class="badge badge-primary text-center text-capitalize px-2 my-2 py-2 mx-1">
                             {{ competence.name | capitalize }}
                         </p>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                </div>
             </div>
 
             <div class="row mx-0 my-5">
@@ -86,7 +86,8 @@
                 </div>
             </div>
             <hr>
-            <p class="text-center py-5 mb-0">Besoin de changer vos informations ? <a href="{{ path('contact') }}">Contactez-moi !</a></p>
+            <p class="text-center py-5 mb-0">Besoin de changer vos informations ? <a href="{{ path('contact') }}">Contactez-moi
+                    !</a></p>
             <div class="d-flex justify-content-center py-2">
                 <a href="{{ path('changePassword') }}"
                    class="button-yellow text-decoration-none btn-lg rounded-pill my-4 px-5 py-3">
