@@ -109,15 +109,25 @@ class CooperativeController extends AbstractController
     /**
      * @param ProjectRepository $projectRepository
      * @param CompetenceRepository $competenceRepository
+     * @param PaginatorInterface $paginator
+     * @param Request $request
      * @return Response
      * @Route ("/projet", name="projects", methods={"GET"})
      */
     public function showAllProjects(
         ProjectRepository $projectRepository,
-        CompetenceRepository $competenceRepository
+        CompetenceRepository $competenceRepository,
+        PaginatorInterface $paginator,
+        Request $request
     ): Response {
+        $projects = $projectRepository->findAll();
+        $projects = $paginator->paginate(
+            $projects,
+            $request->query->getInt('page', 1),
+            self::RESULT_PAGE
+        );
         return $this->render('cooperative/projects.html.twig', [
-            'projects' => $projectRepository->findAll(),
+            'projects' => $projects,
             'competences' => $competenceRepository->findBy([], ['name' => 'ASC']),
         ]);
     }
