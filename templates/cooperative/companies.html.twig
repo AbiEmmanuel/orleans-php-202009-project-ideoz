@@ -65,7 +65,7 @@
                                     {{ company.activity }}
                                 </p>
                                 <p class="text-primary card-text mb-1">Compétences : </p>
-                                <div class="d-flex">
+                                <div class="d-flex flex-wrap">
                                     {% for competence in company.competences %}
                                         <p class="badge badge-primary px-2 py-2 mx-2">
                                             {{ competence.name | capitalize }}

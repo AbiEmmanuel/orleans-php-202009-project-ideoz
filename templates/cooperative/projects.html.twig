@@ -48,8 +48,8 @@
                                         <span class="text-primary">Projet porté par : </span>
                                         {{ project.owner.name | title }}
                                     </p>
-                                    <p class="text-primary card-text">Compétences liées à ce projet : </p>
-                                    <div class="d-flex">
+                                    <p class="text-primary card-text">Compétences recherchées : </p>
+                                    <div class="d-flex flex-wrap">
                                         {% for competences in project.competences %}
                                             <p class="badge badge-primary px-2 py-2 mx-2">
                                                 {{ competences.name | capitalize }}
