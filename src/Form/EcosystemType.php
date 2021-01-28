@@ -24,7 +24,7 @@ class EcosystemType extends AbstractType
                 'attr' => ['placeholder' => 'Duval SARL']
             ])
             ->add('phoneNumber', TelType::class, [
-                'label' => 'Téléphone',
+                'label' => 'Téléphone (optionnel)',
                 'required' => false,
                 'attr' => ['placeholder' => '06 12 34 56 78'],
             ])
@@ -33,17 +33,17 @@ class EcosystemType extends AbstractType
                 'attr' => ['placeholder' => 'adresse@email.fr'],
             ])
             ->add('url', TextType::class, [
-                'label' => 'Site internet',
+                'label' => 'Site internet (optionnel)',
                 'required' => false,
                 'attr' => ['placeholder' => 'duval-sarl.fr'],
             ])
             ->add('logoFile', VichImageType::class, [
-                'label' => 'Logo',
+                'label' => 'Logo (optionnel)',
                 'required' => false,
                 'download_uri' => false,
             ])
             ->add('activity', TextType::class, [
-                'label' => 'Secteur d\'activité',
+                'label' => 'Secteur d\'activité (optionnel)',
                 'required' => false,
             ])
             ->add('competences', null, [
@@ -57,12 +57,12 @@ class EcosystemType extends AbstractType
                 }
             ])
             ->add('abstract', TextType::class, [
-                'label' => 'Présentation rapide',
+                'label' => 'Présentation rapide (optionnel)',
                 'help' => 'Description rapide présente dans la partie écosystème de la page d\'accueil',
                 'required' => false,
             ])
             ->add('presentation', CKEditorType::class, [
-                'label' => 'Présentation',
+                'label' => 'Présentation (optionnel)',
                 'help' => 'Description complète présente sur les fiches individuelles',
                 'required' => false,
             ])
