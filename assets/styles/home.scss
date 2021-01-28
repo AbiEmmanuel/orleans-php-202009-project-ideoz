@@ -195,16 +195,23 @@
         background-size: cover;
     }
 
+    @media screen and (max-width: $mobile-breakpoint) {
+        .image {
+            background-attachment: initial;
+        }
+    }
+
     p {
         font-size: $spacing-2;
         font-weight: bolder;
     }
 }
 
-@media screen and (max-width: 575px) {
+@media screen and (max-width: $mobile-breakpoint) {
     .see-further {
         height: calc(100vh - (79px + 76px));
         padding-top: $spacing-3;
-
+        background-attachment: initial;
     }
 }
+
