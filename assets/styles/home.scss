@@ -195,6 +195,12 @@
         background-size: cover;
     }
 
+    @media screen and (max-width: $mobile-breakpoint) {
+        .image {
+            background-attachment: initial;
+        }
+    }
+
     p {
         font-size: $spacing-2;
         font-weight: bolder;
