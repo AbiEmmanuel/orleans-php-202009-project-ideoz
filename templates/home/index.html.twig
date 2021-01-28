@@ -190,9 +190,11 @@
                         <a href="{{ partner.url }}" target="_blank" class="text-decoration-none">
                             <div class="container-image text-center d-flex justify-content-center align-items-center">
                                 <img src="{{ asset('uploads/logos/' ~ partner.logo) }}" alt="{{ partner.name }}">
-                                <div class="background">
+                                <div class="background {{ partner.abstract is null ? 'd-flex flex-column justify-content-center align-items-center' }}">
                                     <p class="font-weight-bold">{{ partner.name | title }}</p>
-                                    <div class="text-left px-1 text-dark">{{ partner.abstract }}</div>
+                                    {% if partner.abstract is not null %}
+                                        <div class="text-left px-1 text-dark">{{ partner.abstract }}</div>
+                                    {% endif %}
                                 </div>
                             </div>
                         </a>
