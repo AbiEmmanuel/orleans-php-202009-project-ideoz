@@ -51,7 +51,7 @@ class SecurityController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    public function membershipForm(Request $request): Response
+    public function membershipForm(Request $request, EcosystemRepository $ecosystemRepository): Response
     {
         $ecosystem = new Ecosystem();
         /** @var User $user */
@@ -65,7 +65,8 @@ class SecurityController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
-        if (in_array("ROLE_MEMBER", $user->getRoles())) {
+        $company = $ecosystemRepository->findOneBy(['user' => $user]);
+        if (!is_null($company)) {
             return $this->redirectToRoute('app_profile');
         }
 
@@ -102,7 +103,7 @@ class SecurityController extends AbstractController
         $user = $this->getUser();
         $member = $ecosystemRepository->findOneBy(['user' => $user]);
 
-        if (!in_array("ROLE_MEMBER", $user->getRoles())) {
+        if (is_null($member)) {
             return $this->redirectToRoute('membershipForm');
         }
 
