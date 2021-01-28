@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Competence;
 use App\Entity\Ecosystem;
 use App\Entity\EcosystemSearch;
+use App\Repository\CompetenceRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SearchType;
@@ -29,6 +30,10 @@ class EcosystemSearchType extends AbstractType
                 'attr' => ['class' => 'competence row  justify-content-xs-center px-3 text-primary'],
                 'expanded' => true,
                 'multiple' => true,
+                'query_builder' => function (CompetenceRepository $cr) {
+                    return $cr->createQueryBuilder('c')
+                        ->orderBy('c.name', 'ASC');
+                }
 
             ])
         ;

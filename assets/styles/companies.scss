@@ -11,9 +11,10 @@
         background-attachment: fixed;
     }
 
-    @media screen and (max-width: 575px) {
+    @media screen and (max-width: $mobile-breakpoint) {
         .header {
             height: calc(100vh - (79px + 76px));
+            background-attachment: initial;
         }
     }
 
@@ -55,6 +56,6 @@
     }
 
     .page-item{
-        margin-left: 10px;
+        margin-right: $spacing-2;
     }
 }

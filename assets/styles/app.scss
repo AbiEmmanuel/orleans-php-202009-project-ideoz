@@ -180,7 +180,7 @@ h1 {
     margin-bottom: $spacing-3;
 }
 
-@media screen and (max-width: 575px) {
+@media screen and (max-width: $mobile-breakpoint) {
     h1 {
         font-size: $h1-font-size-responsive;
     }
@@ -205,4 +205,8 @@ section {
             height: $max-height-img-ecosystem;
         }
     }
+}
+
+.banner {
+    border-radius: 0;
 }

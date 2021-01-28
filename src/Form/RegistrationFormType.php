@@ -24,11 +24,13 @@ class RegistrationFormType extends AbstractType
             ->add('username', TextType::class, [
                 'label' => 'Nom d\'utilisateur (entreprise)',
                 'required' => true,
+                'attr' => ['placeholder' => 'duval_sarl'],
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Adresse mail',
-                'required' => true
-            ])
+                'required' => true,
+                'attr' => ['placeholder' => 'adresse@email.fr'],
+           ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller

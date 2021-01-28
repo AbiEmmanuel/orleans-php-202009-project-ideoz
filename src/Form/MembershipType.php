@@ -19,17 +19,21 @@ class MembershipType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'label' => 'Nom',
+                'attr' => ['placeholder' => 'Duval SARL']
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Email',
+                'attr' => ['placeholder' => 'adresse@email.fr'],
             ])
             ->add('phoneNumber', TelType::class, [
                 'label' => 'Numéro de téléphone',
                 'required' => false,
+                'attr' => ['placeholder' => '06 12 34 56 78'],
             ])
             ->add('url', UrlType::class, [
                 'label' => 'Site internet',
                 'required' => false,
+                'attr' => ['placeholder' => 'duval-sarl.fr'],
             ])
             ->add('logoFile', VichImageType::class, [
                 'label' => 'Logo',
@@ -39,6 +43,7 @@ class MembershipType extends AbstractType
             ->add('activity', TextType::class, [
                 'label' => 'Secteur d\'activité',
                 'required' => false,
+                'attr' => ['placeholder' => 'Communication'],
             ])
             ->add('abstract', TextType::class, [
                 'label' => 'Présentation rapide',

@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Ecosystem;
+use App\Repository\CompetenceRepository;
 use Symfony\Component\Form\AbstractType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -19,17 +20,22 @@ class EcosystemType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-            'label' => 'Nom',
+                'label' => 'Nom',
+                'attr' => ['placeholder' => 'Duval SARL']
             ])
             ->add('phoneNumber', TelType::class, [
                 'label' => 'Téléphone',
+                'required' => false,
+                'attr' => ['placeholder' => '06 12 34 56 78'],
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Adresse e-mail',
+                'attr' => ['placeholder' => 'adresse@email.fr'],
             ])
             ->add('url', TextType::class, [
                 'label' => 'Site internet',
                 'required' => false,
+                'attr' => ['placeholder' => 'duval-sarl.fr'],
             ])
             ->add('logoFile', VichImageType::class, [
                 'label' => 'Logo',
@@ -45,6 +51,10 @@ class EcosystemType extends AbstractType
                 'choice_label' => 'name',
                 'expanded' => true,
                 'multiple' => true,
+                'query_builder' => function (CompetenceRepository $cr) {
+                    return $cr->createQueryBuilder('c')
+                        ->orderBy('c.name', 'ASC');
+                }
             ])
             ->add('abstract', TextType::class, [
                 'label' => 'Présentation rapide',

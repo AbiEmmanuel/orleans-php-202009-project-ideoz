@@ -42,9 +42,10 @@
         padding-top: $spacing-3;
     }
 
-    @media screen and (max-width: 575px) {
+    @media screen and (max-width: $mobile-breakpoint) {
         .header {
             height: calc(100vh - (79px + 76px));
+            background-attachment: initial;
         }
     }
 }
