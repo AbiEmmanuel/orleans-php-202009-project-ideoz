@@ -135,7 +135,7 @@ class CooperativeController extends AbstractController
         PaginatorInterface $paginator,
         Request $request
     ): Response {
-        $projects = $projectRepository->findAll();
+        $projects = $projectRepository->findBy([], ['id' => 'DESC']);
         $projects = $paginator->paginate(
             $projects,
             $request->query->getInt('page', 1),
