@@ -39,7 +39,6 @@ Launch your server and read the instructions.
 # Install dependencies
 composer install
 yarn install
-yarn add ckeditor@^4.0.0
 php bin/console assets:install public
 
 # Create 'ideoz' DB
