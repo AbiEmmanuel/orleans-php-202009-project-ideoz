@@ -49,6 +49,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/formulaire-informations", name="membershipForm")
      * @param Request $request
+     * @param EcosystemRepository $ecosystemRepository
      * @return Response
      */
     public function membershipForm(Request $request, EcosystemRepository $ecosystemRepository): Response
