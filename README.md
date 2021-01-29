@@ -32,7 +32,6 @@ Launch your server and read the instructions.
 
 2. Move into the directory and create an `.env.local` file.
    **This one is not committed to the shared repository.**
-   Set `db_name` to **ideoz**.
 
 3. Execute the following commands in your working folder to install the project:
 
@@ -40,8 +39,6 @@ Launch your server and read the instructions.
 # Install dependencies
 composer install
 yarn install
-php bin/console ckeditor:install
-php bin/console assets:install public
 
 # Create 'ideoz' DB
 php bin/console doctrine:database:create

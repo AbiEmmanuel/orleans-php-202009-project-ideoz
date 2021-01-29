@@ -65,7 +65,7 @@ class CooperativeController extends AbstractController
     }
 
     /**
-     * @Route("entreprise/{id<^[0-9]+$>}", name="show", methods={"GET"})
+     * @Route("/entreprise/{id<^[0-9]+$>}", name="show", methods={"GET"})
      * @param Ecosystem $ecosystem
      * @return Response
      */
@@ -77,7 +77,7 @@ class CooperativeController extends AbstractController
     }
 
     /**
-     * @Route("entreprise/{id<^[0-9]+$>}/mise-en-relation", name="company_work")
+     * @Route("/entreprise/{id<^[0-9]+$>}/mise-en-relation", name="company_work")
      * @param Ecosystem $ecosystem
      * @param EcosystemRepository $ecosystemRepository
      * @param MailerInterface $mailer
@@ -112,7 +112,11 @@ class CooperativeController extends AbstractController
             ]));
 
         $mailer->send($email);
-        $this->addFlash('success', 'Votre demande de mise en relation à bien été envoyée');
+        $this->addFlash(
+            'success',
+            'Votre demande de mise en relation à bien été envoyée. 
+            L\'administrateur prendra contact avec vous rapidement.'
+        );
 
         return $this->redirectToRoute('cooperative_companies');
     }
@@ -131,7 +135,7 @@ class CooperativeController extends AbstractController
         PaginatorInterface $paginator,
         Request $request
     ): Response {
-        $projects = $projectRepository->findAll();
+        $projects = $projectRepository->findBy([], ['id' => 'DESC']);
         $projects = $paginator->paginate(
             $projects,
             $request->query->getInt('page', 1),
@@ -190,7 +194,11 @@ class CooperativeController extends AbstractController
                 'ecosystem' => $company
             ]));
         $mailer->send($email);
-        $this->addFlash('success', 'Votre demande de participation a bien été enregistrée.');
+        $this->addFlash(
+            'success',
+            'Votre demande de participation a bien été enregistrée.
+            L\'administrateur prendra contact avec vous rapidement.'
+        );
 
         return $this->redirectToRoute('cooperative_projects', [
             'id' => $project->getId(),

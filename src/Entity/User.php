@@ -41,13 +41,6 @@ class User implements UserInterface
     private string $password;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Vous devez définir un nom d'utilisateur.")
-     * @Assert\Length(max="255", maxMessage="Votre nom d'utilisateur ne doit pas faire plus de {{ limit }} caractères.")
-     */
-    private string $username;
-
-    /**
      * @ORM\Column(type="boolean")
      */
     private bool $isVerified = false;
@@ -131,13 +124,6 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
-    }
-
-    public function setUsername(string $username): self
-    {
-        $this->username = $username;
-
-        return $this;
     }
 
     public function isVerified(): bool
