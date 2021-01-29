@@ -5,7 +5,16 @@
 {% block body %}
     <h1 style="text-align: center; color: #2b3a67; margin-bottom: 70px;">Demande de participation à un projet</h1>
     <p>Bonjour !</p>
-    <p>{{ ecosystem.name }} souhaiterait participer au projet {{ project.title }}.</p>
+    <p>
+        <a href="{{ path('cooperative_show', {'id' : ecosystem.id}) }}" style="text-decoration: none; color: #2b3a67;">
+        {{ ecosystem.name }}
+        </a>
+        souhaiterait participer au projet
+        <a href="{{ path("cooperative_project_sheet", { id: project.id }) }}"
+           style="text-decoration: none; color: #2b3a67;">
+            {{ project.title }}.
+        </a>
+    </p>
     <p>Email :
         <a href="{{ ecosystem.user.email }}" style="text-decoration: none; color: #ff9900;">
             {{ ecosystem.user.email }}

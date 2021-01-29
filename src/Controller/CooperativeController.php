@@ -65,7 +65,7 @@ class CooperativeController extends AbstractController
     }
 
     /**
-     * @Route("entreprise/{id<^[0-9]+$>}", name="show", methods={"GET"})
+     * @Route("/entreprise/{id<^[0-9]+$>}", name="show", methods={"GET"})
      * @param Ecosystem $ecosystem
      * @return Response
      */
@@ -77,7 +77,7 @@ class CooperativeController extends AbstractController
     }
 
     /**
-     * @Route("entreprise/{id<^[0-9]+$>}/mise-en-relation", name="company_work")
+     * @Route("/entreprise/{id<^[0-9]+$>}/mise-en-relation", name="company_work")
      * @param Ecosystem $ecosystem
      * @param EcosystemRepository $ecosystemRepository
      * @param MailerInterface $mailer

@@ -5,7 +5,15 @@
         Demande de mise en relation avec une entreprise
     </h1>
     <p>Bonjour !</p>
-    <p>L'entreprise {{ company.name }} souhaite être mis en relation avec l'entreprise {{ ecosystem.name }}.</p><br>
+    <p>L'entreprise
+        <a href="{{ path('cooperative_show', {'id' : company.id}) }}" style="text-decoration: none; color: #2b3a67;">
+            {{ company.name }}
+        </a>
+        souhaite être mis en relation avec l'entreprise
+        <a href="{{ path('cooperative_show', {'id' : ecosystem.id}) }}" style="text-decoration: none; color: #2b3a67;">
+            {{ ecosystem.name }}.
+        </a>
+    </p><br>
 
     <p>Répondre par email :
         <a href="{{ app.user.email }}" style="text-decoration: none; color: #ff9900;">
