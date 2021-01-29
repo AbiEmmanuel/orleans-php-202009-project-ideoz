@@ -18,11 +18,11 @@
         .card {
             border: none;
             border-radius: 0 6px 6px 0;
-            border-left: $spacing double $primary;
+            border-left: $spacing double $secondary;
             box-shadow: 2px 2px 4px 0 darken($third-color, 70%);
             transition: all 0.4s ease-out;
-            background-color: $third-color;
             width: 24rem;
+            color: $dark;
 
             p {
                 font-weight: bolder;

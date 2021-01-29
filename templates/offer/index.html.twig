@@ -33,12 +33,12 @@
                 </div>
             </div>
         </section>
-        <section class="container example">
-            {% if service.example %}
+        {% if service.example %}
+            <section class="container example">
                 <h2 class="text-center reveal-3">Exemple d'intervention</h2>
                 <p class="reveal-3">{{ service.example | raw }}</p>
-            {% endif %}
-        </section>
+            </section>
+        {% endif %}
         <section class="container price pt-4">
             <div class="row justify-content-center align-items-center mx-0">
                 <div class="col-lg-4 text-center my-4">
