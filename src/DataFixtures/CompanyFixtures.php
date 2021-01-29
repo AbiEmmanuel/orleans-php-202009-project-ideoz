@@ -19,7 +19,6 @@ class CompanyFixtures extends Fixture
         $company->setName(self::NAME);
         $company->setPhoneNumber(self::PHONE_NUMBER);
         $company->setEmail(self::EMAIL);
-        $company->setCompanyName(self::COMPANY_NAME);
         $manager->persist($company);
         $manager->flush();
     }
