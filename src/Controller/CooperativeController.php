@@ -112,7 +112,11 @@ class CooperativeController extends AbstractController
             ]));
 
         $mailer->send($email);
-        $this->addFlash('success', 'Votre demande de mise en relation à bien été envoyée');
+        $this->addFlash(
+            'success',
+            'Votre demande de mise en relation à bien été envoyée. 
+            L\'administrateur prendra contact avec vous rapidement.'
+        );
 
         return $this->redirectToRoute('cooperative_companies');
     }
@@ -190,7 +194,11 @@ class CooperativeController extends AbstractController
                 'ecosystem' => $company
             ]));
         $mailer->send($email);
-        $this->addFlash('success', 'Votre demande de participation a bien été enregistrée.');
+        $this->addFlash(
+            'success',
+            'Votre demande de participation a bien été enregistrée.
+            L\'administrateur prendra contact avec vous rapidement.'
+        );
 
         return $this->redirectToRoute('cooperative_projects', [
             'id' => $project->getId(),

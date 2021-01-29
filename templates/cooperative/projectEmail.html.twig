@@ -3,8 +3,12 @@
 {% block title %}Demande de participation à un projet{% endblock %}
 
 {% block body %}
-    <h1>Demande de participation à un projet</h1>
+    <h1 style="text-align: center; color: #2b3a67; margin-bottom: 70px;">Demande de participation à un projet</h1>
     <p>Bonjour !</p>
     <p>{{ ecosystem.name }} souhaiterait participer au projet {{ project.title }}.</p>
-    <p>Email : <a href="{{ ecosystem.user.email }}">{{ ecosystem.user.email }}</a></p>
+    <p>Email :
+        <a href="{{ ecosystem.user.email }}" style="text-decoration: none; color: #ff9900;">
+            {{ ecosystem.user.email }}
+        </a>
+    </p>
 {% endblock %}

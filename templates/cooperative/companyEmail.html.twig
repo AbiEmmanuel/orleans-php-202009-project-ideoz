@@ -1,9 +1,15 @@
 {% extends 'baseEmail.html.twig' %}
 
 {% block body %}
-    <h1>Demande de mise en relation avec une entreprise</h1>
+    <h1 style="text-align: center; color: #2b3a67; margin-bottom: 70px;">
+        Demande de mise en relation avec une entreprise
+    </h1>
     <p>Bonjour !</p>
     <p>L'entreprise {{ company.name }} souhaite être mis en relation avec l'entreprise {{ ecosystem.name }}.</p><br>
 
-    <p>Répondre par email : <a href="{{ app.user.email }}">{{ app.user.email }}</a></p>
+    <p>Répondre par email :
+        <a href="{{ app.user.email }}" style="text-decoration: none; color: #ff9900;">
+            {{ app.user.email }}
+        </a>
+    </p>
 {% endblock %}
