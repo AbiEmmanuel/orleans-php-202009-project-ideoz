@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Ecosystem;
 use App\Entity\User;
-use App\Form\EcosystemType;
 use App\Form\MembershipType;
 use App\Repository\EcosystemRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,6 +11,7 @@ use Symfony\Component\Form\Exception\LogicException;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
@@ -51,12 +51,16 @@ class SecurityController extends AbstractController
     /**
      * @Route("/formulaire-informations", name="membershipForm")
      * @param Request $request
+     * @param EcosystemRepository $ecosystemRepository
      * @param MailerInterface $mailer
      * @return Response
-     * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
+     * @throws TransportExceptionInterface
      */
-    public function membershipForm(Request $request, MailerInterface $mailer): Response
-    {
+    public function membershipForm(
+        Request $request,
+        MailerInterface $mailer,
+        EcosystemRepository $ecosystemRepository
+    ): Response {
         $ecosystem = new Ecosystem();
         /** @var User $user */
         $user = $this->getUser();
@@ -69,7 +73,8 @@ class SecurityController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
-        if (in_array("ROLE_MEMBER", $user->getRoles())) {
+        $company = $ecosystemRepository->findOneBy(['user' => $user]);
+        if (!is_null($company)) {
             return $this->redirectToRoute('app_profile');
         }
 
@@ -114,7 +119,7 @@ class SecurityController extends AbstractController
         $user = $this->getUser();
         $member = $ecosystemRepository->findOneBy(['user' => $user]);
 
-        if (!in_array("ROLE_MEMBER", $user->getRoles())) {
+        if (is_null($member)) {
             return $this->redirectToRoute('membershipForm');
         }
 
