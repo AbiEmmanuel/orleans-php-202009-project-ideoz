@@ -39,7 +39,6 @@ Launch your server and read the instructions.
 # Install dependencies
 composer install
 yarn install
-php bin/console assets:install public
 
 # Create 'ideoz' DB
 php bin/console doctrine:database:create
