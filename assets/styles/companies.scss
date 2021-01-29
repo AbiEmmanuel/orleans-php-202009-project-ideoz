@@ -24,12 +24,17 @@
 
         .logo {
             max-height: 250px;
+            max-width: 250px;
+            padding-top: $spacing-2;
         }
 
         .card {
             color: $dark;
             width: 24rem;
+            border: none;
+            border-left: $spacing double $secondary;
             border-radius: 0 6px 6px 0;
+            box-shadow: 2px 2px 4px 0 darken($third-color, 70%);
         }
     }
 

@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Ecosystem;
 use App\Entity\User;
-use App\Form\EcosystemType;
 use App\Form\MembershipType;
 use App\Repository\EcosystemRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,6 +11,9 @@ use Symfony\Component\Form\Exception\LogicException;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
@@ -49,10 +51,16 @@ class SecurityController extends AbstractController
     /**
      * @Route("/formulaire-informations", name="membershipForm")
      * @param Request $request
+     * @param MailerInterface $mailer
+     * @param EcosystemRepository $ecosystemRepository
      * @return Response
+     * @throws TransportExceptionInterface
      */
-    public function membershipForm(Request $request, EcosystemRepository $ecosystemRepository): Response
-    {
+    public function membershipForm(
+        Request $request,
+        MailerInterface $mailer,
+        EcosystemRepository $ecosystemRepository
+    ): Response {
         $ecosystem = new Ecosystem();
         /** @var User $user */
         $user = $this->getUser();
@@ -78,6 +86,14 @@ class SecurityController extends AbstractController
             $ecosystem->setUser($user);
             $entityManager->persist($ecosystem);
             $entityManager->flush();
+            $email = (new Email())
+                ->from((string)$user->getEmail())
+                ->to($this->getParameter('mailer_admin'))
+                ->subject('Vous avez reçu une demande d\'inscription')
+                ->html($this->renderView('security/profilEmail.html.twig', [
+                    'ecosystem' => $ecosystem
+                ]));
+            $mailer->send($email);
 
             $this->addFlash(
                 'success',

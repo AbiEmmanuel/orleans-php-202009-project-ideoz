@@ -91,6 +91,16 @@ class CooperativeController extends AbstractController
     ): Response {
         /** @var User $user */
         $user = $this->getUser();
+        if (in_array("ROLE_ADMIN", $user->getRoles())) {
+            $this->addFlash(
+                'danger',
+                'L\'administrateur ne peut pas demander à être mis en relation avec une entreprise'
+            );
+
+            return $this->redirectToRoute('cooperative_show', [
+                'id' => $ecosystem->getId()
+            ]);
+        }
         $company = $ecosystemRepository->findOneBy(['user' => $user]);
         $email = (new Email())
             ->from($user->getEmail())
@@ -160,6 +170,16 @@ class CooperativeController extends AbstractController
     ): Response {
         /** @var User $user */
         $user = $this->getUser();
+        if (in_array("ROLE_ADMIN", $user->getRoles())) {
+            $this->addFlash(
+                'danger',
+                'L\'administrateur ne peut pas demander à participer à un projet'
+            );
+
+            return $this->redirectToRoute('cooperative_project_sheet', [
+                'id' => $project->getId()
+            ]);
+        }
         $company = $ecosystemRepository->findOneBy(['user' => $user]);
         $email = (new Email())
             ->from((string)$user->getEmail())

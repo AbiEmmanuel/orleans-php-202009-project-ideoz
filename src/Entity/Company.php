@@ -37,27 +37,6 @@ class Company
      */
     private string $name;
 
-    /**
-     * @ORM\Column(type="string", length=20)
-     */
-    private string $companyName;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $favicon;
-
-    /**
-     * @Vich\UploadableField(mapping="favicon_file", fileNameProperty="favicon")
-     * @Assert\File(maxSize="100000", mimeTypes={"image/jpeg", "image/png", "image/jpg"})
-     */
-    private ?File $faviconFile = null;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private ?\DateTimeInterface $updatedAt;
-
     public function getId(): ?int
     {
         return $this->id;
