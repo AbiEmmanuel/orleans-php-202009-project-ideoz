@@ -51,6 +51,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/formulaire-informations", name="membershipForm")
      * @param Request $request
+     * @param EcosystemRepository $ecosystemRepository
      * @param MailerInterface $mailer
      * @param EcosystemRepository $ecosystemRepository
      * @return Response

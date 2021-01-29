@@ -80,18 +80,18 @@
             }
 
             &:nth-child(1n) {
-                border-left: 12px solid $secondary;
-
-                h3, svg {
-                    color: $secondary;
-                }
-            }
-
-            &:nth-child(2n) {
                 border-left: 12px solid $light-primary;
 
                 h3, svg {
                     color: $light-primary;
+                }
+            }
+
+            &:nth-child(2n) {
+                border-left: 12px solid $secondary;
+
+                h3, svg {
+                    color: $secondary;
                 }
             }
 
@@ -202,7 +202,8 @@
     }
 
     p {
-        font-size: 1.05rem;
+        font-size: 1.2rem;
+
         font-weight: bolder;
     }
 }

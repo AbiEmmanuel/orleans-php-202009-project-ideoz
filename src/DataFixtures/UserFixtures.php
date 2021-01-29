@@ -20,7 +20,6 @@ class UserFixtures extends Fixture
     {
         $admin = new User();
         $admin->setEmail('wildschool.ideoz@gmail.com');
-        $admin->setUsername('Administrateur');
         $admin->setRoles(['ROLE_ADMIN']);
         $admin->setIsVerified(true);
         $admin->setPassword($this->passwordEncoder->encodePassword($admin, 'admin'));
@@ -29,7 +28,6 @@ class UserFixtures extends Fixture
         for ($i = 0; $i < 30; $i++) {
             $membre = new User();
             $membre->setEmail('member' . $i . '@email.com');
-            $membre->setUsername('Membre');
             $membre->setRoles(['ROLE_MEMBER']);
             $membre->setIsVerified(true);
             $membre->setPassword($this->passwordEncoder->encodePassword($membre, 'membre'));
@@ -39,7 +37,6 @@ class UserFixtures extends Fixture
         for ($i = 30; $i < 50; $i++) {
             $client = new User();
             $client->setEmail('client' . $i . '@email.com');
-            $client->setUsername('client');
             $client->setRoles(['ROLE_USER']);
             $client->setIsVerified(false);
             $client->setPassword($this->passwordEncoder->encodePassword($client, 'client'));
