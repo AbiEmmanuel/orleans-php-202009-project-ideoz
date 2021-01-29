@@ -53,6 +53,7 @@ class SecurityController extends AbstractController
      * @param Request $request
      * @param EcosystemRepository $ecosystemRepository
      * @param MailerInterface $mailer
+     * @param EcosystemRepository $ecosystemRepository
      * @return Response
      * @throws TransportExceptionInterface
      */
