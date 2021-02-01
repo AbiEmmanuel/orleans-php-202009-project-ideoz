@@ -9,6 +9,13 @@
     height: $height-header;
 }
 
+.validation-message {
+    font-style: italic;
+    color: $secondary;
+    font-weight: bolder;
+    font-size: $h3-font-size;
+}
+
 .button-yellow {
     outline: none;
     border: none;
