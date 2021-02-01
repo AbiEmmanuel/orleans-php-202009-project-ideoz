@@ -132,6 +132,10 @@ class ResetPasswordController extends AbstractController
 
             $user->setPassword($encodedPassword);
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash(
+                'success',
+                'Votre mot de passe a bien été réinitialisé, vous pouvez vous reconnecter.'
+            );
 
             // The session is cleaned up after the password has been changed.
             $this->cleanSessionAfterReset();
