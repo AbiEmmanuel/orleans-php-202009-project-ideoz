@@ -1,9 +1,9 @@
-<h1>Bonjour !</h1>
+<h1 style="text-align: center; color: #2b3a67; margin-bottom: 70px;">Demande de réinitialisation de mot de passe</h1>
 
 <p>Pour réinitialiser votre mot de passe, cliquez sur le lien suivant :</p>
 
-<a href="{{ url('app_reset_password', {token: resetToken.token}) }}">{{ url('app_reset_password', {token: resetToken.token}) }}</a>
+<a style="text-decoration: none; color: #2b3a67;" href="{{ url('app_reset_password', {token: resetToken.token}) }}">{{ url('app_reset_password', {token: resetToken.token}) }}</a>
 
-<p>Ce lien expirera {{ tokenLifetime|date('g') }} heure(s).</p>
+<p>Ce lien expirera dans {{ tokenLifetime|date('g') }} heure(s).</p>
 
 <p>À bientôt sur IdeOZ !</p>
