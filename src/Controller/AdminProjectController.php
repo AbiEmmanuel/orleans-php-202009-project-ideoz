@@ -43,7 +43,7 @@ class AdminProjectController extends AbstractController
             $entityManager->persist($project);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Le projet a bien été créé');
+            $this->addFlash('success', 'Le projet a bien été créé.');
 
             return $this->redirectToRoute('admin_project_index');
         }
@@ -56,6 +56,8 @@ class AdminProjectController extends AbstractController
 
     /**
      * @Route("/{id<^[0-9]+$>}", name="project_show", methods={"GET"})
+     * @param Project $project
+     * @return Response
      */
     public function show(Project $project): Response
     {
@@ -103,7 +105,7 @@ class AdminProjectController extends AbstractController
             $entityManager->flush();
         }
 
-        $this->addFlash('danger', 'Le projet a bien été supprimé');
+        $this->addFlash('danger', 'Le projet a bien été supprimé.');
 
         return $this->redirectToRoute('admin_project_index');
     }

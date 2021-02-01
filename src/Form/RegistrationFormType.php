@@ -22,7 +22,7 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class, [
-                'label' => 'Adresse mail',
+                'label' => 'Adresse email',
                 'required' => true,
                 'attr' => ['placeholder' => 'adresse@email.fr'],
            ])
@@ -36,7 +36,7 @@ class RegistrationFormType extends AbstractType
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'Votre mot de passe doit être d\'au moins {{ limit }} caractères.',
+                        'minMessage' => 'Votre mot de passe doit comporter au moins {{ limit }} caractères.',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),

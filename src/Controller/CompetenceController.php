@@ -41,7 +41,7 @@ class CompetenceController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-            $this->addFlash('success', 'Compétence mise à jour');
+            $this->addFlash('success', 'La compétence a bien été mise à jour.');
             return $this->redirectToRoute('admin_competence_index');
         }
 
@@ -66,7 +66,7 @@ class CompetenceController extends AbstractController
             $entityManager->persist($competence);
             $entityManager->flush();
 
-            $this->addFlash('success', 'La compétence a bien été créé');
+            $this->addFlash('success', 'La compétence a bien été créée');
 
             return $this->redirectToRoute('admin_competence_index');
         }
@@ -91,7 +91,7 @@ class CompetenceController extends AbstractController
             $entityManager->flush();
         }
 
-        $this->addFlash('danger', 'La compétence a bien été supprimée');
+        $this->addFlash('danger', 'La compétence a bien été supprimée.');
 
         return $this->redirectToRoute('admin_competence_index');
     }

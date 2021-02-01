@@ -12,7 +12,7 @@
             <h1 class="text-center text-light">Connexion</h1>
         </div>
         <div class="container">
-            <h2 class="text-center py-5">Connectez-vous à votre espace Co-oZ</h2>
+            <h2 class="text-center py-5">Connectez-vous à votre Espace Co-oZ</h2>
             <form method="post">
                 {% if error %}
                     <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -20,7 +20,7 @@
 
                 {% if app.user %}
                     <div class="mb-3">
-                        Vous êtes déjà connecté à l'espace Co-oZ, {{ app.user.username }}.
+                        Vous êtes déjà connecté à l'Espace Co-oZ, {{ app.user.username }}.
                         <a href="{{ path('app_logout') }}">Déconnexion</a>
                     </div>
                 {% endif %}
@@ -47,7 +47,7 @@
                     </button>
                 </div>
             </form>
-            <p class="text-center py-4">Vous ne possédez pas encore de compte sur l'espace Co-oZ ?
+            <p class="text-center py-4">Vous ne possédez pas encore de compte sur l'Espace Co-oZ ?
                 <a href="{{ path('app_register') }}">Créez-en un dès maintenant !</a>
             </p>
         </div>
