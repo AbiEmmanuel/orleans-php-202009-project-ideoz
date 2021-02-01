@@ -67,4 +67,12 @@ form {
     label, legend {
         font-weight: bold;
     }
+
+    .form-control {
+        color: $dark;
+
+        &::placeholder {
+            color: darken($third-color, 50%);
+        }
+    }
 }

@@ -20,3 +20,11 @@
         background-attachment: initial;
     }
 }
+
+.form-control {
+    color: $dark;
+
+    &::placeholder {
+        color: darken($third-color, 50%);
+    }
+}
