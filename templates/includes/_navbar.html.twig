@@ -11,7 +11,7 @@
             <li class="nav-item mr-2 ml-5 ml-lg-0 align-self-lg-center">
                 <a class="nav-link text-light" href="/#about">À propos</a>
             </li>
-            <div class="nav-item dropdown mx-5 my-2 align-self-lg-center">
+            <li class="nav-item dropdown mx-5 my-2 align-self-lg-center">
                 <a class="dropdown-toggle text-light text-decoration-none py-2" href="#" role="button"
                    id="dropdownMenuLink"
                    data-toggle="dropdown"
@@ -21,7 +21,7 @@
                 <div class="dropdown-menu pt-lg-4 bg-primary" aria-labelledby="dropdownMenuLink">
                     {{ render(controller('App\\Controller\\HomeController::navbarOffer')) }}
                 </div>
-            </div>
+            </li>
             <li class="nav-item mr-5 d-none d-lg-block">
                 <a class="navbar-brand" href="{{ path("home") }}"><img src="{{ asset('build/images/logo.png') }}"
                                                                        alt="logo"></a>
@@ -38,7 +38,7 @@
         <ul class="navbar-nav d-flex justify-content-end">
             <li class="nav-item dropleft align-self-end">
                 <a class="nav-link text-light icon-connexion dropdown-toggle text-decoration-none" href="#"
-                   role="button" id="dropdownMenuLink"
+                   role="button" id="dropdownMenuLinkConnexion"
                    data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
                     <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor"
@@ -47,7 +47,7 @@
                     0 0 0 6z"/>
                     </svg>
                 </a>
-                <div class="dropdown-menu bg-primary" aria-labelledby="dropdownMenuLink">
+                <div class="dropdown-menu bg-primary" aria-labelledby="dropdownMenuLinkConnexion">
                     <a class="dropdown-item text-right text-lg-left" href="{{ path('app_login') }}">Connexion</a>
                     <a class="dropdown-item text-right text-lg-left" href="{{ path('app_register') }}">Inscription</a>
                 </div>
@@ -57,7 +57,7 @@
         <ul class="navbar-nav d-flex justify-content-end">
             <li class="nav-item dropleft align-self-end">
                 <a class="nav-link text-secondary icon-connexion dropdown-toggle text-decoration-none" href="#"
-                   role="button" id="dropdownMenuLink"
+                   role="button" id="dropdownMenuLinkConnexion"
                    data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
                     <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="#ff9900"
@@ -66,7 +66,7 @@
                     0 0 0 6z"/>
                     </svg>
                 </a>
-                <div class="dropdown-menu bg-primary" aria-labelledby="dropdownMenuLink">
+                <div class="dropdown-menu bg-primary" aria-labelledby="dropdownMenuLinkConnexion">
                     {% if is_granted("ROLE_ADMIN") %}
                         <a class="dropdown-item text-right text-lg-left" href="{{ path('admin_home') }}">
                             Espace administrateur
