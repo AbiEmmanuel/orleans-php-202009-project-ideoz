@@ -31,3 +31,8 @@ form {
         font-weight: bold;
     }
 }
+
+.competences {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
