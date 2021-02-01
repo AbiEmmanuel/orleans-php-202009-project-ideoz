@@ -49,6 +49,7 @@ class EcosystemType extends AbstractType
             ->add('competences', null, [
                 'label' => 'Compétences',
                 'choice_label' => 'name',
+                'attr' => ['class' => 'competences py-3'],
                 'expanded' => true,
                 'multiple' => true,
                 'query_builder' => function (CompetenceRepository $cr) {
