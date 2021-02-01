@@ -24,4 +24,12 @@ main {
         border: none;
         outline: none;
     }
+
+    .form-control {
+        color: $dark;
+
+        &::placeholder {
+            color: darken($third-color, 50%);
+        }
+    }
 }
