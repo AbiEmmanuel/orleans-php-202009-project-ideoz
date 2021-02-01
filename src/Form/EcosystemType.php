@@ -29,7 +29,7 @@ class EcosystemType extends AbstractType
                 'attr' => ['placeholder' => '06 12 34 56 78'],
             ])
             ->add('email', EmailType::class, [
-                'label' => 'Adresse e-mail',
+                'label' => 'Adresse email',
                 'attr' => ['placeholder' => 'adresse@email.fr'],
             ])
             ->add('url', TextType::class, [
@@ -49,6 +49,7 @@ class EcosystemType extends AbstractType
             ->add('competences', null, [
                 'label' => 'Compétences',
                 'choice_label' => 'name',
+                'attr' => ['class' => 'competences py-3'],
                 'expanded' => true,
                 'multiple' => true,
                 'query_builder' => function (CompetenceRepository $cr) {

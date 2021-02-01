@@ -136,7 +136,7 @@
             }
 
             .container-image {
-                position: relative;
+                position: absolute;
                 height: 100%;
                 width: 100%;
 
@@ -172,6 +172,8 @@
                 margin: $spacing-3;
 
                 .container-image {
+                    position: relative;
+
                     .background {
                         display: none;
                     }

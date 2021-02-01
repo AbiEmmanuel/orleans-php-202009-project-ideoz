@@ -9,7 +9,14 @@
             <h1 class="text-center text-light">Mon profil</h1>
         </div>
         <div class="container">
-            <h2 class="text-center py-5">Vos informations d'entreprise</h2>
+            <h2 class="text-center {{ member.isValidated == 0 ? 'pb-3 mb-3' : 'pb-5' }} pt-5">Vos informations
+                d'entreprise</h2>
+
+            {% if member.isValidated == 0 %}
+                <p class="text-center pb-5 validation-message">Votre profil est en attente de validation par
+                    l'administrateur.</p>
+            {% endif %}
+
             <div class="row mx-0 my-5">
                 <div class="offset-sm-3 col-md-3">
                     <p>Nom d'entreprise : </p>
