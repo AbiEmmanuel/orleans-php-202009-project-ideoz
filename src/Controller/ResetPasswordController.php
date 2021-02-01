@@ -100,7 +100,9 @@ class ResetPasswordController extends AbstractController
 
         $token = $this->getTokenFromSession();
         if (null === $token) {
-            throw $this->createNotFoundException('No reset password token found in the URL or in the session.');
+            throw $this->createNotFoundException(
+                'Aucun jeton de réinitilisation de mot de passe n\'a été trouvé dans l\'URL ou dans la session.'
+            );
         }
 
         try {
@@ -123,8 +125,6 @@ class ResetPasswordController extends AbstractController
             $this->resetPasswordHelper->removeResetRequest($token);
 
             // Encode the plain password, and set it.
-            /** @var User $user */
-            $user = $this->getUser();
             $encodedPassword = $passwordEncoder->encodePassword(
                 $user,
                 $form->get('plainPassword')->getData()
