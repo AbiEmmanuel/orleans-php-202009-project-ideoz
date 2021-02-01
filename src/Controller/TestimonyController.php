@@ -57,7 +57,7 @@ class TestimonyController extends AbstractController
             $entityManager->remove($testimony);
             $entityManager->flush();
         }
-        $this->addFlash('danger', 'Le témoignage a bien été effacé');
+        $this->addFlash('danger', 'Le témoignage a bien été effacé.');
         return $this->redirectToRoute('admin_testimony_index');
     }
 
@@ -76,7 +76,7 @@ class TestimonyController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($testimony);
             $entityManager->flush();
-            $this->addFlash('success', 'Le nouveau témoignage a bien été ajouté');
+            $this->addFlash('success', 'Le nouveau témoignage a bien été ajouté.');
             return $this->redirectToRoute('admin_testimony_index');
         }
         return $this->render('adminTestimony/new.html.twig', [
@@ -98,7 +98,7 @@ class TestimonyController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-            $this->addFlash('success', 'Le témoignage a bien été modifié');
+            $this->addFlash('success', 'Le témoignage a bien été modifié.');
             return $this->redirectToRoute('admin_testimony_index');
         }
 

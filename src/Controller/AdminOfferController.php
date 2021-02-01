@@ -29,6 +29,8 @@ class AdminOfferController extends AbstractController
 
     /**
      * @Route("/{id<^[0-9]+$>}", name="offer_show", methods={"GET"})
+     * @param Offer $offer
+     * @return Response
      */
     public function show(Offer $offer): Response
     {
@@ -51,7 +53,7 @@ class AdminOfferController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            $this->addFlash('success', 'Votre service a été modifié !');
+            $this->addFlash('success', 'Votre service a bien été modifié.');
 
             return $this->redirectToRoute('admin_offer_index');
         }

@@ -13,10 +13,10 @@
             <h1 class="text-center text-light">Inscription</h1>
         </div>
         <div class="container">
-            <h2 class="text-center py-5">Inscrivez-vous à l'espace Co-oZ !</h2>
+            <h2 class="text-center py-5">Inscrivez-vous à l'Espace Co-oZ !</h2>
             {% if app.user %}
                 <div class="mb-3">
-                    Vous êtes déjà connecté à l'espace Co-oZ, {{ app.user.username }}.
+                    Vous êtes déjà connecté à l'Espace Co-oZ, {{ app.user.username }}.
                     <a href="{{ path('app_logout') }}">Déconnexion</a>
                 </div>
             {% endif %}

@@ -94,7 +94,7 @@ class CooperativeController extends AbstractController
         if (in_array("ROLE_ADMIN", $user->getRoles())) {
             $this->addFlash(
                 'danger',
-                'L\'administrateur ne peut pas demander à être mis en relation avec une entreprise'
+                'L\'administrateur ne peut pas demander à être mis en relation avec une entreprise.'
             );
 
             return $this->redirectToRoute('cooperative_show', [
@@ -177,7 +177,7 @@ class CooperativeController extends AbstractController
         if (in_array("ROLE_ADMIN", $user->getRoles())) {
             $this->addFlash(
                 'danger',
-                'L\'administrateur ne peut pas demander à participer à un projet'
+                'L\'administrateur ne peut pas demander à participer à un projet.'
             );
 
             return $this->redirectToRoute('cooperative_project_sheet', [
