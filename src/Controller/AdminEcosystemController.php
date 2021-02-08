@@ -141,7 +141,11 @@ class AdminEcosystemController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             /** @var User $user */
             $user = $ecosystem->getUser();
-            if (!in_array("ROLE_MEMBER", $user->getRoles()) && $ecosystem->getIsValidated() === true) {
+            if (
+                !is_null($ecosystem->getUser()) &&
+                !in_array("ROLE_MEMBER", $user->getRoles()) &&
+                $ecosystem->getIsValidated() === true
+            ) {
                 $user->setRoles(["ROLE_MEMBER"]);
             }
             $entityManager->flush();
