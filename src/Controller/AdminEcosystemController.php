@@ -141,13 +141,21 @@ class AdminEcosystemController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             /** @var User $user */
             $user = $ecosystem->getUser();
-            if (!in_array("ROLE_MEMBER", $user->getRoles()) && $ecosystem->getIsValidated() === true) {
+            if (
+                !is_null($ecosystem->getUser()) &&
+                !in_array("ROLE_MEMBER", $user->getRoles()) &&
+                $ecosystem->getIsValidated() === true
+            ) {
                 $user->setRoles(["ROLE_MEMBER"]);
             }
             $entityManager->flush();
             $this->addFlash('success', 'L\'entreprise a bien été modifiée.');
 
-            return $this->redirectToRoute('ecosystem_index');
+            if ($ecosystem->getIsValidated() === true) {
+                return $this->redirectToRoute('ecosystem_index');
+            } else {
+                return $this->redirectToRoute('ecosystem_adhesion_index');
+            }
         }
 
         return $this->render('admin/ecosystem/edit.html.twig', [
@@ -172,6 +180,10 @@ class AdminEcosystemController extends AbstractController
             $this->addFlash('danger', 'L\'entreprise a bien été retirée de l\'écosystème.');
         }
 
-        return $this->redirectToRoute('ecosystem_index');
+        if ($ecosystem->getIsValidated() === true) {
+            return $this->redirectToRoute('ecosystem_index');
+        } else {
+            return $this->redirectToRoute('ecosystem_adhesion_index');
+        }
     }
 }
