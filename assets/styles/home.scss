@@ -79,8 +79,16 @@
                 transform: scale(1.05);
             }
 
+            ul li {
+                list-style-type: square;
+            }
+
             &:nth-child(1n) {
                 border-left: 12px solid $light-primary;
+
+                ul li::marker {
+                    color: $light-primary;
+                }
 
                 h3, svg {
                     color: $light-primary;
@@ -90,6 +98,10 @@
             &:nth-child(2n) {
                 border-left: 12px solid $secondary;
 
+                ul li::marker {
+                    color: $secondary;
+                }
+
                 h3, svg {
                     color: $secondary;
                 }
@@ -97,6 +109,10 @@
 
             &:nth-child(3n) {
                 border-left: 12px solid $light-secondary;
+
+                ul li::marker {
+                    color: $light-secondary;
+                }
 
                 h3, svg {
                     color: $light-secondary;

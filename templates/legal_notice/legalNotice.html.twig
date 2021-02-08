@@ -7,7 +7,7 @@
 {% block title %}{{ parent() }} | Mentions légales{% endblock %}
 
 {% block body %}
-    <main>
+    <main class="legal-notice">
         <h1 class="text-center">Mentions légales</h1>
         <div class="container pb-5">
             <p>{{ legal_notice.content | raw }}</p>
