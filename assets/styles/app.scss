@@ -135,6 +135,14 @@ nav {
     right: 20px;
 }
 
+.navbar-button {
+    background-color: $primary;
+
+    &:hover {
+        background-color: $primary;
+    }
+}
+
 .navbar-mobile-logo {
     position: fixed;
     top: 13px;
