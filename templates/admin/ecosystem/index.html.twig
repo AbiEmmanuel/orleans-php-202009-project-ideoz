@@ -42,6 +42,7 @@
                     </div>
                 </div>
             </div>
+            {% if page == 'ecosystem' %}
             <div class="col-lg-1 d-flex justify-content-end mr-4 pb-4">
                 <a class="text-decoration-none" href="{{ path('ecosystem_new') }}" title="Ajouter une entreprise">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
@@ -50,6 +51,7 @@
                     </svg>
                 </a>
             </div>
+            {% endif %}
         </div>
 
         <div class="table-responsive">

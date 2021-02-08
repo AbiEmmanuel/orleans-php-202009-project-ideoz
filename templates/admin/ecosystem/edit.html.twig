@@ -16,7 +16,9 @@
         </div>
         <div class="row mx-0">
             <a class="back text-decoration-none text-dark btn rounded-pill my-4 px-3 py-1"
-               href="{{ path('ecosystem_index') }}">Retour</a>
+               href="{{ ecosystem.isValidated == true ? path('ecosystem_index') : path('ecosystem_adhesion_index') }}">
+                Retour
+            </a>
         </div>
     </div>
 {% endblock %}
