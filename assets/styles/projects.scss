@@ -1,7 +1,6 @@
 @import "variables.scss";
 
 .projects {
-
     .header {
         height: $height-header;
         background-image: url("../images/climb-2.jpg");
@@ -72,6 +71,13 @@
         }
     }
 
+    ul li {
+        list-style-type: square;
+    }
+
+    ul li::marker {
+        color: $primary;
+    }
 }
 
 .page-item{
