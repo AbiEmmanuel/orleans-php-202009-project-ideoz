@@ -23,7 +23,7 @@ class AdminProjectController extends AbstractController
     public function index(ProjectRepository $projectRepository): Response
     {
         return $this->render('admin/project/index.html.twig', [
-            'projects' => $projectRepository->findBy([], ['title' => 'ASC']),
+            'projects' => $projectRepository->findBy([], ['id' => 'DESC']),
         ]);
     }
 

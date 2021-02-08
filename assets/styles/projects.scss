@@ -1,7 +1,6 @@
 @import "variables.scss";
 
 .projects {
-
     .header {
         height: $height-header;
         background-image: url("../images/climb-2.jpg");
@@ -61,6 +60,18 @@
         background-position: center center;
     }
 
+    .back {
+        background-color: $primary;
+        box-shadow: 0 1px 0.25rem $light-primary;
+        color: $light;
+
+        &:hover {
+            background-color: lighten($primary, 10%);
+            box-shadow: 0 1px 0.5rem lighten($light-primary, 30%);
+            color: $light;
+        }
+    }
+
     span {
         font-size: $h4-font-size;
     }
@@ -72,6 +83,13 @@
         }
     }
 
+    ul li {
+        list-style-type: square;
+    }
+
+    ul li::marker {
+        color: $primary;
+    }
 }
 
 .page-item{

@@ -41,3 +41,13 @@ form {
         font-weight: bold;
     }
 }
+
+.legal-notice {
+    ul li {
+        list-style-type: square;
+    }
+
+    ul li::marker {
+        color: $primary;
+    }
+}
