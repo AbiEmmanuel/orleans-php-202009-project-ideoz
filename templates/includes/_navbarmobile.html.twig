@@ -2,7 +2,7 @@
     <div class="col bg-primary">
         <div class="mobile btn-group bg-primary d-flex align-items-center border-top border-light" role="group"
              aria-label="Basic example border border-top-dark">
-            <a class="items bg-primary btn btn-light pr-0 pl-0" href="{{ path("home") }}">
+            <a class="items navbar-button btn pr-0 pl-0" href="{{ path("home") }}">
                 <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-house-fill" fill="currentColor"
                      xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
@@ -16,7 +16,7 @@
                 <div role="listitem" class="btn text-light dropdown-toggle pt-2" data-toggle="dropdown"
                      aria-haspopup="true"
                      aria-expanded="false">
-                    <a class="item-menu bg-primary btn btn-light">
+                    <a class="item-menu navbar-button btn">
                         <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-grid-3x3-gap-fill"
                              fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2zM1 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zM1 12a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2z"/>
@@ -34,7 +34,7 @@
                 <div role="listitem" class="btn text-light dropdown-toggle pt-2" data-toggle="dropdown"
                      aria-haspopup="true"
                      aria-expanded="false">
-                    <a class="item-menu bg-primary btn btn-light px-0" href="#">
+                    <a class="item-menu navbar-button btn px-0" href="#">
                         <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-list-ol" fill="currentColor"
                              xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5
@@ -53,7 +53,7 @@
                     <div role="listitem" class="btn text-light dropdown-toggle pt-2 px-0" data-toggle="dropdown"
                          aria-haspopup="true"
                          aria-expanded="false">
-                        <a class="item-menu bg-primary btn btn-light px-0" href="#">
+                        <a class="item-menu navbar-button btn px-0" href="#">
                             <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-person-fill"
                                  fill="#ff9900"
                                  xmlns="http://www.w3.org/2000/svg">
@@ -67,7 +67,7 @@
                         {% if is_granted("ROLE_ADMIN") %}
                             <a class="dropdown-item" href="{{ path('admin_home') }}">Espace administrateur</a>
                         {% else %}
-                            <a class="dropdown-item" href="">Mon profil</a>
+                            <a class="dropdown-item" href="{{ path('app_profile') }}">Mon profil</a>
                         {% endif %}
                         {% if is_granted("ROLE_MEMBER") %}
                             <a class="dropdown-item" href="{{ path('cooperative_companies') }}">Entreprises
@@ -78,7 +78,7 @@
                     </div>
                 </div>
             {% else %}
-                <a class="items bg-primary btn btn-light pl-0 pr-0" href="{{ path('app_login') }}">
+                <a class="items navbar-button btn pl-0 pr-0" href="{{ path('app_login') }}">
                     <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor"
                          xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0
