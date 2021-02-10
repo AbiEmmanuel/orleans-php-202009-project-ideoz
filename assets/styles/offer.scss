@@ -97,6 +97,8 @@
 
         p {
             font-family: $font-title;
+            text-shadow: 1px 1px $dark;
+            font-weight: bold;
         }
     }
 
